@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (validationResult !== true) {
             // dont send data
             e.preventDefault();
-            return false;
+            return false
         }
 
         // return true fro submition
