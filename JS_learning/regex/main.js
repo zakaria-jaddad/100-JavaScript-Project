@@ -1,4 +1,5 @@
-/* 
+    // FIRST INCLUDE THE FILE
+/*
     form validations
 
     validate input form from user
