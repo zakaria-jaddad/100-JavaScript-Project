@@ -14,11 +14,13 @@ console.log(firstZakaria.salary);   // 2000
 
 // using construtor function
 
-function User(id, firstName, lastName, salary) {
-    this.i = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.salary = salary;
+class User {
+    constructor(id, firstName, lastName, salary) {
+        this.i = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+    }
 }
 
 let secondZakaria = new User(2, 'Zakaria', 'jaddad', 2000)
