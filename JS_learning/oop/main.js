@@ -93,3 +93,9 @@ console.log(admin.permission);  // 1
 console.log(admin.sayHello());   // 'hello Younnes Jaddad'
 console.log(Admin.getNumberOfUsers());  // 2
 
+
+// !PROTOTYPE
+console.log(User.prototype)
+
+Object.prototype.love = 'Elzero Web School';
+console.log(String.prototype)
