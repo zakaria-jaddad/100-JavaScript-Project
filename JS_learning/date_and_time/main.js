@@ -14,21 +14,20 @@
     "40 Years"
  */
 
-const dateNow = new Date()
+    // this whole thing it calculate the years from 1 1970 to 26 09 2003
 const myBirth = new Date(Date.parse('09 26 2003'));
-
-const livedTime = dateNow - myBirth;
+console.log(myBirth)
 
 // seconds
-const seconds = parseInt(livedTime / 1000);
+const seconds = myBirth.getTime() / 1000 ;
 console.log(`${seconds} Seconds`);
 
 // minutes
-const minutes = parseInt(seconds / 60);
+const minutes = seconds / 60;
 console.log(`${minutes} Minutes`);
 
 // Hours
-const hours = parseInt(minutes / 60);
+const hours = minutes / 60;
 console.log(`${hours} Hours`);
 
 // days
@@ -43,12 +42,3 @@ console.log(`${parseInt(months)} Months`)
 const years = months / 12;
 console.log(`${parseInt(years)} year`)
 
-/* 
-    Output
-    main.js: 24629677888 Seconds
-    main.js:28 10494631 Minutes
-    main.js:32 174910 Hours
-    main.js:36 7287 Days
-    main.js:40 242 Months
-    main.js:44 20 year
-*/
