@@ -146,9 +146,9 @@ console.log(myBirthDayDate3);
 */
 performance.mark('start');
 
-for (let i = 0; i < 10000; i++) {
-    console.log(i);
-}
+// for (let i = 0; i < 10000; i++) {
+//     console.log(i);
+// }
 performance.mark('end');
 
 // store the duation in operationDuration variable
@@ -159,3 +159,91 @@ console.log(performance.getEntriesByName('operationDuration'));
 /* 
     here is used more advance method than performance.now() approach.
 */
+
+/* 
+    assignment 06
+
+    Create a Generator1 Function that generates numbers
+    Make sure it prints the numbers in the same pattern as below
+    The numbers must be infinity
+
+*/
+// Write Your Generator1 Function Here
+function* gen() {
+    let index = 14;
+
+    while (true) {
+        yield index;
+        index += 140;
+    }
+}
+
+let generator1 = gen();
+
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+console.log(generator1.next()); 
+
+
+/* 
+    assignment 07
+
+    You have two Generator1s Function
+    What is required is a Generator1 Function that does a Delegate for the rest of the Generator1 Functions
+    You should use what you learned to make the last Function exclude duplicate values
+    Watch the code to see the result to understand what is required
+
+*/
+
+console.log('#'.repeat(19));
+
+function* genNumbers() {
+    yield* [1, 2, 2, 2, 3, 4, 5];
+}
+function* genLetters() {
+    yield* ["A", "B", "B", "B", "C", "D"];
+}
+
+// Write Your Generator1 Function Here
+function* genAll() {
+    yield* new Set(genNumbers());
+    yield* new Set(genLetters());
+}
+
+let generator = genAll();
+
+  console.log(generator.next()); // {value: 1, done: false}
+  console.log(generator.next()); // {value: 2, done: false}
+  console.log(generator.next()); // {value: 3, done: false}
+  console.log(generator.next()); // {value: 4, done: false}
+  console.log(generator.next()); // {value: 5, done: false}
+  console.log(generator.next()); // {value: "A", done: false}
+  console.log(generator.next()); // {value: "B", done: false}
+  console.log(generator.next()); // {value: "C", done: false}
+  console.log(generator.next()); // {value: "D", done: false}
+
+
+/* 
+
+    Assignment 08
+
+    You have the line below in the Main.js file which is a Function that accepts three values ​​and adds them
+    Create the mod-one.js file which contains this Function with 3 Parameters
+    The Function must be nameless and do the necessary work in the file to be able to use it in the main.js file
+    Create a mod-two.js file
+    Copy into it the three variables below and never modify them
+    Write what you want in the mod-two.js file so that the code in the main.js file works properly
+
+/
+*/
+
+import * as modOne from "./mode-two.js"
+import calc from "./mode-one.js";
+
+console.log(calc(modOne.numOne, modOne.numTwo, modOne.numThree)); // 60
