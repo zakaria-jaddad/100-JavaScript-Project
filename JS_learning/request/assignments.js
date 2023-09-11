@@ -60,17 +60,47 @@ assignment3Request.onreadystatechange =  function () {
         // this is not an efficient way to do that just you need to know this
         for (let i = 0; i < mainData.length; i++) {
 
-            // change category to all
             mainData[i].category = "all";
         }
-        // print mainData content 
-        console.log(mainData)
+
+
+        console.log(mainData)         // print mainData content 
 
         let updatedData = JSON.stringify(mainData);
         console.log(updatedData)
+
+    /* 
+    assignment 04 :
+
+        Complete the above
+        Loop all the data of the previous JSON object
+        Create a div inside the page with an id called data
+        Print the data inside the Div like the structure in the example below
+
+    */
+        console.log("#".repeat(60))
+        for (let i = 0; i < mainData.length; i++) {
+            const div = document.createElement("div");
+            // title    
+            const title = document.createElement("h2")
+            title.textContent = mainData[i].title;
+            div.appendChild(title)
+            // article
+            const article = document.createElement("p");
+            article.textContent = mainData[i].article;
+            div.appendChild(article)
+            // author
+            const author = document.createElement("p");
+            author.textContent = mainData[i].author;
+            div.appendChild(author)
+            // category 
+            const category = document.createElement("p");
+            category.textContent = mainData[i].category;
+            div.appendChild(category);
+
+            // appending
+            document.body.appendChild(div);
+
+        }
     }
 }
-
-
-// UpdatedData Variable Content
-"JSON Object Content Here"
