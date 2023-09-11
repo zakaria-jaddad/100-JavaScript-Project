@@ -11,7 +11,11 @@ myRequest.send()
 myRequest.onreadystatechange = function () {
     // checking for status and readyState
     if (this.readyState === 4 && this.status === 200) {
-        console.log(this.responseText); 
+        // loping on data
+        let jsData = JSON.parse(this.responseText);
+
+        // lopping the JS data
+        console.log(jsData);
     }
 }
 
