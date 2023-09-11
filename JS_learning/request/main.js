@@ -4,7 +4,7 @@ let myRequest = new XMLHttpRequest();
 console.log(myRequest);
 
 // making a request to github apt
-myRequest.open("GET", "https://api.github.com/users/zakaria-jaddad")
+myRequest.open("GET", "articles.json");
 myRequest.send()
 
 // checking 
