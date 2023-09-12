@@ -1,23 +1,30 @@
-const myPromise = new Promise((resolveFunction, rejectFunction) => {
-    let employees = ["Minnie McGee", "Mamie Wilkins", "Eula Rogers", "Sallie Gordon"];
+const getData = (apiLink) => {
+    return new Promise((resolve, reject) => {
 
-    // check if ther is 4 employess
-    if (employees.length === 4) {
-        resolveFunction(employees);
-    }
-    else {  
-        rejectFunction(Error("Number of Employees Is Not 4"));
-    }
+        // making request 
+        let myRequest = new XMLHttpRequest();
 
-}).then((employees) => {
+        // checking response value  
+        myRequest.onload = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                resolve(JSON.parse(this.responseText));
+            }
+            else {
+                reject(Error("No Data Found"));
+            }
+        }
 
-    // remove two employees 
-    employees.length = 2;
-    return employees;
-})
-.then((employees) => {
-    employees.length = 1;
-    return employees;
-})
-.catch((error) => console.error(error))
-.finally((employees) => console.log("Finally block is executed"));
+
+        // sending request
+        myRequest.open("GET", apiLink);
+        myRequest.send();
+    })
+}
+
+// hedneling the response
+getData("https://api.github.com/users/zakaria-jaddad/repos")
+    .then((response) => {
+        console.log(response);
+    })
+    .catch(err => console.error(err))
+    .finally(() => console.log("Operations is Done"))
