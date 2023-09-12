@@ -33,8 +33,8 @@ getData("https://api.github.com/users/zakaria-jaddad/repos")
 
 // making a request using fetch function
 fetch('https://api.github.com/users/zakaria-jaddad/repos')
-    .then(response => {
-        return response.json();
+    .then(async response => {
+        return await response.json();
     })
     .then((responsedData) => {
         responsedData.forEach((element) => {
