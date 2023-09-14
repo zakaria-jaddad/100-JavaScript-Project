@@ -1,19 +1,16 @@
-window.addEventListener("beforeunload", function () {
-    localStorage.setItem("scrollPosition", window.scrollY);
-})
-
 document.addEventListener("DOMContentLoaded", function () {
     
-    // get full heihgt
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    if (localStorage.getItem('scrollPosition') !== null) {
-
-        window.scrollTo(0, parseInt(localStorage.getItem("scrollPosition")));
-
+    if (localStorage.getItem("scrollPosition") !== null) {
+        window.scrollTo({
+            top: parseInt(localStorage.getItem("scrollPosition")), 
+            left: 0, 
+            behavior: "smooth",
+        })
         console.log(parseInt(localStorage.getItem("scrollPosition")))
     }
 
+    // get full heihgt
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
     // scroll behavior
     window.onscroll = function () {
@@ -28,11 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         progress.style.width = `${(this.scrollY / height) * 100}%`;
 
-        localStorage.setItem("scrollPosition", window.scrollY)
-
     }
 })
 
+
+window.addEventListener("scroll", function () {
+    localStorage.setItem("scrollPosition", `${window.scrollY}`)
+})
 
 function sticky(slider) {
     // making element sticky 
