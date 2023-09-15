@@ -1,0 +1,47 @@
+/* Global Rules */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --text : #000 ;
+    --primary-color: #8fb3ff ;
+    --secondary-color: #f1f1f1;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--primary-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Container && medai queries things */
+.container {
+    background: red;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+/* ! Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* ! Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* ! Large  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Main Body Style */
