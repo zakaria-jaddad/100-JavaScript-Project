@@ -7,18 +7,19 @@
     <!-- main css file -->
     <link rel="stylesheet" href="./static/styles/main.css">
     <!-- main script file -->
-    <script src="./static/script/mian.js"></script>
+    <script src="./static/script/main.js"></script>
 </head>
 <body>
     <div class="container">
         <main>
-            <form action="">
+            <form action="" id="qr-form">
                 <div class="inputs">
                     <div class="text-input">
                         <input type="text" id="url" placeholder="Enter WebSite URL" autocomplete="off" autofocus>
                         <svg class="cancel" id="cancel" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                     </div>
-                    <input type="submit" value="Submit">
+                    <div id="error" class="error"></div>
+                    <input type="submit" value="Submit" id="submit" disabled>
                 </div>
                 <div class="content">
                     <span id="error"></span>

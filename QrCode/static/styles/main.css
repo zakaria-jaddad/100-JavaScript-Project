@@ -10,7 +10,9 @@
     --primary-color: #8fb3ff ;
     --primary-color-dark : #a3c4ff;
     --secondary-color: #fff;
-    --main-transition : .3s
+    --grey-color : #b9b9b9 ;
+    --main-transition : .3s;
+    --error-color : #ff8f8f;
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -88,7 +90,7 @@ body {
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
-    border: 1px solid #b9b9b9;
+    border: 1px solid var(--grey-color);
     outline: none;
 }
 .container main form > .inputs input[type="text"] {
@@ -103,7 +105,7 @@ body {
     -moz-transition: var(--main-transition);
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
-    color: #b9b9b9;
+    color: var(--grey-color);
 
 }
 .container main form > .inputs input[type="text"]:focus::placeholder {
@@ -127,7 +129,7 @@ body {
 }
 .cancel  {
     position: absolute;
-    fill: #b9b9b9;
+    fill: var(--grey-color);
     width: 19px;
     height: 19px;
     top: 50%;
@@ -139,4 +141,15 @@ body {
     -o-transform: translateY(-50%);
     cursor: pointer;
     display: none;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.error {
+    text-align: center;
+    font-size: 13px;
+    text-transform: capitalize;
+    color: var(--error-color);
 }
