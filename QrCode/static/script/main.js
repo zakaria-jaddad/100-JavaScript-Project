@@ -83,7 +83,7 @@ function getRootVariableValue (variableName) {
 }
 
 function showQrCode(data) {
-    fetch(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=hello${data}`)
+    fetch(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${data}`)
         .then((response) => {
             const image = document.querySelector('#qr-image');
             image.src = response.url;
