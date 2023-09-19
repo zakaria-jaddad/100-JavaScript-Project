@@ -53,5 +53,8 @@ function checkUrl(url) {
 }
 
 function getRootVariableValue (variableName) {
+
+
     return getComputedStyle(document.documentElement).getPropertyValue(variableName);
+
 }
