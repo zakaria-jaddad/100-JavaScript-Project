@@ -26,19 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     const form = document.querySelector('#qr-form');
+
+    // form submited 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        if(checkUrl(urlInput.value) === false) {
+        if(checkUrl(urlInput.value) === false) { // url is not valid 
             // set border color to red
             urlInput.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--error-color');
 
             document.querySelector('#error').textContent = "invalid URL"
             return false;
         }
+        //valid url
         else {
             urlInput.style.borderColor = getRootVariableValue('--grey-color');
             document.querySelector('#error').textContent = "";
+            showQrCode(urlInput.value);
         }
 
     })
@@ -47,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function checkUrl(url) {
 
     // regular expression
-    const urlRegex = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%_\+~#=]{2,256}\.[a-z]{2,}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig;
+    const urlRegex = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%_\+~#=]{2,400006}\.[a-z]{2,}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig;
 
     return urlRegex.test(url) ? true : false
 }
@@ -57,4 +61,12 @@ function getRootVariableValue (variableName) {
 
     return getComputedStyle(document.documentElement).getPropertyValue(variableName);
 
+}
+
+function showQrCode(data) {
+    fetch(`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`)
+        .then((response) => {
+            const image = document.querySelector('#qr-image');
+            image.src = response.url;
+        })
 }
