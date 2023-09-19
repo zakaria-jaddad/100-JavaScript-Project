@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // get URL input
-    const urlInput = document.querySelector('#url');
+    const urlInput = document.querySelector('#user-input');
     // add focus event to it
     urlInput.addEventListener("keyup", function() {
 
@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // cheking to add or not the cancel button
         if (this.value !== '') {
             cancelButton.style.display = "block";
+            // make a qr code 
+            showQrCode(urlInput.value);
         }
         else {
             cancelButton.style.display = "none";
@@ -46,6 +48,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     })
+
+    // get download button
+    const DownloadButton = document.querySelector('#download-image');
+
+    DownloadButton.addEventListener('click', function() {
+        const imagePath = document.querySelector('#qr-image').getAttribute('src');
+
+        // ave image
+        saveAs(imagePath, 'Qr_Image.jpg');
+    });
+
+    document.querySelector('#cancel').addEventListener("click", function () {
+        
+        // clear inputs value
+        document.querySelector('#user-input').value = '';
+        this.style.display = "none";
+    })
 })
 
 function checkUrl(url) {
@@ -64,9 +83,13 @@ function getRootVariableValue (variableName) {
 }
 
 function showQrCode(data) {
-    fetch(`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`)
+    fetch(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=hello${data}`)
         .then((response) => {
             const image = document.querySelector('#qr-image');
             image.src = response.url;
+
+            // show download button
+            document.querySelector('#download-image').style.display = "block";
+            
         })
 }
