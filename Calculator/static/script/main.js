@@ -25,8 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     opperations.forEach((opperation) => {
         opperation.addEventListener('click', function() {
 
-            if (opperation.id === 'ac')
+            if (opperation.id === 'ac') {
                 output.textContent = '0';
+                output.dataset.firstNumber = '0';
+            }
             
             if (opperationFlag === false) {
                 return;
@@ -82,8 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (keyInput === 'Backspace') {
 
             // reduse the length by one
-            output.textContent = output.textContent.split('');
+            // remove last index of the display number
+            output.textContent = removeLastIndex(output.textContent)
 
+            // assigne the value to first argument
+            output.dataset.firstNumber = output.textContent;
         }
     })
 });
@@ -101,4 +106,9 @@ function convertToOperator(stringOperator, firstOperator, secondOperator) {
         case '*':
             return firstOperator * secondOperator;
     }
+}
+
+function removeLastIndex(element) {
+    element = element.split('').slice(0, element.length - 1);
+    return element.join('');
 }
