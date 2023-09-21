@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // no operation has been made
                 if (output.dataset.opperation === '')
                     return;
-                
+
                 const secondNumber = parseFloat(output.textContent);
 
                 // show and save resualt
@@ -63,6 +63,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
+    // keyboard shortcuts
+    // keydown event 
+    document.addEventListener('keydown', (event) => {
+
+        const keyInput = event.key
+
+        // checks if keydown input is in the string numbers        
+        if ('1234567890.+-/*='.includes(keyInput)) {
+            document.querySelector(`[data-value="${keyInput}"]`).click();
+            return
+        }
+        else if (keyInput === 'Enter') {
+            document.querySelector(`[data-value="="`).click();
+            return;
+        }
+        else if (keyInput === 'Backspace') {
+
+            // reduse the length by one
+            output.textContent = output.textContent.split('');
+
+        }
+    })
 });
 
 function convertToOperator(stringOperator, firstOperator, secondOperator) {
