@@ -114,7 +114,12 @@ body {
     background-color: var(--opperation-color);
 }
 .container > main.calculator > .output {
+    max-width: 100%;
     background-color: var(--text-white);
+    color: var(--text);
+    justify-content: flex-end;
     grid-column: span 3;
+    padding: 10px;
+    overflow-x: scroll;
 }
 /* End Main Style */
