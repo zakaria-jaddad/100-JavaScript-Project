@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let output = this.querySelector('#output');
+    
 
     // flag for opperations
     let opperationFlag = false;
@@ -26,8 +27,13 @@ document.addEventListener('DOMContentLoaded', function () {
         opperation.addEventListener('click', function() {
 
             if (opperation.id === 'ac') {
+                // change diplay content to 0 
                 output.textContent = '0';
+                // clear first number value
                 output.dataset.firstNumber = '0';
+
+                // remove the previous opperation from the opperation dataset
+                output.dataset.opperation = ''
             }
             
             if (opperationFlag === false) {
@@ -89,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // assigne the value to first argument
             output.dataset.firstNumber = output.textContent;
+            if (output.textContent === '') {
+
+            }
         }
     })
 });
