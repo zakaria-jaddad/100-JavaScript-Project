@@ -27,13 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         opperation.addEventListener('click', function() {
 
             if (opperation.id === 'ac') {
-                // change diplay content to 0 
-                output.textContent = '0';
-                // clear first number value
-                output.dataset.firstNumber = '0';
-
-                // remove the previous opperation from the opperation dataset
-                output.dataset.opperation = ''
+                clearCalculator(output);
             }
             
             if (opperationFlag === false) {
@@ -96,9 +90,28 @@ document.addEventListener('DOMContentLoaded', function () {
             // assigne the value to first argument
             output.dataset.firstNumber = output.textContent;
             if (output.textContent === '') {
-
+                clearCalculator(output);
             }
         }
+    })
+
+
+    /* 
+        add onclick listener when the user press a button it's color should change 
+    */
+    const clickedButtons = document.querySelectorAll('.calculator > div');
+
+    clickedButtons.forEach((Button) => {
+        Button.addEventListener('click', function() {
+
+            // chnage button background-color when clickd
+            this.style.backgroundColor = "#6861b6";
+
+            // after some time change it's color back to the original one
+            setTimeout(() => {
+                this.style.backgroundColor = "";
+            }, 15);
+        })
     })
 });
 
@@ -120,4 +133,14 @@ function convertToOperator(stringOperator, firstOperator, secondOperator) {
 function removeLastIndex(element) {
     element = element.split('').slice(0, element.length - 1);
     return element.join('');
+}
+
+
+function clearCalculator(dispalyOutput) {
+    dispalyOutput.textContent = '0';
+    // clear first number value
+    dispalyOutput.dataset.firstNumber = 0;
+
+    // remove the previous opperation from the opperation dataset
+    dispalyOutput.dataset.opperation = '';
 }
