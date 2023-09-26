@@ -1,0 +1,22 @@
+1 So first is the design 
+    - using HTML and css make a design to the Hangman game 
+
+2 JS Logic 
+    - get an API that gives each time a word 
+        - get it and turn it to array 
+
+            - ?? how can i make it offline  ??
+            --> i can achive that by making a file that has all dictionary words 
+            --> then open it and turn to an array and get a random word from it 
+            --> but ther is a down side for this wich is the file SIZE....
+
+
+            --> another approach is to make a json file 
+
+        - also each word it's length should be more than 8 ''characters''
+        - get all it's chars 
+    - make a long string that containes all English chars
+        - now i have to strings (the word, Alphabetical content) 
+        ?? how can i get random chars from both but, i should get all content of the of the word String  ??
+        - store all chars in an array, then add them to the document.
+            
