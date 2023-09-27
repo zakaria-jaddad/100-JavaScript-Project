@@ -27,34 +27,20 @@ body {
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;
+    width: 850px;
 }
 /* ! X Small */
 @media (max-width: 768px) {
     .container {
-        width: 750px;
         /* chaange flex direction to column */
         flex-direction: column;
+        width: 750px;
     }
 }
 /* ! Small */
 @media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
     body {
         height: 100vh;
-    }
-}
-/* ! Medium */
-@media (min-width: 992px) {
-    .container {
-        width: 970px;
-    }
-}
-/* ! Large  */
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
     }
 }
 /* End Global Rules */
@@ -62,7 +48,6 @@ body {
 /* Main style content */
 .container {
     background-color: var(--second-color);
-    /* width: 850px; */
     padding: 60px 40px;
     display: flex;
     justify-content: center;
