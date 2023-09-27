@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
+
     <!-- main style file -->
     <link rel="stylesheet" href="./static/styles/styles.css">
+
+    <!-- main JS file -->
+    <script src="./static/script/main.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="hangman-box">
-            <img src="./static/images/hangman-0.svg" alt="hungman-image">
+        <div class="hangman-box" id="hangman-image-box">
+            <img src="./static/images/hangman-0.svg" alt="hungman-image" data-hangmanimagenumber="0">
             <h1>hangman game</h1>
         </div>
         <div class="game-box">
