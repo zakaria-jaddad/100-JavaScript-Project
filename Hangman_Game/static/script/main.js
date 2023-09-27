@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    this.addEventListener("click", function() {
-
-        const image = this.querySelector('#hangman-image-box > img');
-
+    this.addEventListener('click', function() {
+        addWord(5)
     })
 
 });
@@ -24,3 +22,44 @@ function changeToNextImage(image) {
     image.dataset.hangmanimagenumber = imageNumber + 1;
 }
 
+function addWord(number) {
+    fetch('./static/script/json/words.json')
+    .then( async response => {
+        return await response.json()
+    })
+    .then((words) =>  {
+        return words[number];
+    })
+    .then((wordAndHint) => {
+        const word = wordAndHint["word"];
+        const hint = wordAndHint["hint"];
+
+        // letters container, hint container
+        const lettersContainer = document.querySelector('#letters-container');
+        const hintContainer = document.querySelector('#hint-container');
+
+        // itterating over the word getting letters 
+        for (letter of word)
+            appendLetters(letter, lettersContainer);
+
+        showHint(hint, hintContainer);
+    })  
+}
+
+function appendLetters(letter, lettersContainer) {
+
+    // make a span element 
+    const span = document.createElement('span');
+
+    // set dataset letter to letter 
+    span.dataset.letter = letter;
+    span.classList.add('letter');
+
+    // append to container
+    lettersContainer.appendChild(span);
+}
+
+function showHint(hint, hintContainer) {
+    hintContainer.textContent += hint;
+
+}
