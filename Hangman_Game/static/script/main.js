@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 return false;
             
             // hangMan time
-            if (parseInt(document.querySelector('#icorrect-gusses-counter').textContent) > 5) // counting from zero 0
+            if (parseInt(document.querySelector('#icorrect-gusses-counter').textContent) > 5) {
+                console.log('you lost You could\'t find the Word ');
                 return;
+
+            } // counting from zero 0
 
             disableButton(Button);
 
@@ -108,7 +111,7 @@ function disableButton(button) {
     - using a for loop it itterates over all letters in the lettes diplay 
     - checks if the letter is in the letters and show the letters
 
-    - else if the letter pressed is not in letters using 'incorrectGuesse()' update the 
+    - else if the letter pressed is not in letters using 'incorrectGuess()' update the 
         - incorrect guesses counter ny one 
         - and change the hang man image to next image 
 */
@@ -117,15 +120,20 @@ function checkLetter(buttonValue) {
     // get all letters 
     const letters = document.querySelectorAll('.letter');
 
+    let isLetterInWord = false;
+
     // itterate over each letter
     for (const letter of letters) {
 
         if (buttonValue === letter.dataset.letter) {
             showLetter(letter);
-            return;
+
+            // the current letter is in the word set it to true
+            isLetterInWord = true;
         }
     }
-    incorrectGuesse()
+    if (isLetterInWord === false) // if the pressed letter is not in the word
+        incorrectGuess(); // incorrect guess
 
     /* 
         funtion showLetter
@@ -138,7 +146,7 @@ function checkLetter(buttonValue) {
     }
 
     /* 
-        function incorrectGuesse
+        function incorrectGuess
         - update the number of guesses 
         - change hangman image to next image 'hang the man'
 
@@ -147,14 +155,14 @@ function checkLetter(buttonValue) {
             - change the incorecct guesses 
 
     */
-    function incorrectGuesse() {
+    function incorrectGuess() {
 
         // get current hangman image 
         const image = document.querySelector("#hangman-image-box> img");
         changeToNextImage(image) ;
 
-        const incorrectGuesseCounter = document.querySelector('#icorrect-gusses-counter');
-        incorrectGuesseCounter.textContent++;
+        const incorrectGuessCounter = document.querySelector('#icorrect-gusses-counter');
+        incorrectGuessCounter.textContent++;
 
     }
 
