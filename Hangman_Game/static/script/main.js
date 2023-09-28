@@ -1,6 +1,14 @@
+// user structer 
+class User {
+    constructor(currentWord) {
+        this.currentWord = currentWord;
+        this.currentLevel = 0;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 
-    addWord(5)
+    addWord(0)
 
     // get buttons
     const Buttons = this.querySelectorAll('button')
@@ -20,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.log('you lost You could\'t find the Word ');
                 return;
             }
-            
+
         });
     });
 });
@@ -71,6 +79,9 @@ function addWord(number) {
                 appendLetters(letter, lettersContainer);
 
             showHint(hint, hintContainer);
+
+            //  add current word to lettersCntainer
+            lettersContainer.dataset.word = word;
         })
         .catch((error) => console.log(error));
     }
