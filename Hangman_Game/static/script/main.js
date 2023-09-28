@@ -8,7 +8,14 @@ class User {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    addWord(0)
+    if (localStorage.getItem('user') === null) {
+        const newUser = new User('', 0);
+        localStorage.setItem('user', JSON.stringify(newUser) )
+    }
+
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    addWord(user.currentLevel);
 
     // get buttons
     const Buttons = this.querySelectorAll('button')
