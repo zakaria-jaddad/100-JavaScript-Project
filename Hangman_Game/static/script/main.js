@@ -10,20 +10,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (Button.disabled === true) 
                 return false;
-            
-            // hangMan time
-            if (parseInt(document.querySelector('#icorrect-gusses-counter').textContent) > 5) {
-                console.log('you lost You could\'t find the Word ');
-                return;
-
-            } // counting from zero 0
 
             disableButton(Button);
 
             checkLetter(Button.dataset.value);
+
+            // HangMan time cheking if incorrect guesses is 6
+            if (parseInt(document.querySelector('#icorrect-gusses-counter').textContent) === 6) {
+                console.log('you lost You could\'t find the Word ');
+                return;
+            }
+            
         });
     });
-
 });
 
 /*  
