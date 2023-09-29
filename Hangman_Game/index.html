@@ -12,6 +12,15 @@
     <script src="./static/script/main.js"></script>
 </head>
 <body>
+    <div class="user-alert lost h-e">
+        <div class="content">
+            <div class="image">
+                <img src="./static/images/lost.gif" alt="victory">
+            </div>
+            <b>It's ok just try again</b>
+            <button id="next-round">play again</button>
+        </div>
+    </div>
     <div class="container">
         <div class="hangman-box" id="hangman-image-box">
             <img src="./static/images/hangman-0.svg" alt="hungman-image" data-hangmanimagenumber="0">
@@ -19,7 +28,7 @@
         </div>
         <div class="game-box">
             <div class="content-box">
-                <div class="word-display" id="letters-container">
+                <div class="word-display" id="letters-container" data-word="" data-wordlength="0">
                 </div>
                 <div class="hint" id="hint-container">Hint : </div>
                 <div class="icorrect-gusses">Incorrect guesses: <span class="gusses-counter" id="icorrect-gusses-counter">0</span> <span style="color: red;">/</span> <span class="gusses-count">6</span> </div>

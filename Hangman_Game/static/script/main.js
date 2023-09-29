@@ -1,21 +1,15 @@
-// user structer 
-class User {
-    constructor(currentWord) {
-        this.currentWord = currentWord;
-        this.currentLevel = 0;
-    }
-}
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    if (localStorage.getItem('user') === null) {
-        const newUser = new User('', 0);
-        localStorage.setItem('user', JSON.stringify(newUser) )
+    if (localStorage.getItem('userLevel') === null) {
+        localStorage.setItem('userLevel', 0)
     }
 
-    const user = JSON.parse(localStorage.getItem('user'))
+    // global variable
+    userLevel = localStorage.getItem('userLevel')
 
-    addWord(user.currentLevel);
+    addWord(userLevel);
 
     // get buttons
     const Buttons = this.querySelectorAll('button')
@@ -32,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // HangMan time cheking if incorrect guesses is 6
             if (parseInt(document.querySelector('#icorrect-gusses-counter').textContent) === 6) {
-                console.log('you lost You could\'t find the Word ');
+                showalert('lost');
                 return;
             }
 
@@ -145,6 +139,18 @@ function checkLetter(buttonValue) {
         if (buttonValue === letter.dataset.letter) {
             showLetter(letter);
 
+            // get letters Container
+            const lettersContainer = document.querySelector('#letters-container');
+
+            // get length of the current word and increment it by one 1
+            lettersContainer.dataset.wordlength++;
+
+            // this indeicates that user found the word
+            if (parseInt(lettersContainer.dataset.wordlength) === lettersContainer.dataset.word.length) {
+
+                // ? set user level to next level 
+                userWon();
+            }
             // the current letter is in the word set it to true
             isLetterInWord = true;
         }
@@ -155,6 +161,8 @@ function checkLetter(buttonValue) {
     /* 
         funtion showLetter
         - showes letter or letters that are in the word display
+            - adds the showed class name to the letter element to remove the bottom border 
+            - add letter to element's text Contanet
     */
     function showLetter(showedLetter) {
 
@@ -182,12 +190,28 @@ function checkLetter(buttonValue) {
         incorrectGuessCounter.textContent++;
 
     }
+}
 
-/* 
-    i have all letters 
-        - itterate over all of them if the current pressed letter is equal to the pressed letter 
-            - get the letter span and add it then add the showd class to it 
-        else 
-            - update the incoreect guesses counter
-*/
+function userWon() {
+
+    updateUserLevel();
+    showalert('win');
+
+    /* 
+        function updaeUserLevel 
+        update increment user's current level by one and stores it in localstorage
+    */
+    function updateUserLevel() {
+        localStorage.setItem('userLevel', parseInt(localStorage.getItem('userLevel')) + 1);    
+    }
+}
+
+function showalert(resualt) {
+
+    if (resualt === 'win') {
+        return 'You Won';
+    }
+    else {
+        return 'You Lost';
+    }
 }
