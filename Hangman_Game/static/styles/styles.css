@@ -221,12 +221,21 @@ body {
 
 
 /* remove element */
-.h-e {
+/* show element */
+.s-e {
     animation: showelement 1s;
     -webkit-animation: showelement 1s;
     animation-play-state: running;
     animation-fill-mode: forwards;
 }
+/* hide element */
+.h-e {
+    animation: hideelement 1s;
+    -webkit-animation: hideelement 1s;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+
 @keyframes showelement {
     from {
         z-index: -1;
@@ -234,6 +243,16 @@ body {
     to {
         z-index: 1;
         background-color: var(--alert-backgroundc-color);
+    }
+}
+@keyframes hidelement {
+    from {
+        z-index: 1;
+        background-color: var(--alert-backgroundc-color);
+    }
+    to {
+        z-index: -1;
+        background-color: transparent;
     }
 }
 

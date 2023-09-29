@@ -1,18 +1,18 @@
-
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {    
 
     if (localStorage.getItem('userLevel') === null) {
         localStorage.setItem('userLevel', 0)
     }
 
-    // global variable
+    // GLOBAL VARIBALES
     userLevel = localStorage.getItem('userLevel')
+    alertBox = document.querySelector('#alert-message');
+
 
     addWord(userLevel);
 
-    // get buttons
-    const Buttons = this.querySelectorAll('button')
+    // get letter buttons
+    const Buttons = this.querySelectorAll('#buttons-container > button')
     Buttons.forEach((Button) => {
 
         Button.addEventListener('click', function() {
@@ -26,12 +26,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // HangMan time cheking if incorrect guesses is 6
             if (parseInt(document.querySelector('#icorrect-gusses-counter').textContent) === 6) {
-                showalert('lost');
+
+                showAlert(alertBox);
                 return;
             }
-
         });
     });
+
+    // get try again button
+    const tryAgainButton = document.querySelector('#try-again')
+    tryAgainButton.addEventListener('click', function() {
+        hideAlert(alertBox);
+    })
 });
 
 /*  
@@ -195,7 +201,6 @@ function checkLetter(buttonValue) {
 function userWon() {
 
     updateUserLevel();
-    showalert('win');
 
     /* 
         function updaeUserLevel 
@@ -206,12 +211,14 @@ function userWon() {
     }
 }
 
-function showalert(resualt) {
+function showAlert(alertBox) {
 
-    if (resualt === 'win') {
-        return 'You Won';
-    }
-    else {
-        return 'You Lost';
-    }
+    alertBox.classList.add('s-e');
+    alertBox.classList.remove('h-e');
+}
+
+function hideAlert(alertBox) {
+    
+    alertBox.classList.add('h-e');
+    alertBox.classList.remove('s-e');
 }
