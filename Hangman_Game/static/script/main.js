@@ -37,8 +37,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const tryAgainButton = document.querySelector('#try-again')
     tryAgainButton.addEventListener('click', function() {
         // tempooo reload the application
-        window.location.reload();
         hideAlert(alertBox);
+        window.location.reload();
+    })
+
+
+    // keyboard events
+    document.addEventListener('keydown', (event) => {
+        const letters = "abcdefghijklmnopqrstuvwxyz";
+
+        if (letters.includes(event.key) === true) {
+            document.querySelector(`#${event.key}`).click()
+        }
     })
 });
 
@@ -227,3 +237,4 @@ function hideAlert(alertBox) {
     alertBox.classList.add('h-e');
     alertBox.classList.remove('s-e');
 }
+
