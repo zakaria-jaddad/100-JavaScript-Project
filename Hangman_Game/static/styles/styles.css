@@ -223,15 +223,15 @@ body {
 /* remove element */
 /* show element */
 .s-e {
-    animation: showelement 1s;
-    -webkit-animation: showelement 1s;
+    animation: showelement 1.5s;
+    -webkit-animation: showelement 1.5s;
     animation-play-state: running;
     animation-fill-mode: forwards;
 }
 /* hide element */
 .h-e {
-    animation: hideelement 1s;
-    -webkit-animation: hideelement 1s;
+    animation: hideelement 1.5s;
+    -webkit-animation: hideelement 1.5s;
     animation-play-state: running;
     animation-fill-mode: forwards;
 }

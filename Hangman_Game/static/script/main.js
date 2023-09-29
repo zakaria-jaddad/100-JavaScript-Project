@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     addWord(userLevel);
 
     // get letter buttons
-    const Buttons = this.querySelectorAll('#buttons-container > button')
+    const Buttons = this.querySelectorAll('#buttons-container > button');
     Buttons.forEach((Button) => {
 
         Button.addEventListener('click', function() {
@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // get try again button
     const tryAgainButton = document.querySelector('#try-again')
     tryAgainButton.addEventListener('click', function() {
+        // tempooo reload the application
+        window.location.reload();
         hideAlert(alertBox);
     })
 });
@@ -107,7 +109,7 @@ function appendLetters(letter, lettersContainer) {
 }
 
 function showHint(hint, hintContainer) {
-    hintContainer.textContent += hint;
+    hintContainer.textContent = `hint : ${hint}`;
 
 }
 
@@ -201,6 +203,9 @@ function checkLetter(buttonValue) {
 function userWon() {
 
     updateUserLevel();
+
+    // reload page
+    window.location.reload();
 
     /* 
         function updaeUserLevel 
