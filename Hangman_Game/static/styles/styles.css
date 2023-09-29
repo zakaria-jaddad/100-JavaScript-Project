@@ -163,7 +163,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: var(--alert-backgroundc-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,6 +171,7 @@ body {
     -moz-transition: var(--main-transition);
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
+    z-index: -1;
 }
 .user-alert > .content {
     background-color: var(--second-color);
@@ -221,6 +221,22 @@ body {
 
 
 /* remove element */
+.h-e {
+    animation: showelement 1s;
+    -webkit-animation: showelement 1s;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+@keyframes showelement {
+    from {
+        z-index: -1;
+    }
+    to {
+        z-index: 1;
+        background-color: var(--alert-backgroundc-color);
+    }
+}
+
 /* 
     End alert styles
 */
