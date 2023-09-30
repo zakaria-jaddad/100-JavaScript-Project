@@ -12,5 +12,7 @@ Reference
 
 ### video
 
+[![Simple Calculator](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F8vl3jUfvibA)](https://youtu.be/8vl3jUfvibA)
+
 
 
