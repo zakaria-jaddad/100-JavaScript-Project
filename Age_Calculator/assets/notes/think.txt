@@ -1,0 +1,14 @@
+1 : when the user is writing the submit button should be black 
+    - when they press it it turns to Purple
+
+2 : input should be like this DD MM YYYY
+    - if there is nothing in the inputs user should see output like this 
+        '-- Day'
+        '-- Month'
+        '-- Year'
+    - fields are required obviously
+
+3 : 
+    - Days Input should be around 30 and 31, and 29
+    - Month input should be around 0 and 12
+    - years input should not be in the future
