@@ -122,7 +122,7 @@ body {
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
-    border: 1px solid var(--body-color);
+    border: 1px solid var(--smokey-grey);
 }
 @media (max-width : 768px) {
     .user-inputs > .input-container > input {

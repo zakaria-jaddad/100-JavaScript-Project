@@ -6,21 +6,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setInterval(() =>  {
         const now = new Date() ;
-
+    
         const dayNumber = now.getDate();
-
+    
         const dayName = Days[now.getDay()];
-
+    
         const monthName = Months[now.getMonth()];
-
+    
         const hour = fixNumber(now.getHours());
-
+    
         const minuts = fixNumber(now.getMinutes());
-
+    
         const seconds = fixNumber(now.getSeconds());
 
         DateContainer.textContent = `${dayName} ${dayNumber} ${monthName} ${hour}:${minuts}:${seconds}`;
-        console.log('hello');
     }, 1000)
 }) 
 
