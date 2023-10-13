@@ -12,6 +12,9 @@
     <!-- Main Script File -->
     <script src="./assets/script/main.js" defer type="Module"></script>
 
+    <!-- Date Script file -->
+    <script src="./assets//script/date.js" defer></script>
+
 </head>
 <body>
 
@@ -27,15 +30,15 @@
         <div class="user-inputs">
           <div class="input-container" id="day-input-container">
             <span class="label">day</span>
-            <input type="text" placeholder="dd" autocomplete="off" id="day-input">
+            <input type="number" placeholder="dd" autocomplete="off" id="day-input">
           </div>
           <div class="input-container" id="month-input-container">
             <span class="label">month</span>
-            <input type="text" placeholder="mm" autocomplete="off" id="month-input">
+            <input type="number" placeholder="mm" autocomplete="off" id="month-input">
           </div>
           <div class="input-container" id="year-input-container">
             <span class="label">year</span>
-            <input type="text" placeholder="yyyy" autocomplete="off" id="year-input">
+            <input type="number" placeholder="yyyy" autocomplete="off" id="year-input">
           </div>
           <button id="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
@@ -51,7 +54,7 @@
   </div>
 
   <footer>
-    <div class="current-time"></div>
+    <div class="current-time" id="date"></div>
   </footer>
 </body>
 </html>
