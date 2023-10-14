@@ -23,6 +23,7 @@ body {
     --text-color : #000;
     --padding : 40px ;
     --smokey-grey : #716f6f ;
+    --error-color : red  ;
 }
 
 /* Styles container styles */
@@ -91,7 +92,7 @@ body {
 .user-inputs {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(3, 25%);
     gap: 15px;
     position: relative;
     padding-bottom: var(--padding);
@@ -123,6 +124,13 @@ body {
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
     border: 1px solid var(--smokey-grey);
+}
+/* hiding the arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 @media (max-width : 768px) {
     .user-inputs > .input-container > input {
@@ -162,7 +170,12 @@ body {
     height: 33px;
     width: 33px;
 }
-
+.error {
+    font-size: 12px;
+    color: var(--error-color);
+    text-transform: capitalize;
+    display: none;
+}
 /* output */
 .output {
     font-size: 4rem;

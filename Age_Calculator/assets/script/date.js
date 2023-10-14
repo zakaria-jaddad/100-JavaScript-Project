@@ -1,31 +1,38 @@
-document.addEventListener('DOMContentLoaded', function() {
 
+document.addEventListener('DOMContentLoaded', function() {
+    
     // get Date Container 
     const DateContainer = document.querySelector('#date');
-
+    setDate(DateContainer);
     
     setInterval(() =>  {
-        const now = new Date() ;
-    
-        const dayNumber = now.getDate();
-    
-        const dayName = Days[now.getDay()];
-    
-        const monthName = Months[now.getMonth()];
-    
-        const hour = fixNumber(now.getHours());
-    
-        const minuts = fixNumber(now.getMinutes());
-    
-        const seconds = fixNumber(now.getSeconds());
-
-        DateContainer.textContent = `${dayName} ${dayNumber} ${monthName} ${hour}:${minuts}:${seconds}`;
+        setDate(DateContainer);
     }, 1000)
+    
 }) 
 
 function fixNumber(number) {
     const newNumber = parseInt(number) >= 0 && parseInt(number) < 10 ? '0' + String(number) : number;
     return newNumber;
+}
+
+// setDate function takes the Date container and add current date and time to it 
+function setDate(DateContainer) {
+    const now = new Date() ;
+    
+    const dayNumber = now.getDate();
+
+    const dayName = Days[now.getDay()];
+
+    const monthName = Months[now.getMonth()];
+
+    const hour = fixNumber(now.getHours());
+
+    const minuts = fixNumber(now.getMinutes());
+
+    const seconds = fixNumber(now.getSeconds());
+
+    DateContainer.textContent = `${dayName} ${dayNumber} ${monthName} ${hour}:${minuts}:${seconds}`;
 }
 
 const Days = {
