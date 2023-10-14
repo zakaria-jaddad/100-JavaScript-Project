@@ -1,0 +1,21 @@
+{
+  "name": "age_calculator",
+  "version": "1.0.0",
+  "description": "a js project ",
+  "main": "mian.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakaria-jaddad/30-JavaScript-Project"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "zakaria-jaddad",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
