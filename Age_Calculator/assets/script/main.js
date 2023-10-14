@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
         inputs.forEach(input => {unsetError(input, initialColor)});
         error.style.display = "none";
 
+        console.log('that was a valid date');
+
     })
 });
 
@@ -120,13 +122,15 @@ function isValidDate(day, month, year) {
     const userDate = new Date(year.value, parseInt(month.value) - 1, day.value);
 
     const currentDate = new Date();
+    console.log(userDate > currentDate, (userDate.getFullYear() == year.value && userDate.getMonth() == month.value - 1 && userDate.getDate() == day.value))
 
-    console.log(userDate)
-    console.log(userDate)
-
-    if (userDate > currentDate) {
+    if (userDate > currentDate ) {
+        return false;
+    }
+    if (!(userDate.getFullYear() == year.value && userDate.getMonth() == month.value - 1 && userDate.getDate() == day.value)) {
         return false;
     }
     return true;
+
 
 }
