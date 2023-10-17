@@ -2,6 +2,21 @@ const mainColor = getComputedStyle(document.documentElement).getPropertyValue('-
 const initialColor = getComputedStyle(document.documentElement).getPropertyValue('--smokey-grey')
 const errorColor = getComputedStyle(document.documentElement).getPropertyValue('--error-color')
 const error = document.querySelector('#err');
+const Months = {
+    0 : 31, 
+    1 : 28.25, 
+    2 : 31, 
+    3 : 30, 
+    4 : 31, 
+    4 : 30, 
+    5 : 31, 
+    6 : 31, 
+    7 : 30, 
+    8 : 31, 
+    9 : 30, 
+    10 : 31, 
+    11: 31
+}
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -11,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
             if (input.value === '') {
                 unsetError(input, initialColor)
+                document.querySelector('#submit').style.backgroundColor = mainColor;
                 return false;
             }
     
@@ -57,7 +73,61 @@ document.addEventListener('DOMContentLoaded', function() {
         inputs.forEach(input => {unsetError(input, initialColor)});
         error.style.display = "none";
 
-        console.log('that was a valid date');
+        const userDate = new Date(inputs[2].value, inputs[1].value - 1, inputs[0].value);
+
+        const currentDate = new Date();
+
+        // seconds from birth to current day
+        const difference = Math.abs(currentDate - userDate)
+        const numberOfDays = difference / (1000 * 60 * 60 * 24);
+
+        // in seconds + there is also 365 years and 364 years  
+        const yearDifference = parseInt(((currentDate - userDate) / (1000 * 60 * 60 * 24 * 365.25)))
+
+        let numberOfDaysLeft = Math.abs(numberOfDays - yearDifference * 365.25)
+        let monthsCounter = 0
+
+        // if users birthMonth is less then the current month 
+        if (userDate.getMonth() < currentDate.getMonth() && userDate.getDate() < currentDate.getDate()) {
+
+            for (let i = userDate.getMonth(); i < currentDate.getMonth(); i++) {
+
+                numberOfDaysLeft = numberOfDaysLeft - 30.41;
+                monthsCounter++;
+
+            }
+            console.log('hey');
+        }
+        else if (currentDate.getMonth() < userDate.getMonth() && currentDate.getDate() < userDate.getDate()) {
+            
+            let i = userDate.getMonth();
+            while (i !== currentDate.getMonth()) {
+
+                console.log(i)
+
+                if (i === 11) {
+                    i = 0;
+                }
+    
+                numberOfDaysLeft = numberOfDaysLeft - 30.4;
+                monthsCounter++;
+                i++;
+            }
+        }
+        console.log(yearDifference, monthsCounter, parseInt(numberOfDaysLeft));
+
+
+        // get outputs [year, month, day]
+        const yearsOutput = document.querySelector('#year-output');
+        setCount(yearsOutput, yearDifference);
+
+        const monthOutput = document.querySelector('#month-output');
+        setCount(monthOutput, monthsCounter);
+
+        const dayOutput = document.querySelector('#day-output');
+        setCount(dayOutput, parseInt(numberOfDaysLeft));
+
+        document.querySelector('#submit').style.backgroundColor = "black";
 
     })
 });
@@ -88,7 +158,9 @@ function unsetError(element, color) {
     document.querySelector('#submit').disabled = false;
 }
 
-// checks is the given year is in the interval [1 - current year]
+/* 
+    Start verification function year month and day 
+*/
 function checkYear(userYear) {
 
     const currentYear = new Date().getFullYear();
@@ -115,22 +187,54 @@ function checkDay(userDay) {
     }
     return false;
 
-}
 
+}
+/* 
+    End verification function year month and day 
+*/
+
+/* 
+    gets day. month and year checks for date if valid or not
+        - either 
+            - date from the future 
+            - date is not exist like 31/04/1991
+*/
 function isValidDate(day, month, year) {
 
     const userDate = new Date(year.value, parseInt(month.value) - 1, day.value);
 
     const currentDate = new Date();
-    console.log(userDate > currentDate, (userDate.getFullYear() == year.value && userDate.getMonth() == month.value - 1 && userDate.getDate() == day.value))
 
+    // if user date is from the future
     if (userDate > currentDate ) {
         return false;
     }
+    // if given date is invalid 
     if (!(userDate.getFullYear() == year.value && userDate.getMonth() == month.value - 1 && userDate.getDate() == day.value)) {
         return false;
     }
     return true;
 
+
+}
+
+/* 
+    Counter Funtion 
+*/
+function setCount(element, goalNumber) {
+
+    element.textContent = "0";
+    const count = setInterval(() => {
+
+        
+        // checking for break
+        if (element.textContent == goalNumber) {
+            clearInterval(count);
+            return;
+        }
+
+        element.textContent++;
+
+    }, 1000 / goalNumber);
 
 }
