@@ -165,6 +165,14 @@ input[type="number"]::-webkit-outer-spin-button {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .6s;
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    -ms-transition: .6s;
+    -o-transition: .6s;
+}
+.user-inputs > button:hover {
+    background-color: var(--text-color);
 }
 .user-inputs > button > svg {
     height: 33px;

@@ -2,21 +2,7 @@ const mainColor = getComputedStyle(document.documentElement).getPropertyValue('-
 const initialColor = getComputedStyle(document.documentElement).getPropertyValue('--smokey-grey')
 const errorColor = getComputedStyle(document.documentElement).getPropertyValue('--error-color')
 const error = document.querySelector('#err');
-const Months = {
-    0 : 31, 
-    1 : 28.25, 
-    2 : 31, 
-    3 : 30, 
-    4 : 31, 
-    4 : 30, 
-    5 : 31, 
-    6 : 31, 
-    7 : 30, 
-    8 : 31, 
-    9 : 30, 
-    10 : 31, 
-    11: 31
-}
+const submitButton = document.querySelector('#submit');
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -26,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
             if (input.value === '') {
                 unsetError(input, initialColor)
-                document.querySelector('#submit').style.backgroundColor = mainColor;
+                submitButton.style.backgroundColor = mainColor;
                 return false;
             }
     
@@ -53,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }) 
     
-    const submitButton = document.querySelector('#submit');
+
+
     submitButton.addEventListener('click', function() {
 
         // checking if all inputs are valid 
@@ -65,14 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
 
+        // if date is invalid
         if (isValidDate(inputs[0], inputs[1], inputs[2]) === false) {
             error.style.display = "block";
             inputs.forEach(input => {setError(input)});
             return false;
         }
+
+        // if date is valid
         inputs.forEach(input => {unsetError(input, initialColor)});
         error.style.display = "none";
 
+
+        // Age calculation 
         const userDate = new Date(inputs[2].value, inputs[1].value - 1, inputs[0].value);
 
         const currentDate = new Date();
@@ -85,49 +77,54 @@ document.addEventListener('DOMContentLoaded', function() {
         const yearDifference = parseInt(((currentDate - userDate) / (1000 * 60 * 60 * 24 * 365.25)))
 
         let numberOfDaysLeft = Math.abs(numberOfDays - yearDifference * 365.25)
-        let monthsCounter = 0
 
-        // if users birthMonth is less then the current month 
-        if (userDate.getMonth() < currentDate.getMonth() && userDate.getDate() < currentDate.getDate()) {
+        let monthsCounter = 0;
 
-            for (let i = userDate.getMonth(); i < currentDate.getMonth(); i++) {
+        // difineding i
+        let i = 0;
 
-                numberOfDaysLeft = numberOfDaysLeft - 30.41;
+        // that means a month will be counted 
+        if (userDate.getDate() < currentDate.getDate()) {
+            i = userDate.getMonth();
+        }
+        else if (userDate.getDate() > currentDate.getDate()) { // month will not 
+            
+            i = userDate.getMonth() + 1;
+        }
+
+
+        if (i !== 0) {  // if i 0 that means no days or months
+            while (i != currentDate.getMonth()) {
+    
+                
+                numberOfDaysLeft = numberOfDaysLeft - 30.37;
                 monthsCounter++;
 
-            }
-            console.log('hey');
-        }
-        else if (currentDate.getMonth() < userDate.getMonth() && currentDate.getDate() < userDate.getDate()) {
-            
-            let i = userDate.getMonth();
-            while (i !== currentDate.getMonth()) {
-
-                console.log(i)
-
-                if (i === 11) {
+                if (i == 11) {
+                    numberOfDaysLeft = numberOfDaysLeft - 30.37;
+                    monthsCounter++;
                     i = 0;
                 }
-    
-                numberOfDaysLeft = numberOfDaysLeft - 30.4;
-                monthsCounter++;
                 i++;
             }
+
         }
-        console.log(yearDifference, monthsCounter, parseInt(numberOfDaysLeft));
 
+        // setting output 
 
-        // get outputs [year, month, day]
-        const yearsOutput = document.querySelector('#year-output');
-        setCount(yearsOutput, yearDifference);
+        const yearOutput = document.querySelector('#year-output');
+        setCount(yearOutput, yearDifference);
+
 
         const monthOutput = document.querySelector('#month-output');
         setCount(monthOutput, monthsCounter);
 
         const dayOutput = document.querySelector('#day-output');
-        setCount(dayOutput, parseInt(numberOfDaysLeft));
+        setCount(dayOutput, Math.floor(numberOfDaysLeft))
 
-        document.querySelector('#submit').style.backgroundColor = "black";
+
+        // chenge buttons background color
+        this.style.backgroundColor = "black";
 
     })
 });
