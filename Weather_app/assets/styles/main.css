@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'Robot';
+    src: url('../../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+/* global style */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color : #b6c7e0 ;
+    --second-background-color : #a6bad8 ;
+    --third-background-color : #98aed0 ;
+    --radius : 25px; 
+    --text-color : #fffefe ;
+    --sub-text-color : #d9e0ee ;
+    --main-padding : 15px ;
+    --margin-bottom : 10px  ;
+}
+
+body {
+    font-family: 'Robot';
+    background-color: var(--background-color);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+@media (max-width : 750px) {
+    body {
+        height: initial;
+    }
+}
+
+/* Styles container  */
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+} 
+
+/* ! Z Small */
+@media (max-width : 768px) {
+    .container {
+        width: 100%;
+    }
+}
+/* ! Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* ! Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* ! Large  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End container styles */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.current-weather > .current-weather__header {
+    border-radius: var(--radius);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+    background-color: var(--second-background-color);
+    padding:  var(--main-padding);
+
+}
+.current-weather > .current-weather__header > .current-weather__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-weather > .current-weather__header > .current-weather__main > img {
+    width: 200px;
+}
+
+.current-weather > .current-weather__header > .current-weather__main > .state {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.state-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: calc(var(--margin-bottom) + 10px);
+}
+
+.state-number > h1 {
+    color: var(--text-color);
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.state-number > .high-low {
+    color: var(--sub-text-color);
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.current-weather__description {
+    padding: var(--main-padding);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    background-color: var(--third-background-color);
+    width: 100%;
+    gap: 20px;
+    /*border-radius: calc(var(--main-padding) + var(--radius));*/
+    border-radius: var(--radius);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+}
+
+.current-weather__description > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-weather__description > div > img {
+    width: 60px;
+}
+
+.current-weather__description > div > .number {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.current-weather__description > div > :last-child {
+    color: #b6c4de;
+    font-weight: bold;
+}
