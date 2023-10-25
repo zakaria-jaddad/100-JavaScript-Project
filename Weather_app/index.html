@@ -15,6 +15,10 @@
     <script src="./assets/script/chart.js" defer type="module"></script>
 
     <!-- API Script File -->
+    <script src="./assets/script/weather.js" type="module" defer></script>
+
+    <!-- Main Script File -->
+    <script src="./assets/script/main.js" type="module" defer></script>
 
 
 
@@ -377,8 +381,38 @@
 
         </div>
 
-
     </div>
+
+    <template id="day-week-template">
+
+        <div class="week-weather-box">
+
+            <div class="wrapper">
+                
+                <div class="week-day-name">
+                </div>
+
+                <div class="week-day-weather">
+
+                    <img class="week-day-weather-icon" src="" alt="day" data-week-day-weather>
+                    <div class="week-day-weather-state" data-week-day-weather-state>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="week-day-weather-degree">
+
+                <span data-week-day-weather-high class="week-day-weather-high-degree"></span><span class="degree">&deg;</span>
+                <span class="week-day-weather-low-degree"><span data-week-day-weather-low></span></span>
+
+            </div>
+
+        </div>
+
+    </template>
 
 </body>
 </html>

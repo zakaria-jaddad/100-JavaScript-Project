@@ -4,7 +4,7 @@ setGraph(['e'], [15]);
 /* 
     labels and weatherDate both are Arrays 
 */
-function setGraph(labels, weatherData) {
+export function setGraph(labels, weatherData) {
     
     const data = {
         labels: labels,
@@ -38,5 +38,5 @@ function setGraph(labels, weatherData) {
 
 }
 
-export {setGraph};
+
 
