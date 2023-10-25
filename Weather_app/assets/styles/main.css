@@ -17,7 +17,7 @@ ul {
     --background-color : #b6c7e0 ;
     --second-background-color : #a6bad8 ;
     --third-background-color : #98aed0 ;
-    --radius : 25px; 
+    --radius : 20px; 
     --text-color : #fffefe ;
     --sub-text-color : #d9e0ee ;
     --main-padding : 15px ;
@@ -32,7 +32,7 @@ body {
     display: flex;
     align-items: center;
 }
-@media (max-width : 750px) {
+@media (max-width : 1190px) {
     body {
         height: initial;
     }
@@ -45,11 +45,11 @@ body {
     padding-right: 15px;
     padding-left: 15px;
 } 
-
 /* ! Z Small */
 @media (max-width : 768px) {
     .container {
         width: 100%;
+        padding: 0;
     }
 }
 /* ! Small */
@@ -67,13 +67,15 @@ body {
 /* ! Large  */
 @media (min-width: 1200px) {
     .container {
-        width: 1470px;
+        width: 1170px;
     }
 }
+
+
 /* End container styles */
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(436px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(305px, 1fr));
     gap: var(--main-gap);
     justify-content: center;
 }
@@ -110,11 +112,11 @@ body {
 }
 
 .current-weather > .current-weather__header > .current-weather__main > .main-wrapper img {
-    width: 300px;
+    width: 200px;
 }
 
 .current-weather > .current-weather__header > .current-weather__main > .main-wrapper .state {
-    font-size: 4rem;
+    font-size: 2rem;
     margin-bottom: 10px;
     color: var(--text-color);
 }
@@ -133,16 +135,15 @@ body {
     color: var(--text-color);
     font-size: 3rem;
     font-weight: bold;
-    font-size: 5rem;
 
 }
 
 .state-number > .high-low {
     color: var(--sub-text-color);
-    width: 125px;
+    width: 90px;
     display: flex;
     justify-content: space-between;
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 
@@ -202,6 +203,7 @@ body {
 }
 
 .tomorrow-weather {
+    height: 180px;
     display: flex;
     justify-content: space-between;
     gap: 15px;
@@ -215,14 +217,13 @@ body {
 }
 
 .tomorrow-weather > img {
-    width: 200px;
+    width: 150px;
 }
 
 .tomorrow-weather-contanet {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: calc(var(--main-padding) + 10px) var(--main-padding);
     color: var(--text-color);
 
 }
@@ -232,7 +233,7 @@ body {
 }
 
 .tomorrow-weather-contanet > .tomorrow {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     color: var(--text-color);
     text-transform: capitalize;
@@ -244,19 +245,19 @@ body {
 }
 
 .tomorrow-weather-contanet > .tomorrow-weather-degree > .tomorrow-weather-high-degree {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--text-color);
 }
 
 .tomorrow-weather-contanet > .tomorrow-weather-degree > .tomorrow-weather-low-degree {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: var(--sub-text-color);
 }
 
 .tomorrow-weather-contanet > .tomorrow-weather-state {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     text-transform: capitalize;
 }
 
@@ -270,6 +271,7 @@ body {
 }
 
 .week-weather > .week-weather-box {
+    height: 65px;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -299,16 +301,16 @@ body {
 }
 .week-weather > .week-weather-box > .wrapper > .week-day-weather > .week-day-weather-state {
     color: var(--text-color);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .week-weather > .week-weather-box > .wrapper > .week-day-weather > img {
-    width: 100px;
+    width: 65px;
 }
 
 .week-weather > .week-weather-box > .wrapper > .week-day-name {
     color: var(--text-color);
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -318,12 +320,77 @@ body {
 .week-day-weather-degree > .week-day-weather-high-degree, 
 .week-day-weather-degree > .degree  {
     color: var(--text-color);
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 .week-day-weather-degree > .week-day-weather-low-degree {
     color: var(--sub-text-color);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 /* End Week days */
+
 /* End second Weather part  */
+
+/* Start third Part */
+.weather-informations {
+    display: flex;
+    flex-direction: column;
+    gap: var(--main-gap);
+}
+
+.sun-moon {
+    display: flex;
+    flex-direction: row;
+    gap: var(--main-gap);
+}
+
+.sun-moon > div {
+    width: 50%;
+    
+}
+
+.sun-moon > div  > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.sun-moon > div, 
+.days-informations {
+    background-color: var(--second-background-color);
+    padding: calc(var(--main-padding) + 10px) var(--main-padding);
+    border-radius: var(--radius);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+}
+
+.days-informations ul {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.days-informations ul > li {
+    color: var(--text-color);
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 7px;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--text-color);
+    font-weight: bold;
+}
+.days-informations ul > li:not(:last-child) {
+    margin-bottom: 10px;
+}
+.weather-informations img {
+    width: 60px;
+}
+/* End third Part */
