@@ -23,8 +23,6 @@ function setGraph(labels, weatherData) {
     
     const myChart = document.querySelector('[data-today-weather-graph]');
     
-    console.log(myChart);
-    
     new Chart(myChart, {
     
         type :'bar' , 

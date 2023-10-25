@@ -191,9 +191,16 @@ body {
     -ms-border-radius: var(--radius);
     -o-border-radius: var(--radius);
     padding: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
+/* styles for canvas */
+.today-weather-graph > canvas {
+    width: 100%;
+    height: 100%;
+}
 /* Start second Weather part  */
 
 .forecast {
