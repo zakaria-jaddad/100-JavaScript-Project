@@ -1,5 +1,5 @@
 
-setGraph(['e'], [15]);
+// setGraph(['e'], [15]);
 
 /* 
     labels and weatherDate both are Arrays 
