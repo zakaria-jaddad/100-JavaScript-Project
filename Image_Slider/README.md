@@ -1,4 +1,4 @@
-# Project 05/100 JS Image Slider 
+# Project 05/30 JS Image Slider 
 
 This Project is an **extension of HTML and CSS Projects**
 

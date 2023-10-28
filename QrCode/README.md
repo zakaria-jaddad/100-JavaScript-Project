@@ -1,4 +1,4 @@
-# This is project 02 From 100 JavaScript Project 
+# This is project 02 From 30 JavaScript Project 
 
 ## Here Is The Resualt
 

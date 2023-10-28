@@ -1,4 +1,4 @@
-# This is project 03 From 100 JavaScript Project 
+# This is project 03 From 30 JavaScript Project 
 
 ## Calculator
 
