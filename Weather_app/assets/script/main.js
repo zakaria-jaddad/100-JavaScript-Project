@@ -3,24 +3,55 @@ import { weather } from "./weatherCode.js";
 import { setGraph } from "./chart.js";
 
 
-getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone)
+getWeather(33.5731, 7.5898, Intl.DateTimeFormat().resolvedOptions().timeZone)
     .then(renderWeather)
     .catch(e => {
         console.error(e);
-        // alert('Error Getting Data From Server');
+        alert('Error Getting Data From Server');
     })
 
 
 function renderWeather(data) {
+    console.log(data);
     showCurrentWeather(data);
     showHourlyWeather(data);
+    showTomorrowWeather(data)
+    showDailyWeather(data)
     document.body.classList.remove('blurred');
 }
 
-const currentWeatherImage = document.querySelector("[data-current-weather-icon]")
+const dailyWeatherContainer = document.querySelector(".week-weather");
+const dayCardTemplate = document.querySelector('#day-week-template'); 
+function showDailyWeather({ daily }) {
+
+    // set container to be empty 
+    dailyWeatherContainer.innerHTML = '';
+
+    console.log(dayCardTemplate);
+    daily.restDays.forEach((day) => {
+
+        console.log(day);
+        const element = dayCardTemplate.content.cloneNode(true);
+        assignValueToElement("week-day-name", day.dayName, element)
+        setImage("week-day-weather", getIconUrl(day.weatherCode), element)
+        assignValueToElement("week-day-weather-state", transformWeatherCode(day.weatherCode), element)
+        assignValueToElement("week-day-weather-high", day.maxTemp, element)
+        assignValueToElement("week-day-weather-low", day.minTemp, element)
+
+        dailyWeatherContainer.appendChild(element);
+    });
+}
+
+function showTomorrowWeather({ daily }) {
+    setImage("tomorrow-wetaher-image", getIconUrl(daily.tomorrow.weatherCode))
+    assignValueToElement("tomorrow-weather-high", daily.tomorrow.maxTemp)
+    assignValueToElement("tomorrow-weather-low", daily.tomorrow.minTemp)
+    assignValueToElement("tomorrow-weather-state", transformWeatherCode(daily.tomorrow.weatherCode))
+}
+
 function showCurrentWeather({ current }) {
     setImage("current-weather-icon", getIconUrl(current.weatherCode))
-    assignValueToElement("current-weather-state", weather.get(current.weatherCode))
+    assignValueToElement("current-weather-state", transformWeatherCode(current.weatherCode))
     assignValueToElement("current-weather-degree", current.currentTemp);
     assignValueToElement("current-weather-high", current.maxTemp);
     assignValueToElement("current-weather-low", current.minTemp);
@@ -42,8 +73,6 @@ function showHourlyWeather({ hourly }) {
 
     }
     setGraph(hours, temperature);
-    console.log(hours)
-    console.log(temperature)
 }
 
 function getIconUrl(iconCode) {
@@ -51,18 +80,26 @@ function getIconUrl(iconCode) {
     return `https://basmilius.github.io/weather-icons/production/fill/all/${weather.get(iconCode)}.svg`
 }
 
-function setImage(imageDataSet, imageUrl) {
+function setImage(imageDataSet, imageUrl, parentElement = null) {
 
-    const image = document.querySelector(`[data-${imageDataSet}]`);
+    const image = parentElement != null ? parentElement.querySelector(`[data-${imageDataSet}]`) : document.querySelector(`[data-${imageDataSet}]`);
 
     image.src = imageUrl;
 
 }
 
-function assignValueToElement(elementDataSet, value) {
-    const element = document.querySelector(`[data-${elementDataSet}]`);
+function assignValueToElement(elementDataSet, value, parentElement = null) {
+
+    const element = parentElement != null ? parentElement.querySelector(`[data-${elementDataSet}]`) : document.querySelector(`[data-${elementDataSet}]`);
+
     element.textContent = '';
     element.textContent = value;    
+
+}
+
+function transformWeatherCode (weatherCode) {
+
+    return weather.get(weatherCode).replace('-', ' ');
 
 }
 

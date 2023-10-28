@@ -1,5 +1,6 @@
 // this is a day fromatter to get name of day from a timestamp number 
-const DAY_FORMATTER = new Intl.DateTimeFormat(undefined, {weekday : 'short'})
+const DAY_FORMATTER_SHORT = new Intl.DateTimeFormat(undefined, {weekday : 'short'})
+const DAY_FORMATTER_LONG = new Intl.DateTimeFormat(undefined, {weekday : 'long'})
 
 // hor formater 
 const HOUR_FORMATTER = new Intl.DateTimeFormat(undefined, { hour: 'numeric', hour12 : false })
@@ -10,6 +11,7 @@ export function getWeather(lat, lon, timezone) {
             return response.json()
         })
         .then(data => {
+            console.log(data);
             return {
                 current : parseCurrentWeather(data), 
                 daily : parseDailyWeather(data), 
@@ -64,10 +66,10 @@ function parseDailyWeather({ daily }) {
         if (index > 1) {
             return {
                 timestamp : time * 1000, 
-                dayName :  DAY_FORMATTER.format(time * 1000), 
-                weatherCode : daily.weathercode[index], 
-                maxTemp : daily.temperature_2m_max[index], 
-                minTemp : daily.temperature_2m_min[index]
+                dayName :  DAY_FORMATTER_SHORT.format(time * 1000), 
+                weatherCode : Math.round(daily.weathercode[index]), 
+                maxTemp : Math.round(daily.temperature_2m_max[index]), 
+                minTemp : Math.round(daily.temperature_2m_min[index])
             }
         }
 
@@ -76,10 +78,10 @@ function parseDailyWeather({ daily }) {
     return {
         "tomorrow" : {
             timestamp : daily.time[1] * 1000, 
-            dayName :  DAY_FORMATTER.format(daily.time[1] * 1000), 
+            dayName :  DAY_FORMATTER_LONG.format(daily.time[1] * 1000), 
             weatherCode : daily.weathercode[1], 
-            maxTemp : daily.temperature_2m_max[1], 
-            minTemp : daily.temperature_2m_min[1]
+            maxTemp : Math.round(daily.temperature_2m_max[1]), 
+            minTemp : Math.round(daily.temperature_2m_min[1])
         }, 
         restDays : restDays.filter(item => item != undefined)
     }
