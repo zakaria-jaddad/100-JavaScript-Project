@@ -2,13 +2,30 @@ import { getWeather } from "./weather.js";
 import { weather } from "./weatherCode.js";
 import { setGraph } from "./chart.js";
 
+// getting current user coordinates
+navigator.geolocation.getCurrentPosition(positionSussess, positionError);
 
-getWeather(33.5731, 7.5898, Intl.DateTimeFormat().resolvedOptions().timeZone)
+
+function positionSussess({ coords }) {
+
+    // maek call 
+    getWeather(coords.latitude,
+        coords.longitude,
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+    )
     .then(renderWeather)
     .catch(e => {
         console.error(e);
         alert('Error Getting Data From Server');
     })
+
+}
+
+function positionError() {
+    alert("Ther Was An Error Getting You Location Please inable your location and refrech the page");
+}
+
+
 
 
 function renderWeather(data) {
@@ -40,6 +57,7 @@ function showDailyWeather({ daily }) {
 }
 
 function showTomorrowWeather({ daily }) {
+    console.log(daily);
     setImage("tomorrow-wetaher-image", getIconUrl(daily.tomorrow.weatherCode))
     assignValueToElement("tomorrow-weather-high", daily.tomorrow.maxTemp)
     assignValueToElement("tomorrow-weather-low", daily.tomorrow.minTemp)

@@ -10,7 +10,7 @@ setItem([45, 48], "fog")
 
 setItem([51, 53, 55], 'drizzle')
 setItem([56, 57], 'hail')
-setItem([61, 63, 65], 'hail')
+setItem([61, 63, 65], 'rain')
 setItem([66, 67], 'sleet')
 setItem([71, 73, 75], 'snow')
 weather.set(77, 'snow')
