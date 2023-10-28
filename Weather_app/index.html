@@ -35,15 +35,15 @@
 
                     <div class="main-wrapper">
 
-                        <img src="https://basmilius.github.io/weather-icons/production/fill/all/partly-cloudy-day.svg" alt="weather" data-current-weather-icon>
+                        <img src="https://basmilius.github.io/weather-icons/production/fill/all/sleet.svg" alt="weather" data-current-weather-icon>
     
-                        <div class="state" id="current-weather-state" data-current-weather-state></div>
+                        <div class="state" id="current-weather-state" data-current-weather-state>bar</div>
     
                         <div class="state-number" >
-                            <h1 class="current-weather-degree" ><span data-current-weather-degree></span>&deg;</h1>
+                            <h1 class="current-weather-degree" ><span data-current-weather-degree>12</span>&deg;</h1>
                             <div class="high-low">
-                                <span>H:<span id="weather-high" data-current-weather-high></span>&deg;</span>
-                                <span>L:<span id="weather-low" data-current-weather-low></span>&deg;</span>
+                                <span>H:<span id="weather-high" data-current-weather-high>12</span>&deg;</span>
+                                <span>L:<span id="weather-low" data-current-weather-low>30</span>&deg;</span>
                             </div>
                         </div>
 
@@ -75,12 +75,6 @@
 
             </div>
 
-            <div class="today-weather-graph">
-            
-                <canvas class="today-weather-graph-canvas" data-today-weather-graph></canvas>
-
-            </div>
-
         </div>
 
 
@@ -96,8 +90,8 @@
 
                     <div class="tomorrow-weather-degree">
 
-                        <span  class="tomorrow-weather-high-degree"><span data-tomorrow-weather-high></span>&deg;</span>
-                        <span class="tomorrow-weather-low-degree">/<span data-tomorrow-weather-low></span></span>
+                        <span  class="tomorrow-weather-high-degree"><span data-tomorrow-weather-high>19</span>&deg;</span>
+                        <span class="tomorrow-weather-low-degree">/<span data-tomorrow-weather-low>19</span></span>
 
                     </div>
 
@@ -108,65 +102,6 @@
             </div>
     
             <div class="week-weather">
-                
-                <div class="week-weather-box">
-
-                    <div class="wrapper">
-                        
-                        <div class="week-day-name">
-                            Sun
-                        </div>
-    
-                        <div class="week-day-weather">
-    
-                            <img class="week-day-weather-icon" src="https://basmilius.github.io/weather-icons/production/fill/all/sleet.svg" alt="day" data-week-day-weather>
-                            <div class="week-day-weather-state" data-week-day-weather-state>
-                                windy
-                            </div>
-    
-                        </div>
-
-                    </div>
-
-
-                    <div class="week-day-weather-degree">
-
-                        <span data-week-day-weather-high class="week-day-weather-high-degree">19</span><span class="degree">&deg;</span>
-                        <span class="week-day-weather-low-degree"><span data-week-day-weather-low>19</span></span>
-
-                    </div>
-
-                </div>
-                
-
-                <div class="week-weather-box">
-
-                    <div class="wrapper">
-                        
-                        <div class="week-day-name">
-                            Sun
-                        </div>
-    
-                        <div class="week-day-weather">
-    
-                            <img class="week-day-weather-icon" src="https://basmilius.github.io/weather-icons/production/fill/all/sleet.svg" alt="day" data-week-day-weather>
-                            <div class="week-day-weather-state" data-week-day-weather-state>
-                                windy
-                            </div>
-    
-                        </div>
-
-                    </div>
-
-
-                    <div class="week-day-weather-degree">
-
-                        <span data-week-day-weather-high class="week-day-weather-high-degree">19</span><span class="degree">&deg;</span>
-                        <span class="week-day-weather-low-degree"><span data-week-day-weather-low>19</span></span>
-
-                    </div>
-
-                </div>
                 
 
                 <div class="week-weather-box">
@@ -380,6 +315,12 @@
             </div>
 
         </div> -->
+
+            <div class="today-weather-graph">
+            
+                <canvas class="today-weather-graph-canvas" data-today-weather-graph></canvas>
+
+            </div>
 
     </div>
 

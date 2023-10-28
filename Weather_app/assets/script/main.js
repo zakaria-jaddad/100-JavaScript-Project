@@ -12,7 +12,6 @@ getWeather(33.5731, 7.5898, Intl.DateTimeFormat().resolvedOptions().timeZone)
 
 
 function renderWeather(data) {
-    console.log(data);
     showCurrentWeather(data);
     showHourlyWeather(data);
     showTomorrowWeather(data)
@@ -27,10 +26,8 @@ function showDailyWeather({ daily }) {
     // set container to be empty 
     dailyWeatherContainer.innerHTML = '';
 
-    console.log(dayCardTemplate);
     daily.restDays.forEach((day) => {
 
-        console.log(day);
         const element = dayCardTemplate.content.cloneNode(true);
         assignValueToElement("week-day-name", day.dayName, element)
         setImage("week-day-weather", getIconUrl(day.weatherCode), element)

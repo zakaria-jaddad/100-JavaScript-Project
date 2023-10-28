@@ -11,7 +11,6 @@ export function getWeather(lat, lon, timezone) {
             return response.json()
         })
         .then(data => {
-            console.log(data);
             return {
                 current : parseCurrentWeather(data), 
                 daily : parseDailyWeather(data), 

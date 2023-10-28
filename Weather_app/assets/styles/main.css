@@ -37,7 +37,7 @@ body {
     display: flex;
     align-items: center;
 }
-@media (max-width : 1190px) {
+@media (max-width : 654px) {
     body {
         height: initial;
     }
@@ -189,6 +189,7 @@ body {
 
 /* Todays weather Graph */
 .today-weather-graph {
+    /* height: 191px; */
     background-color: var(--second-background-color);
     border-radius: var(--radius);
     -webkit-border-radius: var(--radius);
@@ -199,6 +200,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media (min-width : 1190px) {
+    .today-weather-graph {
+        height: 100%;
+    }
+}
+@media (min-width : 654px) and (max-width : 1190px) {
+    .today-weather-graph {
+    grid-column: span 2; 
+    }
 }
 
 /* styles for canvas */
@@ -344,67 +355,5 @@ body {
 /* End second Weather part  */
 
 /* Start third Part */
-.weather-informations {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--main-gap);
-}
 
-.sun-moon {
-    display: flex;
-    flex-direction: row;
-    gap: var(--main-gap);
-}
-
-.sun-moon > div {
-    width: 50%;
-    
-}
-
-.sun-moon > div  > div {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-.sun-moon > div, 
-.days-informations {
-    background-color: var(--second-background-color);
-    padding: calc(var(--main-padding) + 10px) var(--main-padding);
-    border-radius: var(--radius);
-    -webkit-border-radius: var(--radius);
-    -moz-border-radius: var(--radius);
-    -ms-border-radius: var(--radius);
-    -o-border-radius: var(--radius);
-    display: flex;
-    flex-direction: column;
-}
-
-.days-informations ul {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.days-informations ul > li {
-    color: var(--text-color);
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 7px;
-    padding: 10px 0px;
-    border-bottom: 1px solid var(--text-color);
-    font-weight: bold;
-}
-.days-informations ul > li:not(:last-child) {
-    margin-bottom: 10px;
-}
-.weather-informations img {
-    width: 60px;
-}
 /* End third Part */
