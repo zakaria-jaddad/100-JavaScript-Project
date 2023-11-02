@@ -25,7 +25,6 @@ function positionSussess({ coords }) {
 
 function positionError() {
     showLocationErrorAlert('Ther Was An Error Getting You Location, Please enable your location services and refrech the page');
-    document.body.classList.remove('blurred');
 }
 
 

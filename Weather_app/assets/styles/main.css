@@ -216,8 +216,8 @@ body {
 
 /* styles for canvas */
 .today-weather-graph > canvas {
-    width: 100%;
-    height: 300px;
+    width: 340px  !important; 
+    height: 170px !important;
 }
 /* Start second Weather part  */
 
@@ -323,6 +323,8 @@ body {
 .week-weather > .week-weather-box > .wrapper > .week-day-weather {
     display: flex;
     align-items: center;
+    width: 150px;
+    justify-content: space-between;
 }
 .week-weather > .week-weather-box > .wrapper > .week-day-weather > .week-day-weather-state {
     color: var(--text-color);

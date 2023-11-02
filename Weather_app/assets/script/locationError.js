@@ -10,6 +10,8 @@ export function showLocationErrorAlert (alertMessage) {
 
     document.body.classList.add('ov-hidden')
 
+    document.body.classList.remove('blurred');
+
 }
 
 
