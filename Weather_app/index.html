@@ -12,6 +12,9 @@
     <!-- Main Style Files -->
     <link rel="stylesheet" type="text/css" href="./assets/styles/main.css">
 
+    <!-- alerts Style File -->
+    <link rel="stylesheet" href="./assets/styles/alert.css">
+
     <!-- Char CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -23,6 +26,9 @@
 
     <!-- Main Script File -->
     <script src="./assets/script/main.js" type="module" defer></script>
+
+    <!-- Error Script File -->
+    <script src="./assets/script/locationError.js" defer type="module"></script>
 
 
 
@@ -269,6 +275,31 @@
 
     </div>
 
+    <div class="error-alert d-n" id="location-error-alert">
+
+        <div class="alert-content" id="alert_content">
+
+            <div class="alert-icon">
+
+                <img src="./assets/images/error.jpg" alt="error alert message">
+
+            </div>
+
+            <div class="error-message" id="error-message">
+            </div>
+
+            <div class="enable-location" id="reload-page-location">
+
+                Refrech
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- template  -->
     <template id="day-week-template">
 
         <div class="week-weather-box">

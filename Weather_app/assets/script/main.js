@@ -1,6 +1,7 @@
 import { getWeather } from "./weather.js";
 import { weather } from "./weatherCode.js";
 import { setGraph } from "./chart.js";
+import { showLocationErrorAlert } from "./locationError.js";
 
 // getting current user coordinates
 navigator.geolocation.getCurrentPosition(positionSussess, positionError);
@@ -9,20 +10,22 @@ navigator.geolocation.getCurrentPosition(positionSussess, positionError);
 function positionSussess({ coords }) {
 
     // maek call 
-    getWeather(coords.latitude,
+    getWeather(
+        coords.latitude,
         coords.longitude,
         Intl.DateTimeFormat().resolvedOptions().timeZone
     )
     .then(renderWeather)
     .catch(e => {
         console.error(e);
-        alert('Error Getting Data From Server');
+        showLocationErrorAlert('Error Getting Data From Server');
     })
 
 }
 
 function positionError() {
-    alert("Ther Was An Error Getting You Location Please inable your location and refrech the page");
+    showLocationErrorAlert('Ther Was An Error Getting You Location, Please enable your location services and refrech the page');
+    document.body.classList.remove('blurred');
 }
 
 

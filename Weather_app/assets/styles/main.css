@@ -23,7 +23,8 @@ ul {
     --main-padding : 15px ;
     --margin-bottom : 10px  ;
     --main-gap : 15px    ;
-
+    --main-transition : .6s ;
+    --alert-background-color : #b6c7e0cc ;
 }
 .blurred {
     filter: blur(3px);
@@ -31,6 +32,7 @@ ul {
     -webkit-filter: blur(3px);
 }
 body {
+    position: relative;
     font-family: 'Robot';
     background-color: var(--background-color);
     height: 100vh;
