@@ -1,30 +1,39 @@
-// todo app using object 
-const todosApp = {
+// factory function using IIFE 
+/* 
+    using IIFE this function imidiatly will be executed 
+    so we don't need to wait for user to write it 
+*/
+const todosApp = (function() {
 
-    todos : [], 
+    return {
 
-    addTodo : function(todo) {
-        this.todos.push(todo);
-        this.makeTodosLowerCase()
-        this.showTodos()
-        console.log(`You have ${this.todosCounter()} Todos`)
-    }, 
-    deleteTodo : function(todo) {
-        this.todos = this.todos.filter(el => el != todo.toLowerCase());
-    }, 
-    showTodos : function() {
-        console.log(this.todos.join(' | ')); 
-    }, 
-    todosCounter : function() {
-        return this.todos.length;
-    }, 
-    makeTodosLowerCase : function() {
-        this.todos = this.todos.map(todo => todo.toLowerCase());
+        todos : [], 
+    
+        addTodo : function(todo) {
+            this.todos.push(todo);
+            this.makeTodosLowerCase()
+            this.showTodos()
+            console.log(`You have ${this.todosCounter()} Todos`)
+        }, 
+        deleteTodo : function(todo) {
+            this.todos = this.todos.filter(el => el != todo.toLowerCase());
+        }, 
+        showTodos : function() {
+            console.log(this.todos.join(' | ')); 
+        }, 
+        todosCounter : function() {
+            return this.todos.length;
+        }, 
+        makeTodosLowerCase : function() {
+            this.todos = this.todos.map(todo => todo.toLowerCase());
+        }
+    
     }
 
+}) ()
 
 
-}
+
 
 
 // spaghity code => making todo app
