@@ -5,29 +5,32 @@
 */
 const todosApp = (function() {
 
-    return {
+    // making varibales and functions to be privet not Accessible by the user
+    let todos = [];
 
-        todos : [], 
-    
+    function  showTodos () {
+        console.log(todos.join(' | ')); 
+    }
+
+    function todosCounter () {
+        return todos.length;
+    }
+
+    function makeTodosLowerCase () {
+        todos = todos.map(todo => todo.toLowerCase());
+    }
+
+    // function Accessible by the user 
+    return {
         addTodo : function(todo) {
-            this.todos.push(todo);
-            this.makeTodosLowerCase()
-            this.showTodos()
-            console.log(`You have ${this.todosCounter()} Todos`)
+            todos.push(todo);
+            makeTodosLowerCase()
+            showTodos()
+            console.log(`You have ${todosCounter()} Todos`)
         }, 
         deleteTodo : function(todo) {
-            this.todos = this.todos.filter(el => el != todo.toLowerCase());
-        }, 
-        showTodos : function() {
-            console.log(this.todos.join(' | ')); 
-        }, 
-        todosCounter : function() {
-            return this.todos.length;
-        }, 
-        makeTodosLowerCase : function() {
-            this.todos = this.todos.map(todo => todo.toLowerCase());
+            todos = todos.filter(el => el != todo.toLowerCase());
         }
-    
     }
 
 }) ()
