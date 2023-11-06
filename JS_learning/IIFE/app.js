@@ -2,7 +2,9 @@
 /* 
     using IIFE this function imidiatly will be executed 
     so we don't need to wait for user to write it 
+    this is a  ( MODULE PATTERN )
 */
+
 const todosApp = (function() {
 
     // making varibales and functions to be privet not Accessible by the user
@@ -20,17 +22,21 @@ const todosApp = (function() {
         todos = todos.map(todo => todo.toLowerCase());
     }
 
+    function addTodo(todo) {
+        todos.push(todo);
+        makeTodosLowerCase()
+        showTodos()
+        console.log(`You have ${todosCounter()} Todos`)
+    }
+
+    function deleteTodo(todo) {
+        todos = todos.filter(el => el != todo.toLowerCase());
+    }
+
     // function Accessible by the user 
     return {
-        addTodo : function(todo) {
-            todos.push(todo);
-            makeTodosLowerCase()
-            showTodos()
-            console.log(`You have ${todosCounter()} Todos`)
-        }, 
-        deleteTodo : function(todo) {
-            todos = todos.filter(el => el != todo.toLowerCase());
-        }
+        addTodo : addTodo, 
+        deleteTodo : deleteTodo 
     }
 
 }) ()
