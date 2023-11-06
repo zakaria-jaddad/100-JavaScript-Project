@@ -1,4 +1,8 @@
 
+
+/* 
+    This method called : 'Controling Global Module Access'
+*/
 (function (){
 
     // creation
