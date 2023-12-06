@@ -1,7 +1,12 @@
-
+import Home from "./components/Home";
+import Header from "./components/Header";
 
 export default function App() {
-    return (
-        <h1>hello, Nexcent</h1>
-    )
+  return (
+    <>
+      <Header />
+      
+      <Home />
+    </>
+  );
 }

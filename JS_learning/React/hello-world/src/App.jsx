@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       {/* Profile component  */}
-      {/* <Profile foo="Click me Daddy!!" /> */}
+      <Profile foo="Click me Daddy!!" />
 
       {/* Form component */}
       <Form />
