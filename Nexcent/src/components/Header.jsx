@@ -24,7 +24,7 @@ function Header() {
   return (
     <header
       className="
-      h-14
+      h-16
     "
     >
       <div
@@ -49,7 +49,7 @@ function Header() {
         >
           <img
             className="
-              h-4
+              h-6
             "
             src={logo}
             alt="Nexcent Logo"
@@ -72,7 +72,7 @@ function Header() {
             justify-end
             gap-6
             w-full
-            h-9
+            h-12
             text-base
             "
           >
@@ -100,10 +100,10 @@ function Header() {
                 bg-green-600
                 text-gray-50
                 rounded-sm
-                px-3
-                py-5
+                h-full
+                w-36
               "
-              href=""
+              href="#"
             >
               <span>Register Now</span>
               <img
@@ -127,7 +127,7 @@ function Header() {
         >
           <img
             className="
-              h-6
+              h-8
               cursor-pointer
               z-20
             "
