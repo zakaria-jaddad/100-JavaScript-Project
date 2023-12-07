@@ -10,7 +10,6 @@ export default function Hero() {
       <div
         className="
         container mx-auto px-6
-        md:h-31
       "
       >
         <div
@@ -19,7 +18,7 @@ export default function Hero() {
         justify-center
         items-center
         flex-wrap
-        gap-10 md:gap-28 
+        gap-10 lg:gap-28 
         py-16
         relative
         h-full
@@ -31,7 +30,7 @@ export default function Hero() {
           flex
           flex-col
           gap-3
-          text-center md:text-left
+          text-center lg:text-left
         "
           >
             <h1
@@ -71,7 +70,7 @@ export default function Hero() {
               bg-green-600
               text-gray-50
               rounded-sm
-              self-center md:self-start
+              self-center lg:self-start
           "
             >
               Register

@@ -1,4 +1,4 @@
-import logos from "./clietns";
+import logos from "../../data/clietns";
 
 const Logo = ({ path, name }) => {
   return (

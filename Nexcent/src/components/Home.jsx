@@ -1,5 +1,6 @@
 import Hero from "./Home/Hero";
 import Clients from "./Home/Clients";
+import Community from "./Home/Community";
 
 export default function Home() {
   return (
@@ -10,8 +11,11 @@ export default function Home() {
           {/* Hero section */}
           <Hero />
 
-          {/* Clients secction */}
+          {/* Clients section */}
           <Clients />
+
+          {/* Community section */}
+          <Community />
       </main>
   );
 }
