@@ -1,20 +1,72 @@
 import frames from "../../data/community";
 
 const Frame = ({ icon, frame }) => {
+  // make the word heading break :)
+  let bar = frame.heading.split(" ");
+  let firstPart = bar.shift();
+
   return (
-    <>
+    <div
+      className="
+        w-52
+        py-4
+      "
+    >
       {/* icon section */}
-      <div>
-        <img src={icon.path} alt={icon.name} />
-        <div></div>
+      <div
+        className="
+          mb-3
+          relative
+      "
+      >
+        <img
+          className="
+           w-9
+           h-9
+           mx-auto
+          "
+          src={icon.path}
+          alt={icon.name}
+        />
+
+        {/* the wired thing */}
+        <div
+          className="
+            w-8
+            h-8
+            absolute
+            right-1/2
+            bottom-1/2
+            translate-y-5
+            translate-x-6
+            bg-green-100
+            -z-10
+            rounded-tl-md
+            rounded-tr
+            rounded-bl
+            rounded-br-xl
+          "
+        ></div>
       </div>
 
       {/* main */}
       <main>
-        <h3>{frame.heading}</h3>
-        <p>{frame.subHeading}</p>
+        <h3 className="mb-1 text-neutral-600 font-semibold text-xl">
+          {firstPart}
+          <span className="block">
+            {bar.join(" ")}
+          </span>
+        </h3>
+        <p
+          className="
+            text-neutral-500 
+            text-sm
+          "
+        >
+          {frame.subHeading}
+        </p>
       </main>
-    </>
+    </div>
   );
 };
 
@@ -50,21 +102,31 @@ const Community = () => {
             text-neutral-600
 
           "
-        >Manage your entire community in a single system</h2>
-        <p className="
+        >
+          Manage your entire community in a single system
+        </h2>
+        <p
+          className="
         text-neutral-500
         "
-        >Who is Nextcent suitable for?</p>
+        >
+          Who is Nextcent suitable for?
+        </p>
       </div>
 
       {/* Frome */}
       <div
         className="
           flex 
-          justify-center
+          gap-4
+          flex-wrap
           itmes-center
+          justify-center md:justify-evenly
+          text-center
         "
-      >{communityFrames}</div>
+      >
+        {communityFrames}
+      </div>
     </section>
   );
 };
