@@ -78,8 +78,6 @@ const Clients = () => {
       >
         <Partners logos={logos} />
       </div>
-
-
       <div
         className="
         flex
@@ -93,7 +91,7 @@ const Clients = () => {
         <Partners logos={logos} />
       </div>
 
-        {/* start partners */}
+        {/* End partners */}
       </section>
       
     </section>

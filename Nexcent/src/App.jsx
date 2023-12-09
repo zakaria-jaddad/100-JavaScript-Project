@@ -1,5 +1,6 @@
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Header from "./components/Header";
+import Body from "./components/Body/Body";
 
 export default function App() {
   return (
@@ -7,6 +8,8 @@ export default function App() {
       <Header />
       
       <Home />
+
+      <Body />
     </>
   );
 }

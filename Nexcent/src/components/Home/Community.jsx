@@ -79,6 +79,7 @@ const Community = () => {
     <section
       className="
       container mx-auto
+      mb-6
       "
     >
       {/* Commuity section */}
@@ -89,9 +90,8 @@ const Community = () => {
           items-center
           justirfy-center
           gap-2
-          w-96
+          w-full lg:w-96
           mx-auto
-          mb-3
         "
       >
         <h2
@@ -121,7 +121,7 @@ const Community = () => {
           gap-4
           flex-wrap
           itmes-center
-          justify-center md:justify-evenly
+          justify-center md:justify-around
           text-center
         "
       >

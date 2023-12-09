@@ -1,6 +1,6 @@
-import Hero from "./Home/Hero";
-import Clients from "./Home/Clients";
-import Community from "./Home/Community";
+import Hero from "./Hero";
+import Clients from "./Clients";
+import Community from "./Community";
 
 export default function Home() {
   return (

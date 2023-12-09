@@ -1,4 +1,6 @@
 import HeroMainImage from "../../assets/hero-image.svg";
+import Illustration from "../../ui/Illustration";
+import Button from "../../ui/Button";
 
 export default function Hero() {
   return (
@@ -15,7 +17,7 @@ export default function Hero() {
         <div
           className="
         flex 
-        justify-center
+        justify-around
         items-center
         flex-wrap
         gap-10 lg:gap-28 
@@ -61,37 +63,13 @@ export default function Hero() {
               Where to grow your business as a photographer: site or social
               media?
             </p>
-            <button
-              className="
-              mt-4
-              w-fit
-              py-3
-              px-6
-              bg-green-600
-              text-gray-50
-              rounded-sm
-              self-center lg:self-start
-          "
-            >
-              Register
-            </button>
+
+            
+            <Button buttonContent="Register"/>
           </div>
 
           {/* image */}
-          <div
-            className="
-          h-72
-        "
-          >
-            <img
-              className="
-            h-full
-            w-full  
-          "
-              src={HeroMainImage}
-              alt="Hero Image"
-            />
-          </div>
+          <Illustration imageSrc={HeroMainImage} imageAlt='Hero Illustration'/>
 
           {/* buttons */}
           <div
@@ -108,6 +86,7 @@ export default function Hero() {
             <div className="h-2 w-2 bg-green-500 rounded-full cursor-pointer"></div>
             <div className="h-2 w-2 bg-green-500 rounded-full cursor-pointer"></div>
           </div>
+          
         </div>
       </div>
     </section>
