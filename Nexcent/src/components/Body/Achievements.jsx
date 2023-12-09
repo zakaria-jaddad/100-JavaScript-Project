@@ -4,7 +4,7 @@ const Achievements = () => {
   return (
     <section
       className="
-        bg-silver py-11
+        bg-silver py-11 my-9
       "
     > 
       <div className="flex justify-around container mx-auto flex-wrap gap-y-8">
