@@ -4,7 +4,7 @@ import Logos from "../../ui/Logo";
 
 const Customers = () => {
   return (
-    <section className="bg-silver py-6">
+    <section className="bg-silver py-6 my-9">
       <div
         className="
       my-9

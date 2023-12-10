@@ -1,6 +1,7 @@
 import Unlock from "./Unlock";
 import Achievements from "./Achievements";
 import Customers from "./Customers";
+import CommunityUpdates from "./CommunityUpdates";
 
 
 // icons
@@ -25,6 +26,9 @@ const Body = () => {
       />
 
       <Customers />
+
+      {/* sommunity section */}
+      <CommunityUpdates />
     </>
   );
 };

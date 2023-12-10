@@ -1,4 +1,5 @@
 import frames from "../../data/community";
+import Heading from "../../ui/Heading";
 
 const Frame = ({ icon, frame }) => {
   // make the word heading break :)
@@ -53,9 +54,7 @@ const Frame = ({ icon, frame }) => {
       <main>
         <h3 className="mb-1 text-neutral-600 font-semibold text-xl">
           {firstPart}
-          <span className="block">
-            {bar.join(" ")}
-          </span>
+          <span className="block">{bar.join(" ")}</span>
         </h3>
         <p
           className="
@@ -69,12 +68,13 @@ const Frame = ({ icon, frame }) => {
     </div>
   );
 };
-
-const Community = () => {
-  const communityFrames = frames.map(({ icon, frame }, index) => (
+const CommunityFrames = ({frames}) => {
+  return frames.map(({ icon, frame }, index) => (
     <Frame key={index} icon={icon} frame={frame} />
   ));
+};
 
+const Community = () => {
   return (
     <section
       className="
@@ -83,36 +83,10 @@ const Community = () => {
       "
     >
       {/* Commuity section */}
-      <div
-        className="
-          flex
-          flex-col
-          items-center
-          justirfy-center
-          gap-2
-          w-full lg:w-96
-          mx-auto
-        "
-      >
-        <h2
-          className="
-            font-semibold
-            text-2xl
-            text-center
-            text-neutral-600
-
-          "
-        >
-          Manage your entire community in a single system
-        </h2>
-        <p
-          className="
-        text-neutral-500
-        "
-        >
-          Who is Nextcent suitable for?
-        </p>
-      </div>
+      <Heading
+        heading="Manage your entire community in a single system"
+        subHeading="Who is Nextcent suitable for?"
+      />
 
       {/* Frome */}
       <div
@@ -125,7 +99,7 @@ const Community = () => {
           text-center
         "
       >
-        {communityFrames}
+        <CommunityFrames frames={frames} />
       </div>
     </section>
   );
