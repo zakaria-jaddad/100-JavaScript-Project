@@ -16,7 +16,7 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
         px-4 md:px-0
       "
     >
-      <Illustration imageSrc={unlockIllustration} imageAlt='Illustration' />
+      <Illustration imageSrc={unlockIllustration} imageAlt='Illustration' illustrationSyle={{'height': '301px', 'width': '320px'}} />
       
       {/* Unlock content */}
       <div

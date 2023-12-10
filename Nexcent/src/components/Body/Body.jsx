@@ -27,7 +27,7 @@ const Body = () => {
 
       <Customers />
 
-      {/* sommunity section */}
+      {/* Community section */}
       <CommunityUpdates />
     </>
   );

@@ -1,10 +1,11 @@
-const Illustration = ({ imageSrc, imageAlt }) => {
+const Illustration = ({ imageSrc, imageAlt, illustrationStyle = {'height': '200px', 'width': '256px'} }) => {
   return (
-    <div className=" h-301 w-80">
+    <div style={illustrationStyle} className="">
       <img
         className="
           h-full
           w-full  
+          rounded-lg
         "
         src={imageSrc}
         alt={imageAlt}

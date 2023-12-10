@@ -1,6 +1,7 @@
 import image from "/images/customers.png";
 import logos from "../../data/logos";
 import Logos from "../../ui/Logo";
+import arrowRight from "/images/arrow-right.svg";
 
 const Customers = () => {
   return (
@@ -85,12 +86,12 @@ const Customers = () => {
               <Logos logos={logos} />
             </div>
 
-            <div className="flex items-center w-full sm:w-auto justify-center sm:justify-start">
+            <div className="flex items-center w-full sm:w-auto justify-center sm:justify-start gap-2">
               <a href="#" className="text-sm text-primary">
                 Meet all customers
               </a>
               <div>
-                <img src="./src/assets/arrows-directions-down.svg" alt="" />
+                <img src={arrowRight} alt="arrow right" />
               </div>
             </div>
           </div>
