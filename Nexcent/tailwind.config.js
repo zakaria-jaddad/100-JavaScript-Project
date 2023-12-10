@@ -6,6 +6,7 @@ export default {
       colors: {
         'heading-grey': '#4D4D4D', 
         'line-grey': '#717171', 
+        'sub-line-grey': '#89939E', 
         'primary': '#4CAF4F', 
         'secondary': '#263238', 
         'silver': '#F5F7FA'

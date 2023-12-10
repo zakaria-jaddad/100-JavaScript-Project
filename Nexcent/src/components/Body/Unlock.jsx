@@ -13,6 +13,7 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
         gap-6
         container mx-auto
         my-9
+        px-4 md:px-0
       "
     >
       <Illustration imageSrc={unlockIllustration} imageAlt='Illustration' />

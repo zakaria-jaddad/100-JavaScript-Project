@@ -1,32 +1,8 @@
-import logos from "../../data/clietns";
+import logos from "../../data/logos";
+import Logos from "../../ui/Logo";
 
-const Logo = ({ path, name }) => {
-  return (
-    <div
-      className="
-        flex 
-        items-center
-        justify-center 
-        h-full
-        w-fit
-      "
-    >
-      <img
-        className="
-        w-9
-        "
-        src={path}
-        alt={name}
-      />
-    </div>
-  );
-};
 
-const Partners = ({ logos }) => {
-  return logos.map((element, index) => {
-    return <Logo key={index} path={element.path} name={element.name} />;
-  });
-};
+
 
 const Clients = () => {
 
@@ -54,9 +30,9 @@ const Clients = () => {
         We have been working with some Fortune 500+ clients
       </p>
 
-      {/* Partners section*/}
+      {/* Logos section*/}
       <section className="
-        partners-container
+        Logos-container
         flex
         overflow-hidden
         relative
@@ -64,7 +40,7 @@ const Clients = () => {
         after:content-[''] after:h-full after:w-1/6 after:absolute after:top-0 after:right-0 after:bg-gradient-to-l from-white to-transparent z-10
       ">
 
-        {/* start partners */}
+        {/* start Logos */}
 
       <div
         className="
@@ -76,7 +52,7 @@ const Clients = () => {
         -z-10
       "
       >
-        <Partners logos={logos} />
+        <Logos logos={logos} />
       </div>
       <div
         className="
@@ -88,10 +64,10 @@ const Clients = () => {
         -z-10
       "
       >
-        <Partners logos={logos} />
+        <Logos logos={logos} />
       </div>
 
-        {/* End partners */}
+        {/* End Logos */}
       </section>
       
     </section>

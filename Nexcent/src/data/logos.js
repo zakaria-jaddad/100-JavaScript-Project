@@ -1,5 +1,5 @@
 
-const logos = [
+let logos = [
     {
         path: "/images/logo-1.svg", 
         name: "Jay Jimenez"
