@@ -6,6 +6,7 @@ export default {
       colors: {
         'heading-grey': '#4D4D4D', 
         'line-grey': '#717171', 
+        'line-white': '#F5F7FA', 
         'sub-line-grey': '#89939E', 
         'primary': '#4CAF4F', 
         'secondary': '#263238', 
@@ -26,6 +27,7 @@ export default {
           // "90%": { translate: "-100%" },
           "100%": { translate: "-100%" },
         },
+
       },
     },
   },

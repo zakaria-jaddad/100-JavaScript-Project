@@ -77,6 +77,7 @@ const CommunityFrames = ({frames}) => {
 const Community = () => {
   return (
     <section
+    id="community"
       className="
       container mx-auto
       mb-6

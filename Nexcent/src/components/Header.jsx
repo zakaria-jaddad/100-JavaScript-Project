@@ -1,7 +1,8 @@
-import logo from "../assets/Logo.svg";
-import arrowDown from "../assets/arrows-directions-down.svg";
+import logo from "/Logo-dark.svg";
+import arrowRight from "/images/arrow-right-white.svg";
 import burgerIcon from "../assets/burger-menu-right-svgrepo-com.svg";
 import closeIcone from "../assets/close.svg";
+import Ul from "../ui/Ul";
 
 import { useState } from "react";
 
@@ -18,13 +19,16 @@ function Header() {
   let [sideBarStyle, setSideBarStyle] = useState({
     isOpen: false,
     classValue:
-      "bg-gray-50 opacity-70 absolute top-0 right-0 h-screen w-0 transition-all ease-in-out duration-700 z-10",
+      "bg-gray-50 opacity-70 absolute top-0 right-0 h-screen w-0 transition-all ease-in-out duration-700 z-10 ",
   });
 
   return (
     <header
       className="
       h-16
+      sticky top-0 
+      bg-white
+      z-20
     "
     >
       <div
@@ -89,7 +93,7 @@ function Header() {
               <Li title="Features" />
               <Li title="Community" />
               <Li title="Blog" />
-              <Li title="Picing" />
+              <Li title="Pricing" />
             </ul>
             <a
               className="
@@ -111,7 +115,7 @@ function Header() {
                   h-4
                   w-3
                 "
-                src={arrowDown}
+                src={arrowRight}
                 alt=""
               />
             </a>
@@ -148,23 +152,31 @@ function Header() {
                       isOpen: false,
                       classValue:
                         "bg-gray-50 absolute top-0 right-0 h-screen w-0 transition-all ease-in-out duration-700 z-10 ",
-                  };
-              
+                    };
+
               setSideBarStyle(style);
             }}
             src={headerIcon}
           />
         </div>
-
       </div>
 
       {/* side bar */}
-      <div className={sideBarStyle.classValue + 'md:hidden'}
-      ></div>
+      <div
+        className={sideBarStyle.classValue + "md:hidden text-secondary text-lg"}
+      >
+        <Ul
+          list={[
+            {
+              heading: "",
+              links: ["Home", "Features", "Community", "Blog", "Pricing"],
+              ulStyle: "text-lg flex flex-col gap-y-[20px] mt-[50px] pl-[15px] text-secondary",
+            },
+          ]}
+        />
+      </div>
     </header>
   );
 }
-
-
 
 export default Header;

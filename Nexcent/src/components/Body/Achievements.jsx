@@ -6,6 +6,7 @@ const Achievements = () => {
       className="
         bg-silver py-11 my-9
       "
+      id="pricing"
     > 
       <div className="flex justify-around container mx-auto flex-wrap gap-y-8">
 

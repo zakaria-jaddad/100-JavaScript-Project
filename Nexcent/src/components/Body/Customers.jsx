@@ -5,7 +5,7 @@ import arrowRight from "/images/arrow-right.svg";
 
 const Customers = () => {
   return (
-    <section className="bg-silver py-6 my-9">
+    <section className="bg-silver py-6 my-9" id="blog">
       <div
         className="
       my-9
