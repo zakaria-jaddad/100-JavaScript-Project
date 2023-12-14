@@ -1,24 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Illustration from "../../ui/Illustration";
 import Button from "../../ui/Button";
+import useEffectAnimation from "../../IntersectionObserver/useEffectAnimation";
 
 const Unlock = ({ unlockIllustration, heading, subHeading }) => {
   const [isElementVisible, setIsElementVisible] = useState();
   const myRef = useRef();
 
-  useEffect(() => {
-    let oneTimeAnimationCounter = 0;
-
-    const observer = new IntersectionObserver((entries) => {
-      // this codition should be executed 2 times in the loading, and in scroll triggers
-      if (oneTimeAnimationCounter < 2) {
-        const entry = entries[0];
-        setIsElementVisible(entry.isIntersecting);
-        oneTimeAnimationCounter++;
-      }
-    });
-    observer.observe(myRef.current);
-  }, []);
+  useEffectAnimation({myRef: myRef, setIsElementVisible: setIsElementVisible})
 
   return (
     // image sesstion
@@ -35,9 +24,8 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
       "
     >
       <div
-        className={`flex justify-center items-center h-full ${
-          isElementVisible ? "animate-fadeInLeft" : ""
-        }`}
+        className={`flex justify-center items-center h-full animation-duration-1050 
+                  ${isElementVisible ? "animate-fadeInLeft" : ""}`}
       >
         <Illustration
           imageSrc={unlockIllustration}
@@ -48,9 +36,8 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
 
       {/* Unlock content */}
       <div
-        className={`flex flex-col justify-center gap-4 w-full lg:w-480 px-2 lg:px-0 ${
-          isElementVisible ? "animate-fadeInRight" : ""
-        }`}
+        className={`flex flex-col justify-center gap-4 w-full lg:w-480 px-2 lg:px-0 animation-duration-1050
+                  ${isElementVisible ? "animate-fadeInRight" : ""}`}
       >
         <div
           className="
