@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import communityupdates from "../data/communityupdates";
 import Illustration from "./Illustration";
 import arrowRight from "/images/arrow-right.svg";

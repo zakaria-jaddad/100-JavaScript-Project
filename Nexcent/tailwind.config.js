@@ -20,6 +20,8 @@ export default {
       }, 
       animation: {
         carusel: "carusel 08s linear infinite",
+        fadeInLeft: "fadeInLeft 1.5s linear",
+        fadeInRight: "fadeInRight 1.5s linear", 
       },
       keyframes: {
         carusel: {
@@ -27,7 +29,26 @@ export default {
           // "90%": { translate: "-100%" },
           "100%": { translate: "-100%" },
         },
-
+        fadeInLeft: {
+          '0%': {
+            opacity: '0%', 
+            translate: '-20px'
+          }, 
+          '100%': {
+            opacity: '100%', 
+            translate: '0px'
+          }
+        }, 
+        fadeInRight: {
+          '0%': {
+            opacity: '0%', 
+            translate: '20px'
+          }, 
+          '100%': {
+            opacity: '100%', 
+            translate: '0px'
+          }
+        }
       },
     },
   },

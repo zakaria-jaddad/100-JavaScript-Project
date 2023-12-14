@@ -1,11 +1,29 @@
+import { useEffect, useRef, useState } from "react";
 import Illustration from "../../ui/Illustration";
 import Button from "../../ui/Button";
 
-
 const Unlock = ({ unlockIllustration, heading, subHeading }) => {
+  const [isElementVisible, setIsElementVisible] = useState();
+  const myRef = useRef();
+
+  useEffect(() => {
+    let oneTimeAnimationCounter = 0;
+
+    const observer = new IntersectionObserver((entries) => {
+      // this codition should be executed 2 times in the loading, and in scroll triggers
+      if (oneTimeAnimationCounter < 2) {
+        const entry = entries[0];
+        setIsElementVisible(entry.isIntersecting);
+        oneTimeAnimationCounter++;
+      }
+    });
+    observer.observe(myRef.current);
+  }, []);
+
   return (
     // image sesstion
     <div
+      ref={myRef}
       className="
         flex
         justify-around
@@ -16,19 +34,24 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
         px-4 md:px-0
       "
     >
-      <Illustration imageSrc={unlockIllustration} imageAlt='Illustration' illustrationSyle={{'height': '301px', 'width': '320px'}} />
-      
+      <div
+        className={`flex justify-center items-center h-full ${
+          isElementVisible ? "animate-fadeInLeft" : ""
+        }`}
+      >
+        <Illustration
+          imageSrc={unlockIllustration}
+          imageAlt="Illustration"
+          illustrationStyle={{ height: "301px", width: "320px" }}
+        />
+      </div>
+
       {/* Unlock content */}
       <div
-        className="
-          flex
-          flex-col
-          justify-center
-          gap-4
-          w-full lg:w-480
-          px-2 lg:px-0
-        ">
-
+        className={`flex flex-col justify-center gap-4 w-full lg:w-480 px-2 lg:px-0 ${
+          isElementVisible ? "animate-fadeInRight" : ""
+        }`}
+      >
         <div
           className="
             flex
@@ -37,14 +60,16 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
             text-center lg:text-left
           "
         >
-          <h2 className=" text-heading-grey font-semibold text-2xl break-words w-11/12"> {heading} </h2>
+          <h2 className=" text-heading-grey font-semibold text-2xl break-words w-11/12">
+            {" "}
+            {heading}{" "}
+          </h2>
           <p className="text-line-grey text-xs"> {subHeading} </p>
         </div>
 
         {/* button  */}
-        <Button buttonContent='Learn More'/>
+        <Button buttonContent="Learn More" />
       </div>
-
     </div>
   );
 };
