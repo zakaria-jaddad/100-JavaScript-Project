@@ -46,7 +46,7 @@ const Achievements = () => {
           gap-x-5
         "
         >
-          <Counts />
+          <Counts isAchivementsVisible={isAchivementsVisible} />
         </div>
       </div>
     </section>
