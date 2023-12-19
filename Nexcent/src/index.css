@@ -1,14 +1,18 @@
-/* ! Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 /* tailwind  */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+/* ! Fonts */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf")
+}
+
+
 /* simpel body style */
 body {
-  font-family: Inter;
+  font-family: Inter ;
 }
 
 .animation-duration-75 {
@@ -29,21 +33,27 @@ body {
 .animation-duration-500 {
   animation-duration: 500ms;
 }
-.animation-duration-1000 {
-  animation-duration: 1000ms;
-}
 .animation-duration-700 {
   animation-duration: 700ms;
 }
-.animation-duration-1050 {
-  animation-duration: 1050ms;
+.animation-duration-1000 {
+  animation-duration: 1000ms;
+}
+.animation-duration-1500 {
+  animation-duration: 1500ms;
 }
 .animation-duration-2000 {
   animation-duration: 2000ms;
 }
-.animation-duration-2050 {
-  animation-duration: 2050ms;
+.animation-duration-2500 {
+  animation-duration: 2500ms;
 }
 .animation-duration-3000 {
   animation-duration: 3000ms;
+}
+.animation-duration-3500 {
+  animation-duration: 3500ms;
+}
+.animation-duration-4500 {
+  animation-duration: 4500ms;
 }

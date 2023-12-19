@@ -1,17 +1,32 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import communityupdates from "../data/communityupdates";
 import Illustration from "./Illustration";
 import arrowRight from "/images/arrow-right.svg";
+import useEffectAnimation from "../IntersectionObserver/useEffectAnimation";
 
-const CommunityUpdateFrame = ({ imageSrc, imageAlt, heading }) => {
+
+const CommunityUpdateFrame = ({
+  imageSrc,
+  imageAlt,
+  heading,
+  animationDuration = 1500,
+}) => {
+
+  let [frameIsVisible, setFrameIsVisible] = useState()
+  const myRef = useRef()
+
+  useEffectAnimation({myRef: myRef, setIsElementVisible: setFrameIsVisible})
   return (
     <div
-      className="
+      ref={myRef}
+      className={`
         flex
         flex-col
         justify-center
         items-center
-      "
+        animation-duration-${animationDuration}
+        ${frameIsVisible ? "animate-fadeInLeft" : ''}
+      `}
     >
       {/* image */}
       <Illustration
@@ -75,8 +90,16 @@ const CommunityUpdateFrame = ({ imageSrc, imageAlt, heading }) => {
 };
 
 const CommunityUpdateFrames = () => {
+  let animationDuration = 0;
+
   return communityupdates.map((communityupdate) => {
-    return <CommunityUpdateFrame {...communityupdate} />;
+    animationDuration += 1500;
+    return (
+      <CommunityUpdateFrame
+        {...communityupdate}
+        animationDuration={animationDuration}
+      />
+    );
   });
 };
 

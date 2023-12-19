@@ -24,7 +24,7 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
       "
     >
       <div
-        className={`flex justify-center items-center h-full animation-duration-1050 
+        className={`flex justify-center items-center h-full animation-duration-1500 
                   ${isElementVisible ? "animate-fadeInLeft" : ""}`}
       >
         <Illustration
@@ -36,7 +36,7 @@ const Unlock = ({ unlockIllustration, heading, subHeading }) => {
 
       {/* Unlock content */}
       <div
-        className={`flex flex-col justify-center gap-4 w-full lg:w-480 px-2 lg:px-0 animation-duration-1050
+        className={`flex flex-col justify-center gap-4 w-full lg:w-480 px-2 lg:px-0 animation-duration-1500
                   ${isElementVisible ? "animate-fadeInRight" : ""}`}
       >
         <div

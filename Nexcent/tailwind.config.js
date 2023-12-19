@@ -24,6 +24,8 @@ export default {
         carusel: "carusel 08s linear infinite",
         fadeInLeft: "fadeInLeft linear",
         fadeInRight: "fadeInRight linear",
+        showSideBar: "showSideBar 700ms ease-in-out forwards",
+        hideSideBar: "hideSideBar 700ms ease-in-out forwards",
       },
       keyframes: {
         carusel: {
@@ -50,6 +52,40 @@ export default {
             opacity: "100%",
             translate: "0px",
           },
+        },
+        showSideBar: {
+          from: {
+            visibility: "none",
+            paddingLeft: "30px",
+            marginTop: "50px",
+          },
+          "99%": {
+            right: "0%"
+          },
+          to: {
+            width: "40%",
+            paddingLeft: "30px",
+            marginTop: "50px",
+            fontSize: "16px"
+          },
+        },
+        hideSideBar: {
+          "0%": {
+            width: "40%",
+            paddingLeft: "30px",
+            marginTop: "50px",
+            fontSize: "16px"
+          }, 
+          "99%": {
+            right: "-40%"
+          },
+          "100%": {
+            width: "0px",
+            visibility: "hidden",
+            padding: "auto",
+            margin: "auto",
+            fontSize: "0px",
+          }
         },
       },
     },

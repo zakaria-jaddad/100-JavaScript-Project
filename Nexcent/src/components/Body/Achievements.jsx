@@ -16,7 +16,7 @@ const Achievements = () => {
   return (
     <section
       ref={achivementsSection}
-      className={`bg-silver py-11 my-9 animation-duration-1050 
+      className={`bg-silver py-11 my-9 animation-duration-1500 
                 ${isAchivementsVisible ? "animate-fadeInLeft" : ""}`}
       id="pricing"
     >

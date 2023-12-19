@@ -2,6 +2,7 @@ import logo from "/Logo-dark.svg";
 import arrowRight from "/images/arrow-right-white.svg";
 import burgerIcon from "../assets/burger-menu-right-svgrepo-com.svg";
 import closeIcone from "../assets/close.svg";
+import bars from "../data/bars";
 import Ul from "../ui/Ul";
 
 import { useState } from "react";
@@ -18,8 +19,7 @@ function Header() {
   let [headerIcon, setHeaderIcon] = useState(burgerIcon);
   let [sideBarStyle, setSideBarStyle] = useState({
     isOpen: false,
-    classValue:
-      "bg-gray-50 opacity-70 absolute top-0 right-0 h-screen w-0 transition-all ease-in-out duration-700 z-10 ",
+    animation: ""
   });
 
   return (
@@ -70,31 +70,18 @@ function Header() {
             md:flex
             "
         >
-          <div
-            className="
-            flex
-            justify-end
-            gap-6
-            w-full
-            h-12
-            text-base
-            "
-          >
-            <ul
-              className="
+          <div className="flex justify-end gap-6 w-full h-12 text-base">
+            <Ul
+              list={bars}
+              listStyle="
                 flex
                 items-center
                 gap-4
                 leading-4
                 text-center
+                h-full
               "
-            >
-              <Li title="Home" />
-              <Li title="Features" />
-              <Li title="Community" />
-              <Li title="Blog" />
-              <Li title="Pricing" />
-            </ul>
+            />
             <a
               className="
                 flex
@@ -145,13 +132,11 @@ function Header() {
                 sideBarStyle.isOpen === false
                   ? {
                       isOpen: true,
-                      classValue:
-                        "bg-gray-50 opacity-70 absolute top-0 right-0 h-screen w-2/5 transition-all ease-in-out duration-700 z-10 ",
+                      animation: "animate-showSideBar"
                     }
                   : {
                       isOpen: false,
-                      classValue:
-                        "bg-gray-50 absolute top-0 right-0 h-screen w-0 transition-all ease-in-out duration-700 z-10 ",
+                      animation: "animate-hideSideBar"
                     };
 
               setSideBarStyle(style);
@@ -163,16 +148,18 @@ function Header() {
 
       {/* side bar */}
       <div
-        className={sideBarStyle.classValue + "md:hidden text-secondary text-lg"}
+        className={`h-screen w-0 text-[0px] opacity-70 bg-silver absolute top-0 right-0 md:hidden text-secondary ${sideBarStyle.animation}`}
       >
         <Ul
-          list={[
-            {
-              heading: "",
-              links: ["Home", "Features", "Community", "Blog", "Pricing"],
-              ulStyle: "text-lg flex flex-col gap-y-[20px] mt-[50px] pl-[15px] text-secondary",
-            },
-          ]}
+          list={bars}
+          listStyle="
+                flex
+                flex-col
+                gap-8
+                leading-4
+                h-full
+                w-auto
+              "
         />
       </div>
     </header>
