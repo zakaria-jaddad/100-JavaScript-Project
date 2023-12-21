@@ -59,14 +59,14 @@ export default {
             marginTop: "50px",
           },
           "99%": {
-            right: "0%"
+            right: "0%",
           },
           to: {
             paddingLeft: "30px",
             width: "40%",
             paddingLeft: "30px",
             marginTop: "50px",
-            fontSize: "16px"
+            fontSize: "16px",
           },
         },
         hideSideBar: {
@@ -74,10 +74,10 @@ export default {
             width: "40%",
             paddingLeft: "30px",
             marginTop: "50px",
-            fontSize: "16px"
-          }, 
+            fontSize: "16px",
+          },
           "99%": {
-            right: "-40%"
+            right: "-40%",
           },
           "100%": {
             width: "0px",
@@ -85,7 +85,7 @@ export default {
             padding: "auto",
             margin: "auto",
             fontSize: "0px",
-          }
+          },
         },
       },
     },
