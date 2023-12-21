@@ -1,0 +1,175 @@
+/* Global Rules */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --text : #000 ;
+    --text-white : #fff ;
+    --primary-color: #8fb3ff ;
+    --primary-color-dark : #a3c4ff;
+    --secondary-color: #fff;
+    --grey-color : #b9b9b9 ;
+    --main-transition : .3s;
+    --error-color : #ff8f8f;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--primary-color);
+    width: 100vw;
+    height: 100vh;
+}
+/* Header */
+header > h1 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 60px;
+}
+header > h1::first-letter {
+    color: var(--text-white);
+}
+/* Container && medai queries things */
+.container {
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+/* ! Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* ! Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* ! Large  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Main Body Style */
+.container {
+    display: flex; 
+    align-items: center;
+}
+.container > main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.container main form {
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 75%;
+    padding: 20px;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+}
+.container main form > .inputs {
+    width: inherit;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.container main form > .inputs > .text-input {
+    /* for the svg button */
+    position: relative;
+    width: 100%;
+}
+.container main form > .inputs input, 
+.download-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px 15px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border: 1px solid var(--grey-color);
+    outline: none;
+}
+.container main form > .inputs input[type="text"] {
+    width: 100%;
+    font-size: 16px;
+    /* ove writing for cancel button */
+    padding-right: 23px;
+}
+.container main form > .inputs input[type="text"]::placeholder {
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    color: var(--grey-color);
+
+}
+.container main form > .inputs input[type="text"]:focus::placeholder {
+    color: var(--text-white);
+
+}
+.container main form > .inputs input[type="submit"], 
+.download-button {
+    width: fit-content;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: var(--text-white);
+    font-weight: bold;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.container main form > .inputs input[type="submit"]:hover {
+    background-color: var(--primary-color-dark);
+}
+.cancel  {
+    position: absolute;
+    fill: var(--grey-color);
+    width: 19px;
+    height: 19px;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+.error {
+    text-align: center;
+    font-size: 13px;
+    text-transform: capitalize;
+    color: var(--error-color);
+}
+.image-container > img {
+    margin-bottom: 10px;
+}
+.download-button {
+    display: none;
+    margin: auto;
+}

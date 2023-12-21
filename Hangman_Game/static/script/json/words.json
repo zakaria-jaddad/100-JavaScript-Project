@@ -1,0 +1,666 @@
+[
+    {
+        "word": "guitar",
+        "hint": "A musical instrument with strings."
+    },
+    {
+        "word": "oxygen",
+        "hint": "A colorless, odorless gas essential for life."
+    },
+    {
+        "word": "mountain",
+        "hint": "A large natural elevation of the Earth's surface."
+    },
+    {
+        "word": "painting",
+        "hint": "An art form using colors on a surface to create images or expression."
+    },
+    {
+        "word": "astronomy",
+        "hint": "The scientific study of celestial objects and phenomena."
+    },
+    {
+        "word": "football",
+        "hint": "A popular sport played with a spherical ball."
+    },
+    {
+        "word": "chocolate",
+        "hint": "A sweet treat made from cocoa beans."
+    },
+    {
+        "word": "butterfly",
+        "hint": "An insect with colorful wings and a slender body."
+    },
+    {
+        "word": "history",
+        "hint": "The study of past events and human civilization."
+    },
+    {
+        "word": "pizza",
+        "hint": "A savory dish consisting of a round, flattened base with toppings."
+    },
+    {
+        "word": "jazz",
+        "hint": "A genre of music characterized by improvisation and syncopation."
+    },
+    {
+        "word": "camera",
+        "hint": "A device used to capture and record images or videos."
+    },
+    {
+        "word": "diamond",
+        "hint": "A precious gemstone known for its brilliance and hardness."
+    },
+    {
+        "word": "adventure",
+        "hint": "An exciting or daring experience."
+    },
+    {
+        "word": "science",
+        "hint": "The systematic study of the structure and behavior of the physical and natural world."
+    },
+    {
+        "word": "bicycle",
+        "hint": "A human-powered vehicle with two wheels."
+    },
+    {
+        "word": "sunset",
+        "hint": "The daily disappearance of the sun below the horizon."
+    },
+    {
+        "word": "coffee",
+        "hint": "A popular caffeinated beverage made from roasted coffee beans."
+    },
+    {
+        "word": "dance",
+        "hint": "A rhythmic movement of the body often performed to music."
+    },
+    {
+        "word": "galaxy",
+        "hint": "A vast system of stars, gas, and dust held together by gravity."
+    },
+    {
+        "word": "orchestra",
+        "hint": "A large ensemble of musicians playing various instruments."
+    },
+    {
+        "word": "volcano",
+        "hint": "A mountain or hill with a vent through which lava, rock fragments, hot vapor, and gas are ejected."
+    },
+    {
+        "word": "novel",
+        "hint": "A long work of fiction, typically with a complex plot and characters."
+    },
+    {
+        "word": "sculpture",
+        "hint": "A three-dimensional art form created by shaping or combining materials."
+    },
+    {
+        "word": "symphony",
+        "hint": "A long musical composition for a full orchestra, typically in multiple movements."
+    },
+    {
+        "word": "architecture",
+        "hint": "The art and science of designing and constructing buildings."
+    },
+    {
+        "word": "ballet",
+        "hint": "A classical dance form characterized by precise and graceful movements."
+    },
+    {
+        "word": "astronaut",
+        "hint": "A person trained to travel and work in space."
+    },
+    {
+        "word": "waterfall",
+        "hint": "A cascade of water falling from a height."
+    },
+    {
+        "word": "technology",
+        "hint": "The application of scientific knowledge for practical purposes."
+    },
+    {
+        "word": "rainbow",
+        "hint": "A meteorological phenomenon that is caused by reflection, refraction, and dispersion of light."
+    },
+    {
+        "word": "universe",
+        "hint": "All existing matter, space, and time as a whole."
+    },
+    {
+        "word": "piano",
+        "hint": "A musical instrument played by pressing keys that cause hammers to strike strings."
+    },
+    {
+        "word": "vacation",
+        "hint": "A period of time devoted to pleasure, rest, or relaxation."
+    },
+    {
+        "word": "rainforest",
+        "hint": "A dense forest characterized by high rainfall and biodiversity."
+    },
+    {
+        "word": "theater",
+        "hint": "A building or outdoor area in which plays, movies, or other performances are staged."
+    },
+    {
+        "word": "telephone",
+        "hint": "A device used to transmit sound over long distances."
+    },
+    {
+        "word": "language",
+        "hint": "A system of communication consisting of words, gestures, and syntax."
+    },
+    {
+        "word": "desert",
+        "hint": "A barren or arid land with little or no precipitation."
+    },
+    {
+        "word": "sunflower",
+        "hint": "A tall plant with a large yellow flower head."
+    },
+    {
+        "word": "fantasy",
+        "hint": "A genre of imaginative fiction involving magic and supernatural elements."
+    },
+    {
+        "word": "telescope",
+        "hint": "An optical instrument used to view distant objects in space."
+    },
+    {
+        "word": "breeze",
+        "hint": "A gentle wind."
+    },
+    {
+        "word": "oasis",
+        "hint": "A fertile spot in a desert where water is found."
+    },
+    {
+        "word": "photography",
+        "hint": "The art, process, or practice of creating images by recording light or other electromagnetic radiation."
+    },
+    {
+        "word": "safari",
+        "hint": "An expedition or journey, typically to observe wildlife in their natural habitat."
+    },
+    {
+        "word": "planet",
+        "hint": "A celestial body that orbits a star and does not produce light of its own."
+    },
+    {
+        "word": "river",
+        "hint": "A large natural stream of water flowing in a channel to the sea, a lake, or another such stream."
+    },
+    {
+        "word": "tropical",
+        "hint": "Relating to or situated in the region between the Tropic of Cancer and the Tropic of Capricorn."
+    },
+    {
+        "word": "mysterious",
+        "hint": "Difficult or impossible to understand, explain, or identify."
+    },
+    {
+        "word": "enigma",
+        "hint": "Something that is mysterious, puzzling, or difficult to understand."
+    },
+    {
+        "word": "paradox",
+        "hint": "A statement or situation that contradicts itself or defies intuition."
+    },
+    {
+        "word": "puzzle",
+        "hint": "A game, toy, or problem designed to test ingenuity or knowledge."
+    },
+    {
+        "word": "whisper",
+        "hint": "To speak very softly or quietly, often in a secretive manner."
+    },
+    {
+        "word": "shadow",
+        "hint": "A dark area or shape produced by an object blocking the light."
+    },
+    {
+        "word": "secret",
+        "hint": "Something kept hidden or unknown to others."
+    },
+    {
+        "word": "curiosity",
+        "hint": "A strong desire to know or learn something."
+    },
+    {
+        "word": "unpredictable",
+        "hint": "Not able to be foreseen or known beforehand; uncertain."
+    },
+    {
+        "word": "obfuscate",
+        "hint": "To confuse or bewilder someone; to make something unclear or difficult to understand."
+    },
+    {
+        "word": "unveil",
+        "hint": "To make known or reveal something previously secret or unknown."
+    },
+    {
+        "word": "illusion",
+        "hint": "A false perception or belief; a deceptive appearance or impression."
+    },
+    {
+        "word": "moonlight",
+        "hint": "The light from the moon."
+    },
+    {
+        "word": "vibrant",
+        "hint": "Full of energy, brightness, and life."
+    },
+    {
+        "word": "nostalgia",
+        "hint": "A sentimental longing or wistful affection for the past."
+    },
+    {
+        "word": "brilliant",
+        "hint": "Exceptionally clever, talented, or impressive."
+    }, 
+    {
+        "word": "Apple",
+        "hint": "A fruit that is red or green and typically round in shape."
+    },
+    {
+        "word": "Banana",
+        "hint": "A long, curved fruit with yellow skin and soft, sweet flesh."
+    },
+    {
+        "word": "Pizza",
+        "hint": "A popular Italian dish made of dough, sauce, cheese, and various toppings."
+    },
+    {
+        "word": "Football",
+        "hint": "A team sport played with a spherical ball between two teams of eleven players."
+    },
+    {
+        "word": "Carrot",
+        "hint": "A long, orange vegetable that is often used in salads and cooking."
+    },
+    {
+        "word": "Spain",
+        "hint": "A European country known for its culture, food, and beautiful beaches."
+    },
+    {
+        "word": "Basketball",
+        "hint": "A team sport played with a ball and a hoop, where teams try to score points."
+    },
+    {
+        "word": "Guitar",
+        "hint": "A musical instrument with strings, often played by strumming or picking."
+    },
+    {
+        "word": "France",
+        "hint": "A European country famous for its cuisine, wine, and the Eiffel Tower."
+    },
+    {
+        "word": "Tennis",
+        "hint": "A racquet sport played on a rectangular court, typically between two players."
+    },
+    {
+        "word": "Chocolate",
+        "hint": "A sweet, brown food made from cacao beans, often used in desserts."
+    },
+    {
+        "word": "Dog",
+        "hint": "A common domesticated animal known for its loyalty and companionship."
+    },
+    {
+        "word": "Cat",
+        "hint": "A small, furry animal often kept as a pet, known for its independence."
+    },
+    {
+        "word": "Beach",
+        "hint": "A sandy or pebbly shore by the sea or a lake, often used for relaxation."
+    },
+    {
+        "word": "Mountains",
+        "hint": "Tall landforms with peaks and slopes, often popular for hiking and skiing."
+    },
+    {
+        "word": "Bicycle",
+        "hint": "A two-wheeled vehicle powered by pedals, commonly used for transportation."
+    },
+    {
+        "word": "Hamburger",
+        "hint": "A sandwich made with a cooked patty of ground meat typically in a bun."
+    },
+    {
+        "word": "Rainbow",
+        "hint": "A meteorological phenomenon that forms a spectrum of light in the sky."
+    },
+    {
+        "word": "Swimming",
+        "hint": "An activity in which people move through water using their arms and legs."
+    },
+    {
+        "word": "Book",
+        "hint": "A written or printed work consisting of pages, often used for reading."
+    },
+    {
+        "word": "Soccer",
+        "hint": "A popular team sport played with a ball and goalposts."
+    },
+    {
+        "word": "Piano",
+        "hint": "A musical instrument with keys that produce sounds when pressed."
+    },
+    {
+        "word": "Movie",
+        "hint": "A motion picture or film shown on a screen for entertainment."
+    },
+    {
+        "word": "Rain",
+        "hint": "Precipitation in the form of water droplets falling from the sky."
+    },
+    {
+        "word": "Dance",
+        "hint": "A series of rhythmic movements and steps often performed to music."
+    },
+    {
+        "word": "Sunflower",
+        "hint": "A tall, bright yellow flower with a large, round center."
+    },
+    {
+        "word": "Moon",
+        "hint": "The natural satellite of the Earth that orbits it."
+    },
+    {
+        "word": "Train",
+        "hint": "A connected series of railroad cars that transport people or goods."
+    },
+    {
+        "word": "Ocean",
+        "hint": "A vast body of saltwater that covers most of the Earth's surface."
+    },
+    {
+        "word": "Tree",
+        "hint": "A tall plant with a single woody stem and branches."
+    },
+    {
+        "word": "Rainforest",
+        "hint": "A dense jungle with high annual rainfall and high biodiversity."
+    },
+    {
+        "word": "Elephant",
+        "hint": "A large, herbivorous mammal with a long trunk and tusks."
+    },
+    {
+        "word": "Garden",
+        "hint": "An outdoor area where plants, flowers, and vegetables are grown."
+    },
+    {
+        "word": "Summer",
+        "hint": "The warmest season of the year, characterized by longer daylight hours."
+    },
+    {
+        "word": "Winter",
+        "hint": "The coldest season of the year, often with snow and freezing temperatures."
+    },
+    {
+        "word": "Cinema",
+        "hint": "A place where movies are shown to the public; a movie theater."
+    },
+    {
+        "word": "Lion",
+        "hint": "A large, carnivorous feline with a majestic mane."
+    },
+    {
+        "word": "Cupcake",
+        "hint": "A small, sweet cake often decorated with frosting and sprinkles."
+    },
+    {
+        "word": "Rainbow",
+        "hint": "A meteorological phenomenon that forms a spectrum of light in the sky."
+    },
+    {
+        "word": "Swimming",
+        "hint": "An activity in which people move through water using their arms and legs."
+    },
+    {
+        "word": "Book",
+        "hint": "A written or printed work consisting of pages, often used for reading."
+    },
+    {
+        "word": "Soccer",
+        "hint": "A popular team sport played with a ball and goalposts."
+    },
+    {
+        "word": "Piano",
+        "hint": "A musical instrument with keys that produce sounds when pressed."
+    },
+    {
+        "word": "Movie",
+        "hint": "A motion picture or film shown on a screen for entertainment."
+    },
+    {
+        "word": "Rain",
+        "hint": "Precipitation in the form of water droplets falling from the sky."
+    },
+    {
+        "word": "Dance",
+        "hint": "A series of rhythmic movements and steps often performed to music."
+    },
+    {
+        "word": "Ice Cream",
+        "hint": "A frozen dessert made from dairy products, sugar, and flavorings."
+    },
+    {
+        "word": "Sunflower",
+        "hint": "A tall, bright yellow flower with a large, round center."
+    },
+    {
+        "word": "Moon",
+        "hint": "The natural satellite of the Earth"
+    }, 
+    {
+        "word": "Train",
+        "hint": "A connected series of railroad cars that transport people or goods."
+    },
+    {
+        "word": "Ocean",
+        "hint": "A vast body of saltwater that covers most of the Earth's surface."
+    },
+    {
+        "word": "Tree",
+        "hint": "A tall plant with a single woody stem and branches."
+    },
+    {
+        "word": "Rainforest",
+        "hint": "A dense jungle with high annual rainfall and high biodiversity."
+    },
+    {
+        "word": "Elephant",
+        "hint": "A large, herbivorous mammal with a long trunk and tusks."
+    },
+    {
+        "word": "Garden",
+        "hint": "An outdoor area where plants, flowers, and vegetables are grown."
+    },
+    {
+        "word": "Summer",
+        "hint": "The warmest season of the year, characterized by longer daylight hours."
+    },
+    {
+        "word": "Winter",
+        "hint": "The coldest season of the year, often with snow and freezing temperatures."
+    },
+    {
+        "word": "Cinema",
+        "hint": "A place where movies are shown to the public; a movie theater."
+    },
+    {
+        "word": "Lion",
+        "hint": "A large, carnivorous feline with a majestic mane."
+    },
+    {
+        "word": "Cupcake",
+        "hint": "A small, sweet cake often decorated with frosting and sprinkles."
+    },
+    {
+        "word": "Moon",
+        "hint": "The natural satellite of the Earth that orbits it."
+    },
+    {
+        "word": "Coffee",
+        "hint": "A popular caffeinated beverage made from roasted coffee beans."
+    },
+    {
+        "word": "Forest",
+        "hint": "A large area covered chiefly with trees and undergrowth."
+    },
+    {
+        "word": "Sunny",
+        "hint": "Having bright sunlight; clear and cloudless."
+    },
+    {
+        "word": "River",
+        "hint": "A large, flowing body of water that usually empties into a sea or ocean."
+    },
+    {
+        "word": "Dolphin",
+        "hint": "A highly intelligent marine mammal known for its playful behavior."
+    },
+    {
+        "word": "Library",
+        "hint": "A place where books and other materials are available for borrowing or reading."
+    },
+    {
+        "word": "Mountain",
+        "hint": "A tall landform with peaks and slopes, often popular for hiking and skiing."
+    },
+    {
+        "word": "Singing",
+        "hint": "Producing musical sounds with the voice."
+    },
+    {
+        "word": "Chocolate",
+        "hint": "A sweet, brown food made from cacao beans, often used in desserts."
+    },
+    {
+        "word": "Robot",
+        "hint": "A machine capable of carrying out tasks automatically or with remote control."
+    },
+    {
+        "word": "Adventure",
+        "hint": "An exciting or unusual experience or journey."
+    },
+    {
+        "word": "Ocean",
+        "hint": "A vast body of saltwater that covers most of the Earth's surface."
+    },
+    {
+        "word": "Hiking",
+        "hint": "A recreational activity of walking or trekking in natural environments."
+    },
+    {
+        "word": "Island",
+        "hint": "A piece of land completely surrounded by water."
+    },
+    {
+        "word": "Magic",
+        "hint": "The power to influence events using supernatural forces or tricks."
+    },
+    {
+        "word": "Squirrel",
+        "hint": "A small, agile rodent known for collecting and storing nuts."
+    },
+    {
+        "word": "Daisy",
+        "hint": "A common flower with white petals and a yellow center."
+    },
+    {
+        "word": "Fishing",
+        "hint": "The activity of catching fish, typically as a hobby or for food."
+    },
+    {
+        "word": "Sunset",
+        "hint": "The time when the sun disappears below the horizon in the evening."
+    },
+    {
+        "word": "Moon",
+        "hint": "The natural satellite of the Earth that orbits it."
+    },
+    {
+        "word": "Coffee",
+        "hint": "A popular caffeinated beverage made from roasted coffee beans."
+    },
+    {
+        "word": "Forest",
+        "hint": "A large area covered chiefly with trees and undergrowth."
+    },
+    {
+        "word": "Sunny",
+        "hint": "Having bright sunlight; clear and cloudless."
+    },
+    {
+        "word": "River",
+        "hint": "A large, flowing body of water that usually empties into a sea or ocean."
+    },
+    {
+        "word": "Dolphin",
+        "hint": "A highly intelligent marine mammal known for its playful behavior."
+    },
+    {
+        "word": "Library",
+        "hint": "A place where books and other materials are available for borrowing or reading."
+    },
+    {
+        "word": "Mountain",
+        "hint": "A tall landform with peaks and slopes, often popular for hiking and skiing."
+    },
+    {
+        "word": "Singing",
+        "hint": "Producing musical sounds with the voice."
+    },
+    {
+        "word": "Chocolate",
+        "hint": "A sweet, brown food made from cacao beans, often used in desserts."
+    },
+    {
+        "word": "Robot",
+        "hint": "A machine capable of carrying out tasks automatically or with remote control."
+    },
+    {
+        "word": "Adventure",
+        "hint": "An exciting or unusual experience or journey."
+    },
+    {
+        "word": "Ocean",
+        "hint": "A vast body of saltwater that covers most of the Earth's surface."
+    },
+    {
+        "word": "Hiking",
+        "hint": "A recreational activity of walking or trekking in natural environments."
+    },
+    {
+        "word": "Island",
+        "hint": "A piece of land completely surrounded by water."
+    },
+    {
+        "word": "Magic",
+        "hint": "The power to influence events using supernatural forces or tricks."
+    },
+    {
+        "word": "Squirrel",
+        "hint": "A small, agile rodent known for collecting and storing nuts."
+    },
+    {
+        "word": "Daisy",
+        "hint": "A common flower with white petals and a yellow center."
+    },
+    {
+        "word": "Fishing",
+        "hint": "The activity of catching fish, typically as a hobby or for food."
+    },
+    {
+        "word": "Sunset",
+        "hint": "The time when the sun disappears below the horizon in the evening."
+    },
+    {
+        "word": "Tiger",
+        "hint": "A large, carnivorous feline known for its distinctive orange coat with black stripes."
+    }
+]
