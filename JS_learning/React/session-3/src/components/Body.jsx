@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Items from "../ui/Items";
 
 
-const Body = () => {
+const Body = (props) => {
   return (
     <div>
-      <Items />
+      <Items {...props} />
     </div>
   );
 };
