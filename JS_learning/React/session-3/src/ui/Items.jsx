@@ -14,12 +14,14 @@ const Items = ({ query }) => {
   }, []);
 
   return products.map((product) => {
-    for (let i = 0; i < query.length; i++) {
-      if (query[i] !== product.category[i].toLowerCase()) {
-        return null;
-      }
+    const productTitle = product.category;
+
+    if (productTitle.includes(query)) {
+      return <Item {...product} key={product.id} />;
     }
-    return <Item {...product} key={product.id} />;
+    else {
+      return null
+    }
   });
 };
 
