@@ -5,3 +5,7 @@
 .slides-container {
     height: calc(100vh - 74px);
 }
+.arrow-right {
+    padding: 15px 10px;
+    background-color: red;
+}
