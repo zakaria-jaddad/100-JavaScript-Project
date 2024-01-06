@@ -26,8 +26,9 @@ const Carousel = () => {
 
   const Slides = carouselData.map((Slide, SlideIndex) => {
     return (
-      <div key={SlideIndex} className="slides-container">
+      <div key={SlideIndex} className="h-auto lg:h-screen">
         <img
+          className="h-auto w-full lg:h-full"
           src={Slide.imageSrc}
           alt={Slide.imageAlt}
         />
