@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.slides-container {
-    height: calc(100vh - 74px);
-}
 .arrow-right {
     padding: 15px 10px;
     background-color: red;
+}
+.slick-prev {
+    left: 3% !important;
+    z-index: 1;
+  }
+.slick-next {
+right: 3% !important;
+z-index: 1;
+}
+.slick-arrow::before, 
+.slick-arrow::after {
+    display: none !important;
 }
