@@ -1,6 +1,13 @@
 import { useState } from "react";
-const Category = ({ category }) => {
+
+const Category = ({ category, onCategoryClick }) => {
+
   const [categoryStyle, setCategoryStyle] = useState({isActive: 0, classStyle: ""})
+
+  const handelCategoryClicked = ({category, isActive}) => {
+    onCategoryClick({category, isActive});
+  }
+
   return (
     <div
       className={`
@@ -15,9 +22,12 @@ const Category = ({ category }) => {
         ${categoryStyle.classStyle}
       `}
       onClick={() => {
+        
         categoryStyle.isActive === 1 
-          ? setCategoryStyle({isActive: 0, classStyle: ""}) // inactive 
-          : setCategoryStyle({isActive: 1, classStyle: "bg-blue-500 text-white"}) // active
+        ? setCategoryStyle({isActive: 0, classStyle: ""}) // inactive 
+        : setCategoryStyle({isActive: 1, classStyle: "bg-blue-500 text-white"}) // active
+        
+        handelCategoryClicked({category, isActive: categoryStyle.isActive});
         
       }}
     >{category}</div>

@@ -20,11 +20,11 @@ const Product = ({title, price, category, description, image}) => {
             <div className="text-lg font-semibold text-black-500">{`$${price}`}</div>
           </div>
 
-            <div class="w-full flex-none  font-medium text-black-700 mt-2">
+            <div className="w-full flex-none  font-medium text-black-700 mt-2">
                 {`category: ${category}`}
             </div>
             <br />
-            <div class="w-full flex-none  font-medium text-black-700 mt-2">
+            <div className="w-full flex-none  font-medium text-black-700 mt-2">
                 {description}
             </div>
 
