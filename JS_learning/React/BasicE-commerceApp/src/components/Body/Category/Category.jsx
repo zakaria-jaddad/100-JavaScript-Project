@@ -18,6 +18,7 @@ const Category = ({ category }) => {
         categoryStyle.isActive === 1 
           ? setCategoryStyle({isActive: 0, classStyle: ""}) // inactive 
           : setCategoryStyle({isActive: 1, classStyle: "bg-blue-500 text-white"}) // active
+        
       }}
     >{category}</div>
   );  
