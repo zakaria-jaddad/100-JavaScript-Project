@@ -15,16 +15,16 @@ const Products = ({ selectedCategory }) => {
   }, []);
 
   const productsList = products.map((product) => {
-    
-    return selectedCategory.includes(product.category) === true || selectedCategory.length === 0
-      ? <Product {...product} key={product.id} />
-      : null;
+    return selectedCategory.includes(product.category) === true ||
+      selectedCategory.length === 0 ? (
+      <Product {...product} key={product.id} />
+    ) : null;
   });
 
   return (
     <div
       className="
-      flex gap-[40px] flex-col
+        flex gap-[40px] flex-col
       "
     >
       {productsList}

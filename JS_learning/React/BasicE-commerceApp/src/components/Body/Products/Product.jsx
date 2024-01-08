@@ -27,10 +27,16 @@ const Product = ({title, price, category, description, image}) => {
             <div className="w-full flex-none  font-medium text-black-700 mt-2">
                 {description}
             </div>
-
+            <div className="w-full flex-none  font-medium text-black-700 my-3">
+            <button
+              className="min-w-[140px] px-[17px] transition-all duration-300 text-white border-[2px] border-solid border-black"
+            >Add To Card</button>
+            </div>
         </form>
       </div>
     </div>
   );
 };
 export default Product;
+
+
