@@ -40,7 +40,7 @@ async function addProduct(productInformations) {
 async function removeProduct(productInformations) {
   try {
     const response = await fetch(
-      `http://localhost:9000/wishlist/id=${productInformations.id}`,
+      `http://localhost:9000/wishlist/${productInformations.id}`,
       {
         headers: { "Content-Type": "application/json" },
         method: "DELETE",
