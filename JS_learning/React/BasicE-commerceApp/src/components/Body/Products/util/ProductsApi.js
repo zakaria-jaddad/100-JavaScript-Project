@@ -1,7 +1,7 @@
 
 export default async function getProducts() {
   try {
-    const request = await fetch("https://fakestoreapi.com/products", {
+    const request = await fetch("http://localhost:9000/products", {
       method: "GET",
     });
 

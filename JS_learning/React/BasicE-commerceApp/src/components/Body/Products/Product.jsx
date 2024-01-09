@@ -1,9 +1,31 @@
-import { useState } from "react";
-import { addProductToWishList, removeProductFromWishList } from "./util/wishList";
+import { useEffect, useState } from "react";
+import {
+  addProductToWishlist,
+  removeProductFromWishlist,
+} from "./util/wishList";
 
+const Product = ({
+  id,
+  title,
+  price,
+  category,
+  description,
+  image,
+  rating,
+  isWishList,
+}) => {
 
-const Product = ({ title, price, category, description, image }) => {
-  const [isButtonActive, setIsActiveButton] = useState(false);
+  const [isProductInWishList, setIsProductInWishList] = useState(isWishList);
+  const productInformations = {
+    id,
+    title,
+    price,
+    category,
+    description,
+    image,
+    rating, 
+    isWishList,
+  };
 
   return (
     <div className="flex items-center justify-center bg-white w-[80%] mx-auto">
@@ -34,18 +56,17 @@ const Product = ({ title, price, category, description, image }) => {
             <button
               className={` 
                 min-w-[140px] h-[48px] px-[17px] transition-all duration-30 border-[2px] border-solid ${
-                  isButtonActive === true
+                  isProductInWishList === true
                     ? "border-[#06f] text-[#06f]"
                     : "border-black text-black"
                 } 
-                focus:text-[#171e29]
                 hover:border-[#06f] hover:text-[#06f] hover:fill-[#06f]
               `}
-              onClick={(event) => {
+              onClick={async (event) => {
                 event.preventDefault();
-                isButtonActive === true
-                  ? removeProductFromWishList(setIsActiveButton)
-                  : addProductToWishList(setIsActiveButton)
+                isProductInWishList === true
+                  ? setIsProductInWishList(await removeProductFromWishlist(productInformations))
+                  : setIsProductInWishList(await addProductToWishlist(productInformations))
               }}
             >
               Add To Card
@@ -57,9 +78,3 @@ const Product = ({ title, price, category, description, image }) => {
   );
 };
 export default Product;
-
-// @media (min-width: 768px) {
-//   .button-59 {
-//     min-width: 170px;
-//   }
-// }
