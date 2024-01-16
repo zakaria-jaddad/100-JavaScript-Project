@@ -1,10 +1,18 @@
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Body from "./components/Body";
+import Home from "./pages/Home";
+import Wishlist from "./pages/Wishlist";
+
 function App() {
   return (
     <main className="relative">
       <Header />       
-      <Body />
+      
+      {/* Routing */}
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/wishlist" element={<Wishlist />} />
+      </Routes>
     </main>
   );
 }

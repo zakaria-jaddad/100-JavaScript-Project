@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import wishlist from "/images/header/shopping-cart.svg";
+
 const NavBar = () => {
   return (
     <div className="w-[600px] ">
@@ -10,9 +12,9 @@ const NavBar = () => {
           <a href="">Press Me</a>
         </li>
         <li>
-          <a href="">
+          <Link to="/wishlist">
             <img className="w-[30px] h-[30px]" src={wishlist} alt="shooping card" />
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

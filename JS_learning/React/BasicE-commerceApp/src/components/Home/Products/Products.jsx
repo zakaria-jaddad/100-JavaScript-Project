@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import getProducts from "./util/ProductsApi";
-import Product from "./Product";
+import Product from "../../../ui/Product/Product";
 
 const Products = ({ selectedCategory }) => {
   const [products, setProducts] = useState([]);

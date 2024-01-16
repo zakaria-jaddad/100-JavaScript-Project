@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Carousel from "./Carousel/Carousel";
 import Categories from "./Category/Categories";
 import Products from "./Products/Products";
 import productsFilter from "./Products/util/productsFilter";
 
-const Body = () => {
+const HomeWrapper = () => {
   const [selectedCategory, setSelectedCategory] = useState([]);
 
   /*
@@ -33,4 +33,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default HomeWrapper; 

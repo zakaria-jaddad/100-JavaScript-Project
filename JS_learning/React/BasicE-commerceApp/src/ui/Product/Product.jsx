@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   addProductToWishlist,
   removeProductFromWishlist,
-} from "./util/wishList";
+} from "./util/productWishList";
 
 const Product = ({
   id,
@@ -14,7 +14,6 @@ const Product = ({
   rating,
   isWishList,
 }) => {
-
   const [isProductInWishList, setIsProductInWishList] = useState(isWishList);
   const productInformations = {
     id,
@@ -23,7 +22,7 @@ const Product = ({
     category,
     description,
     image,
-    rating, 
+    rating,
     isWishList,
   };
 
@@ -65,8 +64,12 @@ const Product = ({
               onClick={async (event) => {
                 event.preventDefault();
                 isProductInWishList === true
-                  ? setIsProductInWishList(await removeProductFromWishlist(productInformations))
-                  : setIsProductInWishList(await addProductToWishlist(productInformations))
+                  ? setIsProductInWishList(
+                      await removeProductFromWishlist(productInformations)
+                    )
+                  : setIsProductInWishList(
+                      await addProductToWishlist(productInformations)
+                    );
               }}
             >
               Add To Card
