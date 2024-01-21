@@ -1,32 +1,18 @@
-import { useDispatch, useSelector, useStore } from "react-redux";
-// import { deposit, withdrow } from "./store/actions/banck-actions";
-import Products from "./components/products";
-import { deposit, withdraw } from "./redux-tool-kit/slices/bankSlice";
+import NavApp from "./components/NavApp";
+import Cart from "./Pages/Cart";
+import Products from "./Pages/Products";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
-  const state = useSelector((state) => state.bank);
-  const dispatch = useDispatch();
 
+export default function App() {
   return (
-    <div>
-      <h1>Bank Account Balance: {state}</h1>
-      <button
-        onClick={() => {
-          dispatch(withdraw(100));
-        }}
-      >
-        Withdorw
-      </button>
-      <button
-        onClick={() => {
-          dispatch(deposit(100));
-        }}
-      >
-        Deposit
-      </button>
-      <Products />
-    </div>
-  );
-}
+    <>
+      <NavApp />
+      <Routes>
+        <Route path="/" element={<Products />} />
+        <Route path="/card" element={<Cart />} />
+      </Routes>
 
-export default App;
+    </>
+  )
+}
