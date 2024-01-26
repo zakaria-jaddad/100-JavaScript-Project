@@ -1,0 +1,104 @@
+@import './main.css' ;
+
+
+/* what is wrong with this  */
+
+
+.error-alert {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    background: var(--alert-background-color);
+
+
+}
+
+.error-alert {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.alert-content {
+
+    border-radius: var(--radius);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+
+    padding: var(--main-padding);
+    background-color: white;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--main-padding);
+
+    width: 75%;
+}
+
+.alert-content > .alert-icon {
+
+    display: flex;
+    justify-content: center;
+}
+
+.alert-content > .alert-icon  > img {
+
+    max-width: 75%;
+
+}
+
+.error-message {
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+
+}
+
+.enable-location {
+    font-size: 1.3rem;
+    cursor: pointer;
+    width: fit-content;
+    padding: 7px 15px;
+    background-color: var(--sub-text-color);
+    color: var(--text-color);
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.enable-location:hover {
+
+    background-color: var(--background-color);
+
+}
+
+
+
+
+/* styles for javascript  */
+.d-n {
+    display: none;
+}
+
+.ov-hidden {
+    overflow: hidden;
+}

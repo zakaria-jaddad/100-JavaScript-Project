@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Code Generator</title>
+    <!-- main css file -->
+    <link rel="stylesheet" href="./static/styles/main.css">
+    <link rel="icon" href="./static/Qr_Image.jpg">
+    <script src="./static/script/fileSaver.js"></script>
+    <!-- main script file -->
+    <script src="./static/script/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>
+            Qr Code Generator
+        </h1>
+    </header>
+    <div class="container">
+        <main>
+            <form action="" id="qr-form">
+                <div class="inputs">
+                    <div class="text-input">
+                        <input type="text" id="user-input" placeholder="Enter URL or Text" autocomplete="off" autofocus>
+                        <svg class="cancel" id="cancel" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </div>
+                    <div id="error" class="error"></div>
+                    <input type="submit" value="Generate" id="submit" disabled>
+                </div>
+                <div class="content">
+                    <span id="error"></span>
+                    <!-- something here img -->
+                    <div class="image-container">
+                        <img src="" alt="" id="qr-image">
+                        <button id="download-image" class="download-button">Download</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

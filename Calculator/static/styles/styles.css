@@ -1,0 +1,126 @@
+/* Start Global Rules */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --text : #040559 ;
+    --text-white : #fff;
+    --background-color : #fff0e4;
+    --first-color : #655ac9;
+    --second-color : #b0abe8;
+    --opperation-color : #ffba5d;
+    --margin-bottom : 20px;
+    --main-transition : .3s;
+}
+body {
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
+}
+.container {
+    height: 100%;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+/* ! Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* ! Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* ! Large  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+
+/* Start Main Style */
+/* header */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.container > header > h1.title {
+    color: var(--text);
+    background-color: var(--text-white);
+    border: 2px solid var(--text);
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 10px 15px;
+}
+.container > header > h1.title > span {
+    text-transform: uppercase;
+}
+/* Calculator */
+.container > main.calculator {
+    width: 356px;
+    display: grid;
+    grid-template-columns: repeat(4, calc(25% - 10px));
+    row-gap: 15px;
+    padding: 20px;
+    background-color: var(--first-color);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    justify-content: space-between;
+}
+.container > main.calculator > div {
+    height: 56.25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--second-color);
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
+}
+.container > main.calculator > div.input {
+    cursor: pointer;
+}
+.container > main.calculator > div {
+    color: var(--text-white);
+    font-size: 35px;
+}
+.container > main.calculator > div.clear {
+    font-weight: lighter;
+}
+.container > main.calculator > div.yellow {
+    background-color: var(--opperation-color);
+}
+.container > main.calculator > .output {
+    max-width: 100%;
+    background-color: var(--text-white);
+    color: var(--text);
+    justify-content: flex-end;
+    grid-column: span 3;
+    padding: 10px;
+    overflow-y: scroll;
+}
+/* End Main Style */

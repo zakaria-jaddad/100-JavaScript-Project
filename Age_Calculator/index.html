@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Age calculator app</title>
+    
+    <!-- Main Styles File -->
+    <link rel="stylesheet" href="./assets/styles/main.css">
+
+    <!-- Main Script File -->
+    <script src="./assets/script/main.js" defer type="Module"></script>
+
+    <!-- Date Script file -->
+    <script src="./assets//script/date.js" defer></script>
+
+</head>
+<body>
+
+  <header>
+    <div class="title">
+      Age Calculator
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="age-colculator-sub-container">
+      <div class="age-calculator">
+        <div class="user-inputs">
+          <div class="input-container" id="day-input-container">
+            <span class="label">day</span>
+            <input type="number" placeholder="dd" autocomplete="off" id="day" class="input">
+          </div>
+          <div class="input-container" id="month-input-container">
+            <span class="label">month</span>
+            <input type="number" placeholder="mm" autocomplete="off" id="month" class="input">
+          </div>
+          <div class="input-container" id="year-input-container">
+            <span class="label">year</span>
+            <input type="number" placeholder="yyyy" autocomplete="off" id="year" class="input">
+          </div>
+          <span class="error" id="err">must be a valid date</span>
+          <button id="submit" class="submit-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+          </button>
+        </div>
+        <div class="output">
+          <p><span id="year-output">- -</span> year</p>
+          <p><span id="month-output">- -</span> month</p>
+          <p><span id="day-output">- -</span> day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="current-time" id="date"></div>
+  </footer>
+</body>
+</html>

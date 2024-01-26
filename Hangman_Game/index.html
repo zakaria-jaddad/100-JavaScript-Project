@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./static/images/hangman.png">
+    <title>Hangman Game</title>
+
+    <!-- main style file -->
+    <link rel="stylesheet" href="./static/styles/styles.css">
+
+    <!-- main JS file -->
+    <script src="./static/script/main.js"></script>
+</head>
+<body>
+    <div class="user-alert lost" id="alert-message">
+        <div class="content">
+            <div class="image">
+                <img src="./static/images/lost.gif" alt="victory">
+            </div>
+            <b>It's ok just try again</b>
+            <button id="try-again">play again</button>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="hangman-box" id="hangman-image-box">
+            <img src="./static/images/hangman-0.svg" alt="hungman-image" data-hangmanimagenumber="0">
+            <h1>hangman game</h1>
+        </div>
+        <div class="game-box">
+            <div class="content-box">
+                <div class="word-display" id="letters-container" data-word="" data-wordlength="0">
+                </div>
+                <div class="hint" id="hint-container">Hint : </div>
+                <div class="icorrect-gusses">Incorrect guesses: <span class="gusses-counter" id="icorrect-gusses-counter">0</span> <span style="color: red;">/</span> <span class="gusses-count">6</span> </div>
+            </div>
+            <div class="keyboard" id="buttons-container">
+                <button data-value="a" id="a">a</button>
+                <button data-value="b" id="b">b</button>
+                <button data-value="c" id="c">c</button>
+                <button data-value="d" id="d">d</button>
+                <button data-value="e" id="e">e</button>
+                <button data-value="f" id="f">f</button>
+                <button data-value="g" id="g">g</button>
+                <button data-value="h" id="h">h</button>
+                <button data-value="i" id="i">i</button>
+                <button data-value="j" id="j">j</button>
+                <button data-value="k" id="k">k</button>
+                <button data-value="l" id="l">l</button>
+                <button data-value="m" id="m">m</button>
+                <button data-value="n" id="n">n</button>
+                <button data-value="o" id="o">o</button>
+                <button data-value="p" id="p">p</button>
+                <button data-value="q" id="q">q</button>
+                <button data-value="r" id="r">r</button>
+                <button data-value="s" id="s">s</button>
+                <button data-value="t" id="t">t</button>
+                <button data-value="u" id="u">u</button>
+                <button data-value="v" id="v">v</button>
+                <button data-value="w" id="w">w</button>
+                <button data-value="x" id="x">x</button>
+                <button data-value="y" id="y">y</button>
+                <button data-value="z" id="z">z</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

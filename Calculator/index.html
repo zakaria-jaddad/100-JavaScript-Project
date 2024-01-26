@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./static/Calculator.png">
+    <title>Calculator</title>
+    <!-- main styles file -->
+    <link rel="stylesheet" href="./static/styles/styles.css">
+
+    <!-- main JS file -->
+    <script src="./static/script/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title"><span>html</span> calculator code</h1>
+        </header>
+        <main class="calculator">
+            <div class="output" id="output" data-opperation="">0</div>
+            <!-- buttons -->
+            <div class="input yellow opperation" id="/" data-value="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-divide"><circle cx="12" cy="6" r="2"></circle><line x1="5" y1="12" x2="19" y2="12"></line><circle cx="12" cy="18" r="2"></circle></svg>
+            </div>
+            <div class="input number" id="1" data-value="1">
+                1
+            </div>
+            <div class="input number" id="2" data-value="2">
+                2
+            </div>
+            <div class="input number" id="3" data-value="3">
+                3
+            </div>
+            <div class="input yellow opperation" id="+" data-value="+">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="input number" id="4" data-value="4">
+                4
+            </div>
+            <div class="input number" id="5" data-value="5">
+                5
+            </div>
+            <div class="input number" id="6" data-value="6">
+                6
+            </div>
+            <div class="input yellow opperation" id="*" data-value="*">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+            <div class="input number" id="7" data-value="7">
+                7
+            </div>
+            <div class="input number" id="8" data-value="8">
+                8
+            </div>
+            <div class="input number" id="9" data-value="9">
+                9
+            </div>
+            <div class="input yellow opperation" id="-" data-value="-">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </div>
+            <div class="input clear yellow opperation" id="ac">
+                AC
+            </div>
+            <div class="input number" id="0" data-value="0">
+                0
+            </div>
+            <div class="input dot yellow" id="." data-value=".">
+                . 
+            </div>
+            <div class="input equeal yellow opperation" id="=" data-value="=">
+                =
+            </div>
+        </main>
+    </div>
+</body>
+</html>

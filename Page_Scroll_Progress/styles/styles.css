@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --primary-color : #3b444b ;
+    --second-color : #a6ecfa;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--primary-color);
+    width: 100vw;
+
+    /* 
+        the site could be what ever height it is 
+        this is just a plaveholder to work with
+    */
+    height: 700vh;
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position */
+    position: relative;
+}
+.container {
+    background-color: var(--second-color);
+    padding: 15px 20px;
+    text-transform: capitalize;
+}
+
+/* slider */
+.slider {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+}
+.slider > span {
+    background-color: var(--second-color);
+    display: block;
+    height: 100%;
+}

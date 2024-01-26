@@ -1,0 +1,263 @@
+/* 
+    Global rules
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Open+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Poppins ;
+    background-color: var(--body-color);
+    position: relative;
+
+}
+
+:root {
+    --main-color : #854dff;
+    --second-color : #fff ; 
+    --body-color : #eee;
+    --text-color : #000;
+    --padding : 40px ;
+    --smokey-grey : #716f6f ;
+    --error-color : red  ;
+}
+
+/* Styles container styles */
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+} 
+/* ! Z Small */
+@media (max-width : 768px) {
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+}
+/* ! Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* ! Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* ! Large  */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End container styles */
+
+/* 
+    Start Main Style
+*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 140px);
+}
+.age-colculator-sub-container {
+    background: var(--main-color);
+    max-width: 600px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.age-colculator-sub-container > .age-calculator {
+    background-color: var(--second-color);
+    padding: 40px;
+    border-radius: 35px 35px 200px 35px;
+    -webkit-border-radius: 35px 35px 200px 35px;
+    -moz-border-radius: 35px 35px 200px 35px;
+    -ms-border-radius: 35px 35px 200px 35px;
+    -o-border-radius: 35px 35px 200px 35px;
+}
+.user-inputs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    gap: 15px;
+    position: relative;
+    padding-bottom: var(--padding);
+    border-bottom: 1px solid #dbdbdb;
+}
+@media (max-width : 768px) {
+    .user-inputs {
+        grid-template-columns: repeat(3, 30.33%);
+        gap: 10px;
+    }
+}
+.user-inputs > .input-container > .label {
+    text-transform: uppercase;
+    color: var(--smokey-grey);
+    font-size: 13px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+.user-inputs > .input-container > input {
+    width: 100%;
+    height: 40px;
+    font-size: 1.5rem;
+    padding-left: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border: 1px solid var(--smokey-grey);
+}
+/* hiding the arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+@media (max-width : 768px) {
+    .user-inputs > .input-container > input {
+        padding-left: 8px;
+    }
+}
+.user-inputs > .input-container > input::placeholder {
+    text-transform: uppercase;
+}
+.user-inputs > .input-container > input:focus {
+    outline-color: var(--main-color);
+}
+.user-inputs > button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 66px;
+    height: 66px;
+    transform: translate(0, 50%);
+    -webkit-transform: translate(0, 50%);
+    -moz-transform: translate(0, 50%);
+    -ms-transform: translate(0, 50%);
+    -o-transform: translate(0, 50%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: none;
+    background-color: var(--main-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .6s;
+    -webkit-transition: .6s;
+    -moz-transition: .6s;
+    -ms-transition: .6s;
+    -o-transition: .6s;
+}
+.user-inputs > button:hover {
+    background-color: var(--text-color);
+}
+.user-inputs > button > svg {
+    height: 33px;
+    width: 33px;
+}
+.error {
+    font-size: 12px;
+    color: var(--error-color);
+    text-transform: capitalize;
+    display: none;
+}
+/* output */
+.output {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+@media (max-width : 768px) {
+    .output {
+        font-size: 3.5rem;
+    }
+}
+.output p {
+    font-style: italic;
+    margin: 20px 0;
+}
+.output span {
+    color: var(--main-color);
+}
+
+
+/* Start Footer and header */
+footer, 
+header {
+    height: 70px;
+    width: 100%;
+    color: var(--second-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+}
+header {
+    justify-content: flex-end;
+}
+footer {
+    justify-content: flex-start;
+}
+footer > div, 
+header > div {
+    height: 100%;
+    width: 430px;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+header > div::before, 
+footer > div::after {
+    content: '';
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    background-color: var(--main-color);
+    transform: skew(40deg);
+    -webkit-transform: skew(40deg);
+    -moz-transform: skew(40deg);
+    -ms-transform: skew(40deg);
+    -o-transform: skew(40deg);
+}
+@media (max-width : 768px) {
+    header > div, 
+    footer > div {
+        width: 100%;
+    }
+    header > div::before, 
+    footer > div::after {
+        display: none;
+    }
+}
+header > div::before {
+    right: 330px;
+    top: 0;
+}
+footer > div::after {
+    bottom: 0;
+    left: 330px;
+}
