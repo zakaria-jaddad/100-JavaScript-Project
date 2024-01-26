@@ -41,7 +41,7 @@ Specializations:
     </a>
   </a>
   <a href="https://skillicons.dev">
-    <a href="https://www.instagram.com/_21omp/">
+    <a href="https://www.instagram.com/p/CZuGffaLrHf/">
       <img src="https://skillicons.dev/icons?i=instagram" />
     </a>
   </a>
