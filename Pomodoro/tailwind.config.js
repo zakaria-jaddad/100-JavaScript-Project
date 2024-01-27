@@ -4,15 +4,17 @@ export default {
   theme: {
     extend: {
       container: {
-        // maxWidth: "620px",
         center: true,
         screens: {
-          sm: '600px',
-          md: '620px',
-          lg: '620px',
-          xl: '620px',
-          '2xl': '620px',
+          sm: "600px",
+          md: "620px",
+          lg: "620px",
+          xl: "620px",
+          "2xl": "620px",
         },
+      },
+      colors: {
+        transparent: "rgba(255, 255, 255, 0.2)",
       },
     },
   },
