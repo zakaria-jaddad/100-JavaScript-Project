@@ -1,6 +1,10 @@
+import { hide, show } from "../../../app/slices/settingsSlice";
 import SettingsLogo from "/public/icons/header/settings.svg";
+import { useDispatch, useSelector } from "react-redux";
 
 const NavBar = () => {
+  const isSettings = useSelector((state) => state.settings);
+  const dispatch = useDispatch();
   return (
     <div>
       <ul>
@@ -9,12 +13,15 @@ const NavBar = () => {
             opacity-[0.9] hover:opacity-[1] transition-all duration-300
           "
           onClick={() => {
-            console.log("Hello, Settings");
+            isSettings === true ? dispatch(hide()) : dispatch(show());
           }}
         >
           <div>
-            {/* <img src={settingsLogo} alt="" width={17} height={17} /> */}
-            <SettingsLogo height={17} width={17} />
+            <SettingsLogo
+              height={17}
+              width={17}
+              className="text-mainTextColor"
+            />
           </div>
           <div>
             <span className="block">Settings</span>

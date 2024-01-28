@@ -4,7 +4,12 @@ const Logo = () => {
   return (
     <div className="flex h-full justify-center items-center gap-[5px]">
       <div>
-        <LogoIcon height={25} width={25} strokeWidth="3"/>
+        <LogoIcon
+          height={25}
+          width={25}
+          strokeWidth="3"
+          className="text-mainTextColor"
+        />
       </div>
       <div className="logo-title text-xl font-bold">MyPomodoro</div>
     </div>
