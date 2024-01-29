@@ -1,9 +1,10 @@
-import { hidePage, showPage } from "../../../app/slices/settingsSlice";
 import SettingsLogo from "/public/icons/header/settings.svg";
 import { useDispatch, useSelector } from "react-redux";
+import { hidePage, showPage } from "../../../app/slices/settingsSlice/settingsPageSlice";
 
 const NavBar = () => {
   const isSettings = useSelector((state) => state.settings.settingsPage);
+  console.log(isSettings);
   const dispatch = useDispatch();
   return (
     <div>

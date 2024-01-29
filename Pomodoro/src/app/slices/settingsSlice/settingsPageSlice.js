@@ -1,18 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  settingsPage: false,
-};
-
 export const settingsPageSlice = createSlice({
   name: "settingsPageSlice",
-  initialState: initialState,
+  initialState: false,
   reducers: {
     showPage: (state) => {
-      return { ...state, settingsPage: true };
+      return true;
     },
     hidePage: (state) => {
-      return { ...state, settingsPage: false };
+      return false;
     },
   },
 });
