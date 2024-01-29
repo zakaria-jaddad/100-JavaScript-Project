@@ -1,9 +1,9 @@
-import { hide, show } from "../../../app/slices/settingsSlice";
+import { hidePage, showPage } from "../../../app/slices/settingsSlice";
 import SettingsLogo from "/public/icons/header/settings.svg";
 import { useDispatch, useSelector } from "react-redux";
 
 const NavBar = () => {
-  const isSettings = useSelector((state) => state.settings);
+  const isSettings = useSelector((state) => state.settings.settingsPage);
   const dispatch = useDispatch();
   return (
     <div>
@@ -13,7 +13,7 @@ const NavBar = () => {
             opacity-[0.9] hover:opacity-[1] transition-all duration-300
           "
           onClick={() => {
-            isSettings === true ? dispatch(hide()) : dispatch(show());
+            isSettings === true ? dispatch(hidePage()) : dispatch(showPage());
           }}
         >
           <div>

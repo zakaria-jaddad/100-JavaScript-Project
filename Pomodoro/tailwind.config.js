@@ -16,9 +16,12 @@ export default {
       colors: {
         transparent: "rgba(255, 255, 255, 0.2)",
         lowTransparent: "rgba(0, 0, 0, 0.4)",
-        mainBgColor: "#3C3633", 
-        mainTextColor: "#EEEDEB", 
-        secondTextColor: "#1F1717"
+        mainBgColor: "#3C3633",
+        mainTextColor: "#EEEDEB",
+        secondTextColor: "#1F1717",
+        thirdTextColor: "#747264",
+        eGray: "#EEEEEE", 
+        efGray: "#EFEFEF"
       },
     },
   },
