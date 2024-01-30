@@ -4,7 +4,6 @@ import { hidePage, showPage } from "../../../app/slices/settingsSlice/settingsPa
 
 const NavBar = () => {
   const isSettings = useSelector((state) => state.settings.settingsPage);
-  console.log(isSettings);
   const dispatch = useDispatch();
   return (
     <div>

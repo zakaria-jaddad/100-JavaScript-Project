@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-function TimeInput({ labelContent, update }) {
+function TimeInput({ labelContent, onChange, name }) {
   const dispatch = useDispatch();
 
   return (
@@ -11,10 +11,9 @@ function TimeInput({ labelContent, update }) {
       <input
         className="p-[10px] rounded-[6px] bg-efGray max-h-[38.5px] focus:outline-none"
         type="number"
+        name={name}
         id={labelContent}
-        onChange={(e) => {
-          dispatch(update(e.target.value));
-        }}
+        onChange={onChange}
       />
     </div>
   );

@@ -2,12 +2,33 @@ import SubTitle from "./components/Subtitle";
 import TimeInput from "./components/TimeInput";
 import Closelogo from "/public/icons/header/close.svg";
 import WatchLogo from "/public/icons/settings/watch.svg";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { hidePage } from "../../app/slices/settingsSlice/settingsPageSlice";
-import { updatePomodoro, updateShortBreak, updateLongBreak } from "../../app/slices/settingsSlice/timerSlice";
 
 function Settings() {
+  const timer = useSelector((state) => state.settings.timer);
+  const [timerForm, setTimerForm] = useState({ ...timer });
+
+  useEffect(() => {
+  }, [timer, timerForm]);
+
   const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    const eventValue = e.target.value;
+    const eventName = e.target.name;
+
+    /* 
+      logic: To Update timer
+      if NaN switch to 0
+     */
+    setTimerForm((prevTimer) => ({
+      ...prevTimer,
+      [eventName]: Number.isNaN(parseInt(eventValue)) ? 0 : parseInt(eventValue),
+    }));
+  };
+
   return (
     <section
       className="absolute inset-0 w-screen h-screen z-10 
@@ -47,9 +68,21 @@ function Settings() {
               Time minutes
             </span>
             <div className="flex justify-between mt-[10px]">
-              <TimeInput labelContent="Pomodoro" update={updatePomodoro} />
-              <TimeInput labelContent="Short Break" update={updateShortBreak}/>
-              <TimeInput labelContent="Long Break" update={updateLongBreak}/>
+              <TimeInput
+                labelContent="Pomodoro"
+                onChange={handleInputChange}
+                name="pomodoro"
+              />
+              <TimeInput
+                labelContent="Short Break"
+                onChange={handleInputChange}
+                name="shortBreak"
+              />
+              <TimeInput
+                labelContent="Long Break"
+                onChange={handleInputChange}
+                name="longBreak"
+              />
             </div>
           </div>
         </main>
