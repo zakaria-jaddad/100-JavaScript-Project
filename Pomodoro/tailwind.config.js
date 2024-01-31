@@ -21,7 +21,9 @@ export default {
         secondTextColor: "#1F1717",
         thirdTextColor: "#747264",
         eGray: "#EEEEEE", 
-        efGray: "#EFEFEF"
+        efGray: "#EFEFEF", 
+        "gray-ccc": "#CCCCCC", 
+        "green-button": "#84C733CC"
       },
     },
   },
