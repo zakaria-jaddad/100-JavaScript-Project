@@ -1,10 +1,7 @@
 import Logo from "./components/Logo";
 import NavBar from "./components/NavBar";
-import Settings from "../Settings";
-import { useSelector } from "react-redux";
 
 const Header = () => {
-  const isSettings = useSelector((state) => state.settings.settingsPage);
   return (
     <header
       className="
@@ -16,7 +13,6 @@ const Header = () => {
     >
       <Logo />
       <NavBar />
-      {isSettings === true ? <Settings /> : null}
     </header>
   );
 };

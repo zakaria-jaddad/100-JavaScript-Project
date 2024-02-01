@@ -9,8 +9,9 @@ function Settings() {
   const [timerForm, setTimerForm] = useState({ ...settings.timer });
   
   return (
-    <section className="absolute inset-0 w-screen h-screen z-10 bg-lowTransparent text-mainTextColor flex justify-center items-center">
-      <div className="min-w-[400px] h-screen mx-auto bg-white text-secondTextColor translate-y-[80px] rounded-[8px]">
+    <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-mainTextColor flex justify-center items-center overflow-y-scroll ">
+      
+      <div className="min-w-[400px] mx-auto bg-white text-secondTextColor rounded-[8px] absolute top-[69px] mb-[30px]">
         {/* Title */}
         <div className="flex items-center justify-center text-center h-[50px] w-full relative text-thirdTextColor border-b border-eGray p-[37px_23px]">
           <span className="block font-semibold tracking-[1px]">Settings</span>
@@ -29,6 +30,12 @@ function Settings() {
         {/* Main */}
         <main className="px-[23px]">
           <form>
+            <Timer />
+            <Timer />
+            <Timer />
+            <Timer />
+            <Timer />
+            <Timer />
             <Timer />
           </form>
         </main>
