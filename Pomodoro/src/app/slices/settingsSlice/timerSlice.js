@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  pomodoro: 0,
+  pomodoro: 20,
   shortBreak: 0,
   longBreak: 0,
-  autoStartsBreaks: false
+  autoStartsBreaks: false,
+  autoStartsPomodoro: false,
+  longBreakInterval: 4,
 };
 
 export const timerSlice = createSlice({
@@ -23,12 +25,24 @@ export const timerSlice = createSlice({
       return { ...state, longBreak: parseInt(actions.payload) };
     },
     updateAutoStartsBreaks: (state, actions) => {
-      return {...state, autoStartsBreaks: actions.payload}
-    }
+      return { ...state, autoStartsBreaks: actions.payload };
+    },
+    updateAutoStartsPomodoro: (state, actions) => {
+      return { ...state, autoStartsPomodoro: actions.payload };
+    },
+    updateLongBreakInterval: (state, actions) => {
+      return { ...state, longBreakInterval: parseInt(actions.payload) };
+    },
   },
 });
 
-export const { updatePomodoro, updateLongBreak, updateShortBreak, updateAutoStartsBreaks } =
-  timerSlice.actions;
+export const {
+  updatePomodoro,
+  updateLongBreak,
+  updateShortBreak,
+  updateAutoStartsBreaks,
+  updateAutoStartsPomodoro,
+  updateLongBreakInterval,
+} = timerSlice.actions;
 
 export default timerSlice.reducer;
