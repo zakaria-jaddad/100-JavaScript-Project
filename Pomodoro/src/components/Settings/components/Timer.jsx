@@ -3,7 +3,7 @@ import Input from "../ui/Input";
 import SubTitle from "../ui/SubTitle";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import ToggleSetting from "./ToggleSetting";
+import ToggleSetting from "../ui/ToggleSetting";
 import {
   updateAutoStartsBreaks,
   updateAutoStartsPomodoro,
