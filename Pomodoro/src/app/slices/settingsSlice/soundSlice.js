@@ -1,9 +1,9 @@
 import { createSlice, isAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  alarmSong: {
+  alarmSound: {
     name: "",
-    songPath: "",
+    soundPath: "",
   }, // alarmSound Accept only songs paths
   tickingSound: "hello, from tinking sound", // takes tiking sound path also nothing
 };
@@ -13,8 +13,7 @@ export const soundSlice = createSlice({
   initialState,
   reducers: {
     updateAlarmSound: (state, actions) => {
-      console.log(actions.payload);
-      return { ...state, alarmSong: { ...actions.payload } };
+      return { ...state, alarmSound: { ...actions.payload } };
     },
   },
 });

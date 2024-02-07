@@ -4,7 +4,7 @@ function Option({ name, setValue }) {
   const dispatch = useDispatch();
   return (
     <div
-      className="h-full w-full px-[12px] flex items-center capitalize bg-white hover:bg-gray-ccc"
+      className="h-full w-full px-[12px] flex items-center capitalize hover:bg-gray-ccc rounded"
       onClick={() => {
         dispatch(setValue);
       }}

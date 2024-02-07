@@ -1,8 +1,8 @@
-const alarmSongs = [
+const alarmSounds = [
   {
-    path: "/Users/zakariajaddad/Documents/GitHub/Front-End-Projects/Pomodoro/public/songs/guitar.mp3",
     name: "guitar",
+    path: "../../../../../public/sounds/guitar.mp3",
   },
 ];
 
-export default alarmSongs;
+export default alarmSounds;
