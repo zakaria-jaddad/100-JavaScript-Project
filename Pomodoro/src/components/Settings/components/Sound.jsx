@@ -17,6 +17,17 @@ function Sound() {
       <ToggleSetting settingsHeader="Alarm Sound">
         <Select />
       </ToggleSetting>
+
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          const audiPath = sound.alarmSound.soundPath;
+          const myaudio = new Audio(audiPath);
+          myaudio.play();
+        }}
+      >
+        click here
+      </button>
     </div>
   );
 }
