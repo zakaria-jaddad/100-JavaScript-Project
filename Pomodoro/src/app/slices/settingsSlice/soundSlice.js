@@ -2,8 +2,8 @@ import { createSlice, isAction } from "@reduxjs/toolkit";
 
 const initialState = {
   alarmSound: {
-    name: "",
-    soundPath: "",
+    name: "twitch",
+    soundPath: "/public/sounds/twitch.mp3",
   }, // alarmSound Accept only songs paths
   tickingSound: "hello, from tinking sound", // takes tiking sound path also nothing
 };

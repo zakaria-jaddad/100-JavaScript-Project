@@ -4,6 +4,7 @@ import ToggleSetting from "../ui/ToggleSetting";
 import SoundLogo from "/public/icons/settings/sound.svg";
 import Select from "../ui/Select";
 import { useSelector } from "react-redux";
+import Slider from "../ui/Slider";
 
 function Sound() {
   const sound = useSelector((state) => state.settings.sound);
@@ -16,6 +17,10 @@ function Sound() {
       {/* inputs */}
       <ToggleSetting settingsHeader="Alarm Sound">
         <Select />
+      </ToggleSetting>
+
+      <ToggleSetting>
+        <Slider />
       </ToggleSetting>
 
       <button

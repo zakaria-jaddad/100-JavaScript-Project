@@ -8,7 +8,7 @@ import Button from "./Button";
         - Function: updates button state
 
 */
-function ToggleSetting({ settingsHeader, children }) {
+function ToggleSetting({ settingsHeader = "", children }) {
   return (
     <div className="py-[12px]">
       <div className=" flex justify-between items-center h-[32px] w-full">
