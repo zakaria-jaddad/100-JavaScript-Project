@@ -5,6 +5,7 @@ import SoundLogo from "/public/icons/settings/sound.svg";
 import Select from "../ui/Select";
 import { useSelector } from "react-redux";
 import Slider from "../ui/Slider";
+import { updateAlarmSoundValume } from "../../../app/slices/settingsSlice/soundSlice";
 
 function Sound() {
   const sound = useSelector((state) => state.settings.sound);
@@ -20,10 +21,14 @@ function Sound() {
       </ToggleSetting>
 
       <ToggleSetting>
-        <Slider />
+        <Slider
+          value={sound.alarmSoundVolume}
+          setValue={updateAlarmSoundValume}
+          soundPath={sound.alarmSound.soundPath}
+        />
       </ToggleSetting>
 
-      <button
+      {/* <button
         onClick={(e) => {
           e.preventDefault();
           const audiPath = sound.alarmSound.soundPath;
@@ -32,7 +37,7 @@ function Sound() {
         }}
       >
         click here
-      </button>
+      </button> */}
     </div>
   );
 }
