@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { hidePage } from "../../app/slices/settingsSlice/settingsPageSlice";
 import Timer from "./components/Timer";
 import Sound from "./components/Sound";
+import Theme from "./components/Theme";
 
 function Settings() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function Settings() {
           <form>
             <Timer />
             <Sound />
+            <Theme />
           </form>
         </main>
       </div>

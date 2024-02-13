@@ -6,7 +6,7 @@ function Button({ buttonState, updateButtonState }) {
     <div
       className={`p-[3px] w-[60px] h-full rounded-[50px] flex items-center cursor-pointer ${
         buttonState === true
-          ? "justify-end bg-green-button"
+          ? "justify-end bg-active-button"
           : "justify-start bg-gray-ccc"
       }`}
       onClick={() => {

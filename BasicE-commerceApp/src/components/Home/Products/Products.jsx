@@ -6,6 +6,7 @@ const Products = ({ selectedCategory }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    
     const getData = async () => {
       setProducts(await getProducts());
     };

@@ -1,4 +1,3 @@
-import Button from "../ui/Button";
 import SubTitle from "../ui/SubTitle";
 import ToggleSetting from "../ui/ToggleSetting";
 import SoundLogo from "/public/icons/settings/sound.svg";
@@ -28,17 +27,7 @@ function Sound() {
         />
       </ToggleSetting>
 
-      {/* <button
-        onClick={(e) => {
-          e.preventDefault();
-          const audiPath = sound.alarmSound.soundPath;
-          const myaudio = new Audio(audiPath);
-          myaudio.play();
-        }}
-      >
-        click here
-      </button> */}
-    </div>
+     </div>
   );
 }
 
