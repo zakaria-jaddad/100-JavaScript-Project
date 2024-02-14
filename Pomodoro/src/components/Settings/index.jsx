@@ -13,9 +13,9 @@ function Settings() {
 
   return (
     <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-mainTextColor flex justify-center items-center overflow-y-scroll ">
-      <div className="min-w-[400px] mx-auto bg-white text-secondTextColor rounded-[8px] absolute top-[69px] mb-[30px]">
+      <div className="min-w-[400px] mx-auto bg-white text-second-text-color rounded-[8px] absolute top-[69px] mb-[30px]">
         {/* Title */}
-        <div className="flex items-center justify-center text-center h-[50px] w-full relative text-thirdTextColor border-b border-eGray p-[37px_23px]">
+        <div className="flex items-center justify-center text-center h-[50px] w-full relative text-third-text-color border-b border-eGray p-[37px_23px]">
           <span className="block font-semibold tracking-[1px]">Settings</span>
           <div className="absolute top-[50%] translate-y-[-50%] right-[23px] cursor-pointer">
             <Closelogo

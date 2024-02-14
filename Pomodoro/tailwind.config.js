@@ -17,11 +17,11 @@ export default {
         transparent: "rgba(255, 255, 255, 0.2)",
         lowTransparent: "rgba(0, 0, 0, 0.4)",
 
-        mainBgColor: "#3C3633",
-        mainTextColor: "#EEEDEB",
-        secondTextColor: "#1F1717",
-        thirdTextColor: "#747264",
-        "active-button": "#84C733CC",
+        "main-bg-color": "var(--main-bg-color)",
+        "main-text-color": "var(--main-text-color)",
+        "second-text-color": "var(--second-text-color)",
+        "third-text-color": "var(--third-text-color)",
+        "active-button": "var(--active-button)",
         //
         // mainBgColor: "#0D0D0D",
         // mainTextColor: "#F2F2F2",

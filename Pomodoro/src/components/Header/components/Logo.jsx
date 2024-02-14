@@ -8,7 +8,7 @@ const Logo = () => {
           height={25}
           width={25}
           strokeWidth="3"
-          className="text-mainTextColor"
+          className="text-main-text-color"
         />
       </div>
       <div className="logo-title text-xl font-bold">MyPomodoro</div>

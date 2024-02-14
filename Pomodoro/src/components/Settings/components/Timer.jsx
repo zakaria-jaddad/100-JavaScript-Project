@@ -23,7 +23,7 @@ function Timer() {
 
       {/* Time */}
       <div className="py-[12px]">
-        <span className="block text-secondTextColor font-semibold">
+        <span className="block text-second-txet-color font-semibold">
           Time minutes
         </span>
         <div className="flex justify-between mt-[10px]">

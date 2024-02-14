@@ -9,7 +9,7 @@ function Input({ labelContent = null, update, inputValue = "" }) {
       - onChange: function updates form values in onChange event
    */
   return (
-    <div className="flex flex-col w-[98px] text-thirdTextColor font-bold mb-[4px] text-[14px]">
+    <div className="flex flex-col w-[98px] text-third-text-color font-bold mb-[4px] text-[14px]">
       {labelContent !== null ? (
         <label htmlFor={labelContent} className="block">
           {labelContent}

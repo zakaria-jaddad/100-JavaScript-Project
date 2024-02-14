@@ -8,7 +8,7 @@ const Header = () => {
         container px-[20px]
         h-[60px]
         flex justify-between items-center 
-        text-mainTextColor
+        text-main-text-color
         "
     >
       <Logo />

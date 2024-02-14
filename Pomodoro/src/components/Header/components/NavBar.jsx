@@ -1,6 +1,9 @@
 import SettingsLogo from "/public/icons/header/settings.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { hidePage, showPage } from "../../../app/slices/settingsSlice/settingsPageSlice";
+import {
+  hidePage,
+  showPage,
+} from "../../../app/slices/settingsSlice/settingsPageSlice";
 
 const NavBar = () => {
   const isSettings = useSelector((state) => state.settings.settingsPage);
@@ -20,7 +23,7 @@ const NavBar = () => {
             <SettingsLogo
               height={17}
               width={17}
-              className="text-mainTextColor"
+              className="text-main-text-color"
             />
           </div>
           <div>
