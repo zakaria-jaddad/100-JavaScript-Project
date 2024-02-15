@@ -28,10 +28,6 @@ const alarmSounds = [
     path: "/public/sounds/lofi-2.mp3",
   },
   {
-    name: "lofi",
-    path: "/public/sounds/lofi-3.mp3",
-  },
-  {
     name: "did it",
     path: "/public/sounds/victory-2.mp3",
   },
@@ -42,10 +38,6 @@ const alarmSounds = [
   {
     name: "drums",
     path: "/public/sounds/drums-1.mp3",
-  },
-  {
-    name: "drums",
-    path: "/public/sounds/drums-2.mp3",
   },
 ];
 

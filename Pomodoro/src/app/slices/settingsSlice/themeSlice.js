@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useLocalStorage from "../../../hooks/useLocalStorage";
+import useLocalStorage, {
+  SAVE_DATA,
+  GET_DATA,
+} from "../../../hooks/useLocalStorage";
+import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
 
 const KEY = "theme";
-const SAVE_DATA = "saveData";
-const GET_DATA = "getData";
-
 const initialState = useLocalStorage({
   key: KEY,
   type: GET_DATA,
@@ -27,18 +28,13 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     updateTheme: (state, actions) => {
-      useLocalStorage({
-        key: KEY,
-        value: { ...state, themeColors: actions.payload },
-        type: SAVE_DATA,
-      });
+      saveDataToLocalStorage(KEY, { ...state, themeColors: actions.payload });
       return { ...state, themeColors: actions.payload };
     },
     updateDarkModeWhenRunning: (state, actions) => {
-      useLocalStorage({
-        key: KEY,
-        value: { ...state, darkModeWhenRunning: actions.payload },
-        type: SAVE_DATA,
+      saveDataToLocalStorage(KEY, {
+        ...state,
+        darkModeWhenRunning: actions.payload,
       });
       return { ...state, darkModeWhenRunning: actions.payload };
     },

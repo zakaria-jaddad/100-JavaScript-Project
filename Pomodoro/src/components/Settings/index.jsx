@@ -5,11 +5,11 @@ import { hidePage } from "../../app/slices/settingsSlice/settingsPageSlice";
 import Timer from "./components/Timer";
 import Sound from "./components/Sound";
 import Theme from "./components/Theme";
+import Integration from "./components/Integration";
 
 function Settings() {
   const dispatch = useDispatch();
   const settings = useSelector((state) => state.settings);
-  const [timerForm, setTimerForm] = useState({ ...settings.timer });
 
   return (
     <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-main-text-color flex justify-center items-center overflow-y-scroll ">
@@ -35,8 +35,19 @@ function Settings() {
             <Timer />
             <Sound />
             <Theme />
+            <Integration />
           </form>
         </main>
+        <div className="flex items-center justify-end text-center h-[50px] w-full relative border-b border-eGray p-[17px_23px_37px]">
+          <div
+            className="flex items-center justify-center w-[70px] h-[36px] bg-main-bg-color text-white uppercase font-bold rounded cursor-pointer opacity-90 hover:opacity-100 transition-all duration-300"
+            onClick={() => {
+              dispatch(hidePage());
+            }}
+          >
+            ok
+          </div>
+        </div>
       </div>
     </section>
   );

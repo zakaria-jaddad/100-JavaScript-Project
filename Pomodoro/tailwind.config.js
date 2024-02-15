@@ -22,18 +22,6 @@ export default {
         "second-text-color": "var(--second-text-color)",
         "third-text-color": "var(--third-text-color)",
         "active-button": "var(--active-button)",
-        //
-        // mainBgColor: "#0D0D0D",
-        // mainTextColor: "#F2F2F2",
-        // secondTextColor: "#A6A6A6",
-        // thirdTextColor: "#737373",
-        // "active-button": "#04BF7B",
-        //
-        // mainBgColor: "#232625",
-        // mainTextColor: "#BFBFB8",
-        // secondTextColor: "#35403A",
-        // thirdTextColor: "#A4A69C",
-        // "active-button": "#4C594F",
 
         eGray: "#EEEEEE",
         efGray: "#EFEFEF",

@@ -27,7 +27,7 @@ function Select() {
       </div>
 
       {isalarmSound === true ? (
-        <div className="w-full h-fit absolute top-[100%] mt-[5px] rounded shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-efGray">
+        <div className="w-full h-fit absolute top-[100%] mt-[5px] rounded shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] bg-efGray z-10">
           {alarmSounds.map((alarmSound, index) => {
             return (
               <Option

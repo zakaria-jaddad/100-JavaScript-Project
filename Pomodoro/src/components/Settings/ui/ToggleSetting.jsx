@@ -12,7 +12,7 @@ function ToggleSetting({ settingsHeader = "", children }) {
   return (
     <div className="py-[12px]">
       <div className=" flex justify-between items-center h-[32px] w-full">
-        <h3 className="font-bold capitalize ">{settingsHeader}</h3>
+        <h3 className="font-bold capitalize leading-7">{settingsHeader}</h3>
         {children}
       </div>
     </div>

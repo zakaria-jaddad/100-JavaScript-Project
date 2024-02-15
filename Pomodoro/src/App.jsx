@@ -5,7 +5,7 @@ import useTheme from "./components/Settings/hooks/useTheme";
 
 function App() {
   const isSettings = useSelector((state) => state.settings.settingsPage);
-  const theme = useSelector((state) => state.settings.theme);
+  const theme = useSelector((state) => state.settings.theme.themeColors);
   useTheme(theme);
   
   return (

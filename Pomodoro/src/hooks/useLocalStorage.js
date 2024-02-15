@@ -1,3 +1,6 @@
+export const SAVE_DATA = "saveData";
+export const GET_DATA = "getData";
+
 function saveValue(key, newValue) {
   localStorage.setItem(key, JSON.stringify(newValue));
 }
