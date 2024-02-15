@@ -15,7 +15,6 @@ export const timerSlice = createSlice({
   reducers: {
     // TODO: Load additional state from localStorage if available
     updatePomodoro: (state, actions) => {
-      console.log(actions.payload);
       return { ...state, pomodoro: parseInt(actions.payload) };
     },
     updateShortBreak: (state, actions) => {

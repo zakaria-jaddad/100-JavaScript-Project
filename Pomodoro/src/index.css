@@ -4,12 +4,16 @@
 
 /* Main Root colors varibales  */
 :root {
-  --main-bg-color : #3C3633;
-  --main-text-color :  #EEEDEB; 
-  --second-text-color : #1F1717; 
-  --third-text-color : #747264; 
-  --active-button : #84C733CC;
-
+  --main-bg-color: #3c3633;
+  --main-text-color: #eeedeb;
+  --second-text-color: #1f1717;
+  --third-text-color: #747264;
+  --active-button: #84c733cc;
 }
-
-
+* {
+  transition: color 0.2s, background-color 0.2s;
+  -webkit-transition: color 0.2s, background-color 0.2s;
+  -moz-transition: color 0.2s, background-color 0.2s;
+  -ms-transition: color 0.2s, background-color 0.2s;
+  -o-transition: color 0.2s, background-color 0.2s;
+}

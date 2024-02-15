@@ -12,7 +12,7 @@ function Settings() {
   const [timerForm, setTimerForm] = useState({ ...settings.timer });
 
   return (
-    <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-mainTextColor flex justify-center items-center overflow-y-scroll ">
+    <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-main-text-color flex justify-center items-center overflow-y-scroll ">
       <div className="min-w-[400px] mx-auto bg-white text-second-text-color rounded-[8px] absolute top-[69px] mb-[30px]">
         {/* Title */}
         <div className="flex items-center justify-center text-center h-[50px] w-full relative text-third-text-color border-b border-eGray p-[37px_23px]">

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DropDownLogo from "/public/icons/settings/drop-down.svg";
 import Option from "./Option";
 import { updateAlarmSound } from "../../../app/slices/settingsSlice/soundSlice";
-import alarmSounds from "../data/alaram/alarmSoudns";
+import alarmSounds from "../data/sounds/alarmSoudns";
 
 function Select() {
   const sound = useSelector((state) => state.settings.sound);
