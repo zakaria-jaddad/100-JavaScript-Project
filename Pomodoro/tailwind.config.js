@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        "2xsm": "350px",
+        xsm: "450px",
+      },
       container: {
         center: true,
         screens: {

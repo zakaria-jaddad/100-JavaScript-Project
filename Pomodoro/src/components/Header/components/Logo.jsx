@@ -11,7 +11,7 @@ const Logo = () => {
           className="text-main-text-color"
         />
       </div>
-      <div className="logo-title text-xl font-bold hidden sm:block">
+      <div className="logo-title text-xl font-bold hidden 2xsm:block">
         MyPomodoro
       </div>
     </div>
