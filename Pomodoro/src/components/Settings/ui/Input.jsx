@@ -9,7 +9,10 @@ function Input({ labelContent = null, update, inputValue = "" }) {
       - onChange: function updates form values in onChange event
    */
   return (
-    <div className="flex flex-col w-[98px] text-third-text-color font-bold mb-[4px] text-[14px]">
+    <div
+      style={{ "overflow-wrap": "break-word" }}
+      className="flex flex-col xsm:w-[98px] w-[55px] text-third-text-color font-bold mb-[4px] text-[14px]"
+    >
       {labelContent !== null ? (
         <label htmlFor={labelContent} className="block">
           {labelContent}
@@ -18,7 +21,6 @@ function Input({ labelContent = null, update, inputValue = "" }) {
       <input
         className="p-[10px] rounded-[6px] bg-efGray max-h-[38.5px] focus:outline-none"
         type="number"
-
         value={parseInt(inputValue) === 0 ? "" : parseInt(inputValue)}
         id={labelContent}
         onChange={(e) => {
