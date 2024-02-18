@@ -31,7 +31,7 @@ function Pomodoro() {
         </div>
       </div>
     </main>
-  ); 
+  );
 }
 
 export default Pomodoro;
