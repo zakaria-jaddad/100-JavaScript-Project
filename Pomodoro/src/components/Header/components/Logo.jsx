@@ -2,7 +2,12 @@ import LogoIcon from "/public/icons/header/logoIcon.svg";
 
 const Logo = () => {
   return (
-    <div className="flex h-full justify-center items-center gap-[5px]">
+    <div
+      className="flex h-full justify-center items-center gap-[5px] cursor-pointer"
+      onClick={() => {
+        window.location.reload();
+      }}
+    >
       <div>
         <LogoIcon
           height={25}

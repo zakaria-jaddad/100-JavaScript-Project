@@ -3,12 +3,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        "button-shadow": "rgb(215, 215, 215) 0px 6px 0px",
+      },
       screens: {
         "2xsm": "350px",
         xsm: "450px",
       },
       container: {
         center: true,
+        padding: "0px 20px",
         screens: {
           sm: "600px",
           md: "620px",
