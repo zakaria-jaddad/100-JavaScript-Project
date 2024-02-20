@@ -1,19 +1,43 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import useSetActiveTimer from "./hooks/useSetActiveTimer";
-import { useSelector } from "react-redux";
+import { updateActiveTimer } from "../../app/slices/pomodoroSlice/activeTimer";
+import clickSound from "/public/sounds/click.mp3";
 import useShowTimer from "../../hooks/useShowTimer";
+
+function playSound(audio) {
+  const myAudio = new Audio(audio);
+  myAudio.volume = 1;
+  myAudio.play();
+}
 
 function Pomodoro() {
   const timer = useSelector((state) => state.settings.timer);
-  const [activeTimer, setActiveTimer] = useState({
-    pomodoro: true,
-    shortBreak: false,
-    longBreak: false,
-  });
+  const activeTimer = useSelector((state) => state.home.pomodoro);
 
+  const dispatch = useDispatch();
+  const [isStart, setIsStart] = useState(false);
+  // ==============
+
+  //  this is used to show each pomodoro, shortBreak, longBreak own timer
+  const [timerMinutes, setTimerMinutes] = useState(
+    useShowTimer({ activeTimer: activeTimer, timer: timer })
+  );
   useEffect(() => {
     useShowTimer({ activeTimer: activeTimer, timer: timer });
   }, [activeTimer]);
+
+  // const [timerSeconds, setTimerSeconds] = useState(0);
+
+  // useEffect(() => {
+  //   const timerSecondsInterval = setInterval(() => {
+  //     setTimerSeconds(timerSeconds - 1);
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(timerSecondsInterval);
+  //   };
+  // }, [timerSeconds]);
+
+  // ==============
 
   return (
     <main className="container text-main-text-color">
@@ -32,7 +56,7 @@ function Pomodoro() {
               }}
               onClick={(e) => {
                 activeTimer.pomodoro === false
-                  ? useSetActiveTimer({ event: e, setState: setActiveTimer })
+                  ? dispatch(updateActiveTimer({ event: e }))
                   : null;
               }}
               data-timertype="pomodoro"
@@ -48,7 +72,7 @@ function Pomodoro() {
               }}
               onClick={(e) => {
                 activeTimer.shortBreak === false
-                  ? useSetActiveTimer({ event: e, setState: setActiveTimer })
+                  ? dispatch(updateActiveTimer({ event: e }))
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
@@ -69,7 +93,7 @@ function Pomodoro() {
               }}
               onClick={(e) => {
                 activeTimer.longBreak === false
-                  ? useSetActiveTimer({ event: e, setState: setActiveTimer })
+                  ? dispatch(updateActiveTimer({ event: e }))
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
@@ -82,11 +106,30 @@ function Pomodoro() {
           </nav>
 
           <section className="text-[100px] font-semibold text-white tracking-wider">
-            {`${useShowTimer({ activeTimer: activeTimer, timer: timer })}:00`}
+            {
+              `${timerMinutes}:`
+
+              // ${
+              //   timerSeconds >= 0 && timerSeconds < 10
+              //     ? `${timerSeconds}0`
+              //     : timerSeconds
+              // }
+            }
           </section>
 
-          <div className="rounded bg-white text-main-bg-color text-[22px] px-[12px] font-bold h-[55px] w-[200px] flex items-center justify-center uppercase cursor-pointer transition-colors duration-300 shadow-button-shadow hover:shadow-none hover:translate-y-[6px]">
-            start
+          <div
+            onClick={() => {
+              setIsStart(!isStart);
+
+              // button is not active, means that it's stoped
+              if (!isStart) {
+                playSound(clickSound);
+              }
+            }}
+            className={`rounded bg-white text-main-bg-color text-[22px] px-[12px] font-bold h-[55px] w-[200px] flex items-center justify-center uppercase cursor-pointer transition-colors duration-300 shadow-button-shadow
+                ${isStart === true ? " shadow-none translate-y-[6px]" : ""}`}
+          >
+            {isStart === false ? "start" : "pause"}
           </div>
         </div>
 

@@ -1,19 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
-import useLocalStorage, { GET_DATA } from "../../../hooks/useLocalStorage";
+import getDataFromLocalStorage from "../../util/getDataFromLocalStorage";
 
 const KEY = "timer";
-const initialState = useLocalStorage({
-  key: KEY,
-  type: GET_DATA,
-  value: {
-    pomodoro: 20,
-    shortBreak: 10,
-    longBreak: 0,
-    autoStartsBreaks: false,
-    autoStartsPomodoro: false,
-    longBreakInterval: 4,
-  },
+const initialState = getDataFromLocalStorage(KEY, {
+  pomodoro: 20,
+  shortBreak: 10,
+  longBreak: 0,
+  autoStartsBreaks: false,
+  autoStartsPomodoro: false,
+  longBreakInterval: 4,
 });
 
 export const timerSlice = createSlice({
