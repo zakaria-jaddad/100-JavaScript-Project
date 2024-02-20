@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import useSetActiveTimer from "./hooks/useSetActiveTimer";
+import { useSelector } from "react-redux";
+import useShowTimer from "../../hooks/useShowTimer";
 
 function Pomodoro() {
-  const [navBar, setNavBar] = useState({
-    pomodoro: false,
+  const timer = useSelector((state) => state.settings.timer);
+  const [activeTimer, setActiveTimer] = useState({
+    pomodoro: true,
     shortBreak: false,
     longBreak: false,
   });
+
   useEffect(() => {
-    
-  }, [])
+    useShowTimer({ activeTimer: activeTimer, timer: timer });
+  }, [activeTimer]);
 
   return (
     <main className="container text-main-text-color">
@@ -18,7 +22,7 @@ function Pomodoro() {
           <nav className="flex justify-center items-center gap-[10px] h-[32px]">
             <div
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                navBar.pomodoro === true ? "bg-transparent font-bold" : ""
+                activeTimer.pomodoro === true ? "bg-transparent font-bold" : ""
               }`}
               onMouseDown={(e) => {
                 e.target.classList.add("translate-y-[2px]");
@@ -27,8 +31,8 @@ function Pomodoro() {
                 e.target.classList.remove("translate-y-[2px]");
               }}
               onClick={(e) => {
-                navBar.pomodoro === false
-                  ? useSetActiveTimer({ event: e, setState: setNavBar })
+                activeTimer.pomodoro === false
+                  ? useSetActiveTimer({ event: e, setState: setActiveTimer })
                   : null;
               }}
               data-timertype="pomodoro"
@@ -43,12 +47,14 @@ function Pomodoro() {
                 e.target.classList.remove("translate-y-[2px]");
               }}
               onClick={(e) => {
-                navBar.shortBreak === false
-                  ? useSetActiveTimer({ event: e, setState: setNavBar })
+                activeTimer.shortBreak === false
+                  ? useSetActiveTimer({ event: e, setState: setActiveTimer })
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                navBar.shortBreak === true ? "bg-transparent font-bold" : ""
+                activeTimer.shortBreak === true
+                  ? "bg-transparent font-bold"
+                  : ""
               }`}
               data-timertype="shortBreak"
             >
@@ -62,12 +68,12 @@ function Pomodoro() {
                 e.target.classList.remove("translate-y-[2px]");
               }}
               onClick={(e) => {
-                navBar.longBreak === false
-                  ? useSetActiveTimer({ event: e, setState: setNavBar })
+                activeTimer.longBreak === false
+                  ? useSetActiveTimer({ event: e, setState: setActiveTimer })
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                navBar.longBreak === true ? "bg-transparent font-bold" : ""
+                activeTimer.longBreak === true ? "bg-transparent font-bold" : ""
               }`}
               data-timertype="longBreak"
             >
@@ -76,7 +82,7 @@ function Pomodoro() {
           </nav>
 
           <section className="text-[100px] font-semibold text-white tracking-wider">
-            01:11
+            {`${useShowTimer({ activeTimer: activeTimer, timer: timer })}:00`}
           </section>
 
           <div className="rounded bg-white text-main-bg-color text-[22px] px-[12px] font-bold h-[55px] w-[200px] flex items-center justify-center uppercase cursor-pointer transition-colors duration-300 shadow-button-shadow hover:shadow-none hover:translate-y-[6px]">
