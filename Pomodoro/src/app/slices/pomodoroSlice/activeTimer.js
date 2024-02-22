@@ -13,18 +13,21 @@ const activeTimerSlice = createSlice({
   name: "activeTimerSlice",
   initialState,
   reducers: {
+    /* 
+      get new activeTimer and save it to localstorage 
+      update it in the redux state
+    */
     updateActiveTimer: (state, actions) => {
-      console.log(actions.payload.e);
-      // const newState = { ...state };
-      // for (const [key] of Object.entries(newState)) {
-      //   if (key == event.target.dataset.timertype) {
-      //     newState[key] = true;
-      //   } else {
-      //     newState[key] = false;
-      //   }
-      // }
-      // return newState;
-      return { ...state };
+      const newState = { ...state };
+      for (const [key] of Object.entries(newState)) {
+        if (key == actions.payload) {
+          newState[key] = true;
+        } else {
+          newState[key] = false;
+        }
+      }
+      saveDataToLocalStorage(KEY, { ...newState });
+      return { ...newState };
     },
   },
 });

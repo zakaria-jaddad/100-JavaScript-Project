@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { updateActiveTimer } from "../../app/slices/pomodoroSlice/activeTimer";
 import clickSound from "/public/sounds/click.mp3";
 import useShowTimer from "../../hooks/useShowTimer";
+import useSecondsTimer from "./hooks/useSecondsTimer";
 
 function playSound(audio) {
   const myAudio = new Audio(audio);
@@ -16,28 +17,21 @@ function Pomodoro() {
 
   const dispatch = useDispatch();
   const [isStart, setIsStart] = useState(false);
-  // ==============
 
-  //  this is used to show each pomodoro, shortBreak, longBreak own timer
-  const [timerMinutes, setTimerMinutes] = useState(
+  //  show: pomodoro, shortBreak, longBreak own timer.
+  const [minutesTimer, setMinutesTimer] = useState(
     useShowTimer({ activeTimer: activeTimer, timer: timer })
   );
   useEffect(() => {
-    useShowTimer({ activeTimer: activeTimer, timer: timer });
+    setMinutesTimer(useShowTimer({ activeTimer: activeTimer, timer: timer }));
+    setIsStart(false);
+    setSecondsTimer(0);
   }, [activeTimer]);
 
-  // const [timerSeconds, setTimerSeconds] = useState(0);
-
-  // useEffect(() => {
-  //   const timerSecondsInterval = setInterval(() => {
-  //     setTimerSeconds(timerSeconds - 1);
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(timerSecondsInterval);
-  //   };
-  // }, [timerSeconds]);
-
-  // ==============
+  const [secondsTimer, setSecondsTimer, setIsTimerRunning] = useSecondsTimer(0);
+  useEffect(() => {
+    setIsTimerRunning(isStart);
+  }, [isStart]);
 
   return (
     <main className="container text-main-text-color">
@@ -56,7 +50,7 @@ function Pomodoro() {
               }}
               onClick={(e) => {
                 activeTimer.pomodoro === false
-                  ? dispatch(updateActiveTimer({ event: e }))
+                  ? dispatch(updateActiveTimer(e.target.dataset.timertype))
                   : null;
               }}
               data-timertype="pomodoro"
@@ -72,7 +66,7 @@ function Pomodoro() {
               }}
               onClick={(e) => {
                 activeTimer.shortBreak === false
-                  ? dispatch(updateActiveTimer({ event: e }))
+                  ? dispatch(updateActiveTimer(e.target.dataset.timertype))
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
@@ -93,7 +87,7 @@ function Pomodoro() {
               }}
               onClick={(e) => {
                 activeTimer.longBreak === false
-                  ? dispatch(updateActiveTimer({ event: e }))
+                  ? dispatch(updateActiveTimer(e.target.dataset.timertype))
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
@@ -106,25 +100,17 @@ function Pomodoro() {
           </nav>
 
           <section className="text-[100px] font-semibold text-white tracking-wider">
-            {
-              `${timerMinutes}:`
-
-              // ${
-              //   timerSeconds >= 0 && timerSeconds < 10
-              //     ? `${timerSeconds}0`
-              //     : timerSeconds
-              // }
-            }
+            {`${minutesTimer}:${
+              secondsTimer >= 0 && secondsTimer < 10
+                ? `0${secondsTimer}`
+                : secondsTimer
+            }`}
           </section>
 
           <div
             onClick={() => {
               setIsStart(!isStart);
-
-              // button is not active, means that it's stoped
-              if (!isStart) {
-                playSound(clickSound);
-              }
+              playSound(clickSound);
             }}
             className={`rounded bg-white text-main-bg-color text-[22px] px-[12px] font-bold h-[55px] w-[200px] flex items-center justify-center uppercase cursor-pointer transition-colors duration-300 shadow-button-shadow
                 ${isStart === true ? " shadow-none translate-y-[6px]" : ""}`}
