@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/rangeInput.css";
 import { useDispatch } from "react-redux";
+import playSound from "../../utils/playSound";
 
 /* 
   takes sound object: has all sound information and function to update sound volume 
@@ -22,10 +23,7 @@ function Slider({ value, setValue, soundPath }) {
           dispatch(setValue(e.target.value));
         }}
         onMouseUp={() => {
-          const userCurrentaudioPath = soundPath;
-          const userCurrentAudio = new Audio(userCurrentaudioPath);
-          userCurrentAudio.volume = parseInt(value) / 100; // update sound volume
-          userCurrentAudio.play();
+          playSound({ audio: soundPath, soundVolume: parseInt(value) / 100 });
         }}
       />
     </div>

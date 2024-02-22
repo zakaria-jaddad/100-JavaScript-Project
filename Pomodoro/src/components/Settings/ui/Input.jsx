@@ -10,7 +10,7 @@ function Input({ labelContent = null, update, inputValue = "" }) {
    */
   return (
     <div
-      style={{ "overflow-wrap": "break-word" }}
+      style={{ "overflowWrap": "break-word" }}
       className="flex flex-col xsm:w-[98px] w-[55px] text-third-text-color font-bold mb-[4px] text-[14px]"
     >
       {labelContent !== null ? (

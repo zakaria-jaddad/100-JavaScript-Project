@@ -4,18 +4,13 @@ import { updateActiveTimer } from "../../app/slices/pomodoroSlice/activeTimer";
 import clickSound from "/public/sounds/click.mp3";
 import useShowTimer from "../../hooks/useShowTimer";
 import useSecondsTimer from "./hooks/useSecondsTimer";
-
-function playSound(audio) {
-  const myAudio = new Audio(audio);
-  myAudio.volume = 1;
-  myAudio.play();
-}
+import playSound from "../utils/playSound";
 
 function Pomodoro() {
-  const timer = useSelector((state) => state.settings.timer);
-  const activeTimer = useSelector((state) => state.home.pomodoro);
-
   const dispatch = useDispatch();
+  const timer = useSelector((state) => state.settings.timer);
+  const soundInfo = useSelector((state) => state.settings.sound);
+  const activeTimer = useSelector((state) => state.home.pomodoro);
   const [isStart, setIsStart] = useState(false);
 
   //  show: pomodoro, shortBreak, longBreak own timer.
@@ -26,9 +21,20 @@ function Pomodoro() {
     setMinutesTimer(useShowTimer({ activeTimer: activeTimer, timer: timer }));
     setIsStart(false);
     setSecondsTimer(0);
-  }, [activeTimer]);
+  }, [activeTimer, timer]);
 
   const [secondsTimer, setSecondsTimer, setIsTimerRunning] = useSecondsTimer(0);
+  useEffect(() => {
+    if (isStart) {
+      setMinutesTimer(secondsTimer === 59 ? minutesTimer - 1 : minutesTimer);
+    }
+    // logic here for function and timer
+    if (secondsTimer === 0 && minutesTimer === 0) {
+      playSound({ audio: soundInfo.alarmSound.soundPath, soundVolume: parseInt(soundInfo.alarmSoundVolume ) / 100 });
+      setIsStart(false);
+    }
+  }, [secondsTimer]);
+
   useEffect(() => {
     setIsTimerRunning(isStart);
   }, [isStart]);
@@ -110,7 +116,7 @@ function Pomodoro() {
           <div
             onClick={() => {
               setIsStart(!isStart);
-              playSound(clickSound);
+              playSound({ audio: clickSound, soundVolume: 1 });
             }}
             className={`rounded bg-white text-main-bg-color text-[22px] px-[12px] font-bold h-[55px] w-[200px] flex items-center justify-center uppercase cursor-pointer transition-colors duration-300 shadow-button-shadow
                 ${isStart === true ? " shadow-none translate-y-[6px]" : ""}`}
