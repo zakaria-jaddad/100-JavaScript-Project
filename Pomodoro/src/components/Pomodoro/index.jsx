@@ -1,10 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { updateActiveTimer } from "../../app/slices/pomodoroSlice/activeTimer";
-import clickSound from "/public/sounds/click.mp3";
 import useShowTimer from "../../hooks/useShowTimer";
-import useSecondsTimer from "./hooks/useSecondsTimer";
 import playSound from "../utils/playSound";
+import useSecondsTimer from "./hooks/useSecondsTimer";
+import clickSound from "/public/sounds/click.mp3";
+
+function goToNextTimer() {
+  //
+  return 0;
+}
 
 function Pomodoro() {
   const dispatch = useDispatch();
@@ -24,19 +29,26 @@ function Pomodoro() {
   }, [activeTimer, timer]);
 
   const [secondsTimer, setSecondsTimer, setIsTimerRunning] = useSecondsTimer(0);
+
   useEffect(() => {
     if (isStart) {
       setMinutesTimer(secondsTimer === 59 ? minutesTimer - 1 : minutesTimer);
     }
     // logic here for function and timer
     if (secondsTimer === 0 && minutesTimer === 0) {
-      playSound({ audio: soundInfo.alarmSound.soundPath, soundVolume: parseInt(soundInfo.alarmSoundVolume ) / 100 });
+      playSound({
+        audio: soundInfo.alarmSound.soundPath,
+        soundVolume: parseInt(soundInfo.alarmSoundVolume) / 100,
+      });
       setIsStart(false);
+      // goToNextTimer();
     }
   }, [secondsTimer]);
 
   useEffect(() => {
-    setIsTimerRunning(isStart);
+    if (isStart === true) {
+      setIsTimerRunning(true);
+    }
   }, [isStart]);
 
   return (
@@ -46,7 +58,9 @@ function Pomodoro() {
           <nav className="flex justify-center items-center gap-[10px] h-[32px]">
             <div
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                activeTimer.pomodoro === true ? "bg-transparent font-bold" : ""
+                activeTimer.pomodoro.isActive === true
+                  ? "bg-transparent font-bold"
+                  : ""
               }`}
               onMouseDown={(e) => {
                 e.target.classList.add("translate-y-[2px]");
@@ -55,7 +69,7 @@ function Pomodoro() {
                 e.target.classList.remove("translate-y-[2px]");
               }}
               onClick={(e) => {
-                activeTimer.pomodoro === false
+                activeTimer.pomodoro.isActive === false
                   ? dispatch(updateActiveTimer(e.target.dataset.timertype))
                   : null;
               }}
@@ -71,12 +85,12 @@ function Pomodoro() {
                 e.target.classList.remove("translate-y-[2px]");
               }}
               onClick={(e) => {
-                activeTimer.shortBreak === false
+                activeTimer.shortBreak.isActive === false
                   ? dispatch(updateActiveTimer(e.target.dataset.timertype))
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                activeTimer.shortBreak === true
+                activeTimer.shortBreak.isActive === true
                   ? "bg-transparent font-bold"
                   : ""
               }`}
@@ -92,12 +106,14 @@ function Pomodoro() {
                 e.target.classList.remove("translate-y-[2px]");
               }}
               onClick={(e) => {
-                activeTimer.longBreak === false
+                activeTimer.longBreak.isActive === false
                   ? dispatch(updateActiveTimer(e.target.dataset.timertype))
                   : null;
               }}
               className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                activeTimer.longBreak === true ? "bg-transparent font-bold" : ""
+                activeTimer.longBreak.isActive === true
+                  ? "bg-transparent font-bold"
+                  : ""
               }`}
               data-timertype="longBreak"
             >

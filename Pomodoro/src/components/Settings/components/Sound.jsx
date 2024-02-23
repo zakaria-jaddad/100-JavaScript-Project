@@ -23,11 +23,11 @@ function Sound() {
         <Slider
           value={sound.alarmSoundVolume}
           setValue={updateAlarmSoundValume}
-          soundPath={sound.alarmSound.soundPath}
+          soundPath={sound.alarmSound.alarmSound}
         />
       </ToggleSetting>
 
-     </div>
+    </div>
   );
 }
 

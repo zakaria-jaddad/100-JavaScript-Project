@@ -8,9 +8,9 @@
     ! show activeTimer timer 
 */
 export default function useShowTimer({ activeTimer, timer }) {
-  for (const [key, value] of Object.entries(activeTimer)) {
-    if (value === true) {
-      return timer[key];
+  for (const timerType of Object.entries(activeTimer)) {
+    if (timerType[1].isActive === true) {
+      return timer[timerType[0]];
     }
   }
 }

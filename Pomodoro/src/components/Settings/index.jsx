@@ -1,15 +1,13 @@
-import Closelogo from "/public/icons/header/close.svg";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { hidePage } from "../../app/slices/settingsSlice/settingsPageSlice";
-import Timer from "./components/Timer";
+import Integration from "./components/Integration";
 import Sound from "./components/Sound";
 import Theme from "./components/Theme";
-import Integration from "./components/Integration";
+import Timer from "./components/Timer";
+import Closelogo from "/public/icons/header/close.svg";
 
 function Settings() {
   const dispatch = useDispatch();
-  const settings = useSelector((state) => state.settings);
 
   return (
     <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-main-text-color flex justify-center items-center overflow-y-scroll ">

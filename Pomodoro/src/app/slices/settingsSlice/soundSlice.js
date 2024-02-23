@@ -1,20 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useLocalStorage, { GET_DATA } from "../../../hooks/useLocalStorage";
+import getDataFromLocalStorage from "../../util/getDataFromLocalStorage";
 import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
 
 const KEY = "sound";
 
-const initialState = useLocalStorage({
-  key: KEY,
-  type: GET_DATA,
-  value: {
-    alarmSound: {
-      name: "twitch",
-      soundPath: "/public/sounds/twitch.mp3",
-    }, // alarmSound Accept only songs paths
-    alarmSoundVolume: 50,
+const initialState = getDataFromLocalStorage(KEY, {
+  alarmSound: {
+    alarmName: "twitch",
+    alarmSound: "/public/sounds/twitch.mp3",
   },
-});
+  alarmSoundVolume: 50,
+}
+);
 
 export const soundSlice = createSlice({
   name: "soundSlice",

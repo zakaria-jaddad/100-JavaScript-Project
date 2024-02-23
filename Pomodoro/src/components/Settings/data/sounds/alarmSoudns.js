@@ -1,43 +1,43 @@
 const alarmSounds = [
   {
-    name: "piano",
-    path: "/public/sounds/piano.mp3",
+    alarmName: "piano",
+    alarmSound: "/public/sounds/piano.mp3",
   },
   {
-    name: "scarey",
-    path: "/public/sounds/scarey.mp3",
+    alarmName: "scarey",
+    alarmSound: "/public/sounds/scarey.mp3",
   },
   {
-    name: "twitch",
-    path: "/public/sounds/twitch.mp3",
+    alarmName: "twitch",
+    alarmSound: "/public/sounds/twitch.mp3",
   },
   {
-    name: "victory",
-    path: "/public/sounds/victory-1.mp3",
+    alarmName: "victory",
+    alarmSound: "/public/sounds/victory-1.mp3",
   },
   {
-    name: "duck",
-    path: "/public/sounds/quack.mp3",
+    alarmName: "duck",
+    alarmSound: "/public/sounds/quack.mp3",
   },
   {
-    name: "lofi",
-    path: "/public/sounds/lofi-1.mp3",
+    alarmName: "lofi",
+    alarmSound: "/public/sounds/lofi-1.mp3",
   },
   {
-    name: "lofi",
-    path: "/public/sounds/lofi-2.mp3",
+    alarmName: "lofi",
+    alarmSound: "/public/sounds/lofi-2.mp3",
   },
   {
-    name: "did it",
-    path: "/public/sounds/victory-2.mp3",
+    alarmName: "did it",
+    alarmSound: "/public/sounds/victory-2.mp3",
   },
   {
-    name: "stop",
-    path: "/public/sounds/time-to-stop.mp3",
+    alarmName: "stop",
+    alarmSound: "/public/sounds/time-to-stop.mp3",
   },
   {
-    name: "drums",
-    path: "/public/sounds/drums-1.mp3",
+    alarmName: "drums",
+    alarmSound: "/public/sounds/drums-1.mp3",
   },
 ];
 

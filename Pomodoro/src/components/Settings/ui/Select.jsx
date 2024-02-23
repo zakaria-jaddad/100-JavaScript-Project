@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import DropDownLogo from "/public/icons/settings/drop-down.svg";
 import Option from "./Option";
 import { updateAlarmSound } from "../../../app/slices/settingsSlice/soundSlice";
@@ -23,7 +23,7 @@ function Select() {
         className="absolute top-[50%] right-[12px] translate-y-[-50%] text-thirdTextColor"
       />
       <div className="w-full h-full flex items-center px-[12px] capitalize">
-        {sound.alarmSound.name}
+        {sound.alarmSound.alarmName}
       </div>
 
       {isalarmSound === true ? (
@@ -31,11 +31,11 @@ function Select() {
           {alarmSounds.map((alarmSound, index) => {
             return (
               <Option
-                name={alarmSound.name}
+                name={alarmSound.alarmName}
                 key={index}
                 setValue={updateAlarmSound({
-                  name: alarmSound.name,
-                  soundPath: alarmSound.path,
+                  alarmName: alarmSound.alarmName,
+                  alarmSound: alarmSound.alarmSound,
                 })}
               />
             );

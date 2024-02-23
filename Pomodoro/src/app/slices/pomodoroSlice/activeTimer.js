@@ -4,9 +4,18 @@ import getDataFromLocalStorage from "../../util/getDataFromLocalStorage";
 
 const KEY = "activeTimer";
 const initialState = getDataFromLocalStorage(KEY, {
-  pomodoro: true,
-  shortBreak: false,
-  longBreak: false,
+  pomodoro: {
+    isActive: true,
+    counter: 1,
+  },
+  shortBreak: {
+    isActive: false,
+    counter: 1,
+  },
+  longBreak: {
+    isActive: false,
+    counter: 1,
+  },
 });
 
 const activeTimerSlice = createSlice({
@@ -18,16 +27,17 @@ const activeTimerSlice = createSlice({
       update it in the redux state
     */
     updateActiveTimer: (state, actions) => {
-      const newState = { ...state };
-      for (const [key] of Object.entries(newState)) {
-        if (key == actions.payload) {
-          newState[key] = true;
-        } else {
-          newState[key] = false;
-        }
-      }
-      saveDataToLocalStorage(KEY, { ...newState });
-      return { ...newState };
+      const { payload } = actions;
+      // ===
+
+      const updatedState = Object.keys(state).reduce((acc, key) => {
+        acc[key] = { ...state[key], isActive: key === payload };
+        return acc;
+      }, {});
+
+      // ===
+      saveDataToLocalStorage(KEY, updatedState);
+      return updatedState;
     },
   },
 });
