@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/rangeInput.css";
 import { useDispatch } from "react-redux";
 import playSound from "../../utils/playSound";
@@ -23,7 +22,7 @@ function Slider({ value, setValue, soundPath }) {
           dispatch(setValue(e.target.value));
         }}
         onMouseUp={() => {
-          playSound({ audio: soundPath, soundVolume: parseInt(value) / 100 });
+          playSound({ sound: soundPath, soundVolume: parseInt(value) / 100 });
         }}
       />
     </div>

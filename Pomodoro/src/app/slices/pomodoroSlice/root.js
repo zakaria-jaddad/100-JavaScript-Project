@@ -1,9 +1,8 @@
-import activeTimerReducer from "./activeTimer";
+import timersReducer from "./timerSlice";
 import { combineReducers } from "@reduxjs/toolkit";
 
 const homeReducer = combineReducers({
-  pomodoro: activeTimerReducer, 
+  timers: timersReducer,
 });
-
 
 export default homeReducer;
