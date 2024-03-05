@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 function Input({ labelContent = null, updateInputValue, inputValue = "" }) {
   const dispatch = useDispatch();
   const [isValid, setIsValid] = useState(true);
+  // TODO : MAKE THIS LOGIC AS A CUSTOM HOOK
   const [currentInputValue, setCurrentInputValue] = useState(inputValue);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ function Input({ labelContent = null, updateInputValue, inputValue = "" }) {
       ) : null}
       <input
         data-valid={isValid}
-        className="p-[10px] rounded-[6px] bg-efGray max-h-[38.5px] focus:outline-none data-[valid=false]:focus:outline-red-300"
+        className="p-[10px] rounded-[6px] bg-efGray max-h-[38.5px] outline-none data-[valid=false]:focus:border data-[valid=false]:focus:border-red-400"
         type="number"
         value={parseInt(currentInputValue)}
         id={labelContent}
