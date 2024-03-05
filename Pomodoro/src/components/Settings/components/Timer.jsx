@@ -29,17 +29,17 @@ function Timer() {
         <div className="flex justify-between mt-[10px]">
           <Input
             labelContent="Pomodoro"
-            update={updatePomodoro}
+            updateInputValue={updatePomodoro}
             inputValue={timer.pomodoro}
           />
           <Input
             labelContent="Short Break"
-            update={updateShortBreak}
+            updateInputValue={updateShortBreak}
             inputValue={timer.shortBreak}
           />
           <Input
             labelContent="Long Break"
-            update={updateLongBreak}
+            updateInputValue={updateLongBreak}
             inputValue={timer.longBreak}
           />
         </div>
@@ -65,7 +65,7 @@ function Timer() {
       <ToggleSetting settingsHeader="long break interval">
         <Input
           inputValue={timer.longBreakInterval}
-          update={updateLongBreakInterval}
+          updateInputValue={updateLongBreakInterval}
         />
       </ToggleSetting>
     </div>

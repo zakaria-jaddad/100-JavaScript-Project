@@ -21,6 +21,7 @@ function Pomodoro() {
 
   //  show: pomodoro, shortBreak, longBreak own timerSettings.
   const [minutesTimer, setMinutesTimer] = useState();
+
   useEffect(() => {
     setMinutesTimer(
       getCurrentTimer({
@@ -38,7 +39,7 @@ function Pomodoro() {
     if (isStart) {
       setMinutesTimer(secondsTimer === 59 ? minutesTimer - 1 : minutesTimer);
     }
-    // logic here for function and timerSettings
+    // timer is done
     if (secondsTimer === 0 && minutesTimer === 0) {
       playSound({
         sound: soundInfo.alarmSound.alarmSound,
