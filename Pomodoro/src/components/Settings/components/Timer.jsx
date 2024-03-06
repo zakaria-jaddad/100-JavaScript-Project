@@ -1,5 +1,5 @@
 import WatchLogo from "/public/icons/settings/watch.svg";
-import Input from "../ui/Input";
+import Input from "../ui/Input/Input";
 import SubTitle from "../ui/SubTitle";
 import { useSelector } from "react-redux";
 import ToggleSetting from "../ui/ToggleSetting";

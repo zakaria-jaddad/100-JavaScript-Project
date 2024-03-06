@@ -1,20 +1,14 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import useCurrentInputValue from "./hooks/useCurrentInputValue";
 
 function Input({ labelContent = null, updateInputValue, inputValue = "" }) {
-  const dispatch = useDispatch();
-  const [isValid, setIsValid] = useState(true);
-  // TODO : MAKE THIS LOGIC AS A CUSTOM HOOK
-  const [currentInputValue, setCurrentInputValue] = useState(inputValue);
-
-  useEffect(() => {
-    if (currentInputValue != "" || currentInputValue != 0) {
-      dispatch(updateInputValue(currentInputValue));
-      setIsValid(true);
-    } else {
-      setIsValid(false);
-    }
-  }, [currentInputValue]);
+  const [isValid, [currentInputValue, setCurrentInputValue]] =
+    useCurrentInputValue(inputValue, updateInputValue);
+  const errorMessage =
+    isValid === false ? (
+      <span className="font-normal text-red-400 text-[12px] pl-1 ">
+        Invalid Value
+      </span>
+    ) : null;
 
   return (
     <div
@@ -22,7 +16,11 @@ function Input({ labelContent = null, updateInputValue, inputValue = "" }) {
       className="flex flex-col xsm:w-[98px] w-[55px] text-third-text-color font-bold mb-[4px] text-[14px]"
     >
       {labelContent !== null ? (
-        <label htmlFor={labelContent} className="block">
+        <label
+          htmlFor={labelContent}
+          data-valid={isValid}
+          className="block data-[valid=false]:text-red-400"
+        >
           {labelContent}
         </label>
       ) : null}
@@ -37,6 +35,7 @@ function Input({ labelContent = null, updateInputValue, inputValue = "" }) {
           setCurrentInputValue(e.target.value);
         }}
       />
+      {errorMessage}
     </div>
   );
 }
