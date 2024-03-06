@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
-import getDataFromLocalStorage from "../../util/getDataFromLocalStorage";
+import removeDataFromLocalStorage from "../../util/localStorage/removeDataFromLocalStorage";
+import getDataFromLocalStorage from "../../util/localStorage/getDataFromLocalStorage";
+import saveDataToLocalStorage from "../../util/localStorage/saveDataTolocalStorage";
 
 const KEY = "timers";
-const initialState = getDataFromLocalStorage(KEY, {
+const STATE = {
+  timeStamp: Date.now(),
   pomodoro: {
     isActive: true,
     counter: 1,
@@ -16,7 +18,17 @@ const initialState = getDataFromLocalStorage(KEY, {
     isActive: false,
     counter: 1,
   },
-});
+};
+const checkDuration = (state) => {
+  const maxDuration = 8 * 60 * 60 * 1000;
+  if (Date.now() - state.timeStamp > maxDuration) {
+    removeDataFromLocalStorage(KEY);
+    return getDataFromLocalStorage(KEY, STATE);
+  }
+  return state;
+};
+
+const initialState = checkDuration(getDataFromLocalStorage(KEY, STATE));
 
 const timersSlice = createSlice({
   name: "timersSlice",
@@ -35,13 +47,16 @@ const timersSlice = createSlice({
         return acc;
       }, {});
 
-      // ===
-      saveDataToLocalStorage(KEY, updatedState);
-      return updatedState;
+      return saveDataToLocalStorage(KEY, {
+        ...updatedState,
+        timeStamp: Date.now(),
+      });
     },
+    // TODO : Make this code look good, it's ugly as F, there is not ugly Code Though, This code is not well written.
     updatePomodoroTimerCounter: (state, actions) => {
       const { payload } = actions;
       state.pomodoro.counter = parseInt(payload);
+      state.timeStamp = Date.now();
 
       saveDataToLocalStorage(KEY, state);
       return state;
@@ -49,6 +64,7 @@ const timersSlice = createSlice({
     updateShortBreakTimerCounter: (state, actions) => {
       const { payload } = actions;
       state.shortBreak.counter = parseInt(payload);
+      state.timeStamp = Date.now();
 
       saveDataToLocalStorage(KEY, state);
       return state;
@@ -56,6 +72,7 @@ const timersSlice = createSlice({
     updateLongBreakTimerCounter: (state, actions) => {
       const { payload } = actions;
       state.longBreak.counter = parseInt(payload);
+      state.timeStamp = Date.now();
 
       saveDataToLocalStorage(KEY, state);
       return state;
