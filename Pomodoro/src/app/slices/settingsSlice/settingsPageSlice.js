@@ -1,16 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useLocalStorage, {
-  SAVE_DATA,
-  GET_DATA,
-} from "../../../hooks/useLocalStorage";
-import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
+import saveDataToLocalStorage from "../../util/localStorage/saveDataTolocalStorage";
+import getDataFromLocalStorage from "../../util/localStorage/getDataFromLocalStorage";
 
 const KEY = "settingsPage";
-const initialState = useLocalStorage({
-  key: KEY,
-  type: GET_DATA,
-  value: false,
-});
+const initialState = getDataFromLocalStorage(KEY, false);
+
 export const settingsPageSlice = createSlice({
   name: "settingsPageSlice",
   initialState,

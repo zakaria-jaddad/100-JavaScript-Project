@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getDataFromLocalStorage from "../../util/getDataFromLocalStorage";
-import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
-
+import saveDataToLocalStorage from "../../util/localStorage/saveDataTolocalStorage";
+import getDataFromLocalStorage from "../../util/localStorage/getDataFromLocalStorage";
 const KEY = "sound";
 
 const initialState = getDataFromLocalStorage(KEY, {

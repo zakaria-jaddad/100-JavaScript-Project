@@ -1,24 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useLocalStorage, {
-  SAVE_DATA,
-  GET_DATA,
-} from "../../../hooks/useLocalStorage";
-import saveDataToLocalStorage from "../../util/saveDataTolocalStorage";
+import saveDataToLocalStorage from "../../util/localStorage/saveDataTolocalStorage";
+import getDataFromLocalStorage from "../../util/localStorage/getDataFromLocalStorage";
 
 const KEY = "theme";
-const initialState = useLocalStorage({
-  key: KEY,
-  type: GET_DATA,
-  value: {
-    themeColors: {
-      "main-bg-color": "#3C3633",
-      "main-text-color ": "#EEEDEB",
-      "second-text-color": "#1F1717",
-      "third-text-color": "#747264",
-      "active-button": "#84C733CC",
-    },
-    darkModeWhenRunning: false,
+const initialState = getDataFromLocalStorage(KEY, {
+  themeColors: {
+    "main-bg-color": "#3C3633",
+    "main-text-color ": "#EEEDEB",
+    "second-text-color": "#1F1717",
+    "third-text-color": "#747264",
+    "active-button": "#84C733CC",
   },
+  darkModeWhenRunning: false,
 });
 
 // ========
