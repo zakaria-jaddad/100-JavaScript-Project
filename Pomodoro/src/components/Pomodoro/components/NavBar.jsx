@@ -5,11 +5,10 @@ import { updateActiveTimer } from "../../../app/slices/pomodoroSlice/timerSlice"
 const NavBar = () => {
   const dispatch = useDispatch();
   const timers = useSelector((state) => state.home.timers); // timers Status
-  const setActiveTimer = (event) =>  {
+  const setActiveTimer = (event) => {
     dispatch(updateActiveTimer(event.target.dataset.timertype));
-  }
+  };
 
-  
   const [documentWidth, setDocumentWidth] = useState(
     document.documentElement.offsetWidth
   );
@@ -36,7 +35,7 @@ const NavBar = () => {
           timers.pomodoro.isActive === true ? "bg-transparent font-bold" : ""
         }`}
       >
-        {documentWidth > 367 ? "Pomodoro" : "Pomo"}
+        {documentWidth > 368 ? "Pomodoro" : "Pomo"}
       </div>
       <div
         onMouseDown={(e) => {
@@ -53,7 +52,7 @@ const NavBar = () => {
         }`}
         data-timertype="shortBreak"
       >
-        {documentWidth > 367 ? "Short Break" : "Short"}
+        {documentWidth > 368 ? "Short Break" : "Short"}
       </div>
       <div
         onMouseDown={(e) => {
@@ -70,7 +69,7 @@ const NavBar = () => {
         }`}
         data-timertype="longBreak"
       >
-        {documentWidth > 367 ? "Long Break" : "Long"}
+        {documentWidth > 368 ? "Long Break" : "Long"}
       </div>
     </nav>
   );
