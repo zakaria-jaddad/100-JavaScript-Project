@@ -6,6 +6,7 @@ import playSound from "../utils/playSound";
 import getCurrentTimer from "./utils/getCurrentTimer";
 import clickSound from "/public/sounds/click.mp3";
 import goToNextTimer from "./utils/GoToNexTimer";
+import NavBar from "./components/NavBar";
 
 function Pomodoro() {
   const dispatch = useDispatch();
@@ -59,75 +60,10 @@ function Pomodoro() {
   }, [isStart]);
 
   return (
-    <main className="container text-main-text-color">
+    <main className="text-main-text-color">
       <div className="max-w-[450px] mx-auto">
         <div className="w-[100%] p-[20px_0px_30px] flex gap-[10px] flex-col items-center bg-[rgba(255,_255,_255,_0.1)] rounded-lg mb-[20px]">
-          <nav className="flex justify-center items-center gap-[10px] h-[32px]">
-            <div
-              onMouseDown={(e) => {
-                e.target.classList.add("translate-y-[2px]");
-              }}
-              onMouseUp={(e) => {
-                e.target.classList.remove("translate-y-[2px]");
-              }}
-              onClick={(e) => {
-                timers.pomodoro.isActive === false
-                  ? dispatch(updateActiveTimer(e.target.dataset.timertype))
-                  : null;
-              }}
-              data-timertype="pomodoro"
-              className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                timers.pomodoro.isActive === true
-                  ? "bg-transparent font-bold"
-                  : ""
-              }`}
-            >
-              Pomodoro
-            </div>
-            <div
-              onMouseDown={(e) => {
-                e.target.classList.add("translate-y-[2px]");
-              }}
-              onMouseUp={(e) => {
-                e.target.classList.remove("translate-y-[2px]");
-              }}
-              onClick={(e) => {
-                timers.shortBreak.isActive === false
-                  ? dispatch(updateActiveTimer(e.target.dataset.timertype))
-                  : null;
-              }}
-              className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                timers.shortBreak.isActive === true
-                  ? "bg-transparent font-bold"
-                  : ""
-              }`}
-              data-timertype="shortBreak"
-            >
-              Short Break
-            </div>
-            <div
-              onMouseDown={(e) => {
-                e.target.classList.add("translate-y-[2px]");
-              }}
-              onMouseUp={(e) => {
-                e.target.classList.remove("translate-y-[2px]");
-              }}
-              onClick={(e) => {
-                timers.longBreak.isActive === false
-                  ? dispatch(updateActiveTimer(e.target.dataset.timertype))
-                  : null;
-              }}
-              className={`px-[10px] h-[90%] flex items-center cursor-pointer transition duration-150 rounded ${
-                timers.longBreak.isActive === true
-                  ? "bg-transparent font-bold"
-                  : ""
-              }`}
-              data-timertype="longBreak"
-            >
-              Long Break
-            </div>
-          </nav>
-
+          <NavBar />
           <section className="text-[100px] font-semibold text-white tracking-wider">
             {`${minutesTimer}:${
               secondsTimer >= 0 && secondsTimer < 10
