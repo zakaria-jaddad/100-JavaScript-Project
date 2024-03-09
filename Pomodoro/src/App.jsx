@@ -8,14 +8,18 @@ function App() {
   const isSettings = useSelector((state) => state.settings.settingsPage);
   const theme = useSelector((state) => state.settings.theme.themeColors);
   useTheme(theme);
-  
+
   return (
-    <main className={`relative h-screen ${isSettings ? 'overflow-hidden' : ''}`}>
+    <main
+      className={`container px-[10px] relative h-screen ${
+        isSettings ? "overflow-hidden" : ""
+      }`}
+    >
       <Header />
       {isSettings === true ? <Settings /> : null}
       <Pomodoro />
     </main>
-  )
+  );
 }
 
 export default App;

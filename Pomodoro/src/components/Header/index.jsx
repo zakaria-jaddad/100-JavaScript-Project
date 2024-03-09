@@ -5,7 +5,6 @@ const Header = () => {
   return (
     <header
       className="
-        container 
         h-[60px]
         flex justify-between items-center 
         text-main-text-color
