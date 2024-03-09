@@ -1,4 +1,4 @@
-import getCurrentTimer from "./getCurrentTimer";
+import getCurrentTimer from "./getCurrentTimerInfo";
 import * as updateTimer from "../../../app/slices/pomodoroSlice/timerSlice";
 
 /* 
@@ -45,7 +45,7 @@ function goToNextTimer({ dispatch, timerSettings, timers }) {
       break;
     default:
       console.log("Unexpacted Active Timer", CurrentActiveTimer);
-      break
+      break;
   }
 }
 

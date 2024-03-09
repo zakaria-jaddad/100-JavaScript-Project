@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { updateActiveTimer } from "../../../app/slices/pomodoroSlice/timerSlice";
 import { useEffect, useState } from "react";
+import { updateActiveTimer } from "../../../app/slices/pomodoroSlice/timerSlice";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const timers = useSelector((state) => state.home.timers); // timers Status
-  function setActiveTimer(event) {
+  const setActiveTimer = (event) =>  {
     dispatch(updateActiveTimer(event.target.dataset.timertype));
   }
-  // width 367px.
 
+  
   const [documentWidth, setDocumentWidth] = useState(
     document.documentElement.offsetWidth
   );
