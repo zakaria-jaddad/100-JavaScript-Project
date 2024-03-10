@@ -1,7 +1,7 @@
 export const themes = {
   firstTheme: {
     "main-bg-color": "#3C3633",
-    "main-text-color ": "#EEEDEB",
+    "main-text-color": "#EEEDEB",
     "second-text-color": "#1F1717",
     "third-text-color": "#747264",
     "active-button": "#84C733CC",
