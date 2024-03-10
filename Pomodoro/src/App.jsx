@@ -1,5 +1,5 @@
-import Header from "./components/Header";
 import { useSelector } from "react-redux";
+import Header from "./components/Header";
 import Settings from "./components/Settings";
 import useTheme from "./components/Settings/hooks/useTheme";
 import Pomodoro from "./components/Pomodoro";
@@ -10,14 +10,16 @@ function App() {
   useTheme(theme);
 
   return (
-    <main
-      className={`container px-[10px] relative h-screen ${
-        isSettings ? "overflow-hidden" : ""
-      }`}
-    >
-      <Header />
+    <main className="relative">
+      <div
+        className={`container px-[10px] h-screen ${
+          isSettings ? "overflow-hidden" : ""
+        }`}
+      >
+        <Header />
+        <Pomodoro />
+      </div>
       {isSettings === true ? <Settings /> : null}
-      <Pomodoro />
     </main>
   );
 }
