@@ -1,26 +1,27 @@
-import getCurrentTimer from "./getCurrentTimerInfo";
 import * as updateTimer from "../../../app/slices/pomodoroSlice/timerSlice";
+import getCurrentTimerInfo from "./getCurrentTimerInfo";
 
 /* 
   Signature: 
     Object
       -> func: dispatch
       -> timerSettings: Global State Variable Has Settings Of Timer Such time of pomodoro, breaks and autoStart timers...
-      -> timers: Global State Variabls Has timers Information such isActive and counter 
+      -> timers: Global State Variabls Has timers Information such active timer and timer counter 
       
   Porpuse: 
     set next timer type and increment active timer counter by one 
 */
 function goToNextTimer({ dispatch, timerSettings, timers }) {
+
   // get active timer
-  const CurrentActiveTimer = getCurrentTimer({
+  const activeTimer = getCurrentTimerInfo({
     timers: timers,
     timerSettings: timerSettings,
-  })[1];
+  }).activeTimer
 
-  const activeTimerCounter = timers[CurrentActiveTimer].counter;
+  const activeTimerCounter = timers[activeTimer].counter;
 
-  switch (CurrentActiveTimer) {
+  switch (activeTimer) {
     case "pomodoro":
       // no long Break after pomodoro
       if (activeTimerCounter % timerSettings.longBreakInterval !== 0) {
@@ -44,7 +45,7 @@ function goToNextTimer({ dispatch, timerSettings, timers }) {
       dispatch(updateTimer.updateActiveTimer("pomodoro"));
       break;
     default:
-      console.log("Unexpacted Active Timer", CurrentActiveTimer);
+      console.log("Unexpacted Active Timer", activeTimer);
       break;
   }
 }

@@ -9,14 +9,13 @@ function Pomodoro() {
   // Global variables
   const timerSettings = useSelector((state) => state.settings.timer); // current timer settings
   const timers = useSelector((state) => state.home.timers); // timers Status
-
   // Locale variables
   const { seconds, minutes, timerStatus } = useTimer(0);
   const { secondsLeft, setSecondsLeft } = seconds;
   const { minutesTimer, setMinutesTimer } = minutes;
   const { isTimerRunning, setIsTimerRunning } = timerStatus;
 
-  const activeTimer = getCurrentTimerInfo({
+  const { activeTimer } = getCurrentTimerInfo({
     timers: timers,
     timerSettings: timerSettings,
   });
@@ -56,7 +55,7 @@ function Pomodoro() {
         {/* counter */}
         <div className="text-main-text-color flex flex-col items-center gap-[5px]">
           <div className="tracking-[2px]">
-            #{timers[activeTimer[1]].counter}
+            #{timers[activeTimer].counter}
           </div>
           <div>Time for somting...</div>
         </div>

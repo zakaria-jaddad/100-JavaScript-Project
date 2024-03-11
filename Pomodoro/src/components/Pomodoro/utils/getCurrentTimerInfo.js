@@ -13,7 +13,10 @@
 export default function getCurrentTimerInfo({ timers, timerSettings }) {
   for (const timerType of Object.entries(timers)) {
     if (timerType[1].isActive === true) {
-      return [timerSettings[timerType[0]], timerType[0]];
+      return {
+        minutesTimer: timerSettings[timerType[0]],
+        activeTimer: timerType[0],
+      };
     }
   }
 }

@@ -18,10 +18,16 @@ export default function useTimer(seconds = 0) {
   const timerSettings = useSelector((state) => state.settings.timer); // current timer settings
   const timers = useSelector((state) => state.home.timers); // timers Status
 
-  const [secondsLeft, setSecondsLeft] = useState(seconds);
-  const [minutesTimer, setMinutesTimer] = useState();
   const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(seconds);
+  const [minutesTimer, setMinutesTimer] = useState(
+    getCurrentTimerInfo({
+      timers: timers,
+      timerSettings: timerSettings,
+    }).minutesTimer
+  );
 
+  // timer
   useEffect(() => {
     let secondsInterval;
     if (isTimerRunning) {
@@ -43,7 +49,7 @@ export default function useTimer(seconds = 0) {
       getCurrentTimerInfo({
         timers: timers,
         timerSettings: timerSettings,
-      })[0]
+      }).minutesTimer
     );
     setIsTimerRunning(false);
     setSecondsLeft(0);
@@ -69,6 +75,23 @@ export default function useTimer(seconds = 0) {
       });
     }
   }, [secondsLeft]);
+
+  useEffect(() => {
+    const updateTimer = () => {
+      if (isTimerRunning) {
+        setMinutesTimer(
+          getCurrentTimerInfo({ timers: timers, timerSettings: timerSettings })
+            .minutesTimer - 1
+        );
+        return 0;
+      }
+      setMinutesTimer(
+        getCurrentTimerInfo({ timers: timers, timerSettings: timerSettings })
+          .minutesTimer
+      );
+    };
+    updateTimer();
+  }, [timerSettings]);
 
   return {
     seconds: {
