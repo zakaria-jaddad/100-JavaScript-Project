@@ -17,6 +17,11 @@ function getSavedValue(KEY, value) {
   if (savedValue) {
     return savedValue;
   }
+  // value === null means that i want to get the value from local storag, 
+  // i have no inital value
+  if (value === null) {
+    return null;
+  }
   // if there is nothing save new value and return it
   return saveValue(KEY, value);
 }
