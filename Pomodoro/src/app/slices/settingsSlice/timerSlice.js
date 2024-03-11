@@ -3,9 +3,9 @@ import saveDataToLocalStorage from "../../util/localStorage/saveDataTolocalStora
 import getDataFromLocalStorage from "../../util/localStorage/getDataFromLocalStorage";
 const KEY = "timer";
 const initialState = getDataFromLocalStorage(KEY, {
-  pomodoro: 20,
-  shortBreak: 10,
-  longBreak: 0,
+  pomodoro: 25,
+  shortBreak: 5,
+  longBreak: 30,
   autoStartsBreaks: false,
   autoStartsPomodoro: false,
   longBreakInterval: 4,
