@@ -2,6 +2,7 @@ import getDataFromLocalStorage from "../../../src/app/util/localStorage/getDataF
 import "../styles/preloader.css";
 
 (function () {
+  document.body.style.margin = "0px"
   function getCurrentThemeColors(themeSettings) {
     if (themeSettings !== null) {
       return {
