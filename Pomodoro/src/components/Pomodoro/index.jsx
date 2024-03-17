@@ -4,13 +4,15 @@ import playSound from "../utils/playSound";
 import clickSound from "/public/sounds/click.mp3";
 import NavBar from "./components/NavBar";
 import getCurrentTimerInfo from "./utils/getCurrentTimerInfo";
+import TimerProgress from "./components/TimerProgress";
+import { useEffect } from "react";
 
 function Pomodoro() {
   // Global variables
   const timerSettings = useSelector((state) => state.settings.timer); // current timer settings
   const timers = useSelector((state) => state.home.timers); // timers Status
   // Locale variables
-  const { seconds, minutes, timerStatus } = useTimer(0);
+  const { seconds, minutes, timerStatus, timerInSeconds } = useTimer(0);
   const { secondsLeft, setSecondsLeft } = seconds;
   const { minutesTimer, setMinutesTimer } = minutes;
   const { isTimerRunning, setIsTimerRunning } = timerStatus;
@@ -19,9 +21,13 @@ function Pomodoro() {
     timers: timers,
     timerSettings: timerSettings,
   });
+  useEffect(() => {
+    console.log("component value", minutesTimer, secondsLeft);
+  }, [minutesTimer, secondsLeft]);
 
   return (
     <main className="text-main-text-color">
+      <TimerProgress isTimerRunning={isTimerRunning} />
       <div className="max-w-[450px] mx-auto">
         <div className="w-[100%] p-[20px_0px_30px] flex gap-[10px] flex-col items-center bg-[rgba(255,_255,_255,_0.1)] rounded-lg mb-[20px]">
           <NavBar />
@@ -54,10 +60,14 @@ function Pomodoro() {
 
         {/* counter */}
         <div className="text-main-text-color flex flex-col items-center gap-[5px]">
-          <div className="tracking-[2px]">
-            #{timers[activeTimer].counter}
+          <div className="tracking-[2px]">#{timers[activeTimer].counter}</div>
+          <div>
+            {activeTimer === "pomodoro"
+              ? "Time To Focuse"
+              : activeTimer === "shortBreak"
+              ? "Time To A Little Rest"
+              : "Time To Take A Rest"}
           </div>
-          <div>Time for somting...</div>
         </div>
       </div>
     </main>
