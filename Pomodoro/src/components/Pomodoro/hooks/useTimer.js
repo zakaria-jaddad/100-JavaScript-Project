@@ -8,6 +8,10 @@ function secondsToTimer(seconds) {
   return seconds % 60 === 0 ? seconds % 60 : 60 - (seconds % 60);
 }
 
+function timerToSeconds(minutes, seconds) {
+  return minutes * 60 + secondsToTimer(seconds);
+}
+
 /* 
   This Hook is complicated so i need to break it down
   This Hook make a Timer
@@ -26,6 +30,9 @@ export default function useTimer(seconds = 0) {
       timerSettings: timerSettings,
     }).minutesTimer
   );
+  const [timerInSeconds, setTimerInSeconds] = useState(
+    timerToSeconds(minutesTimer, secondsLeft)
+  );
 
   // timer
   useEffect(() => {
@@ -33,15 +40,15 @@ export default function useTimer(seconds = 0) {
     if (isTimerRunning) {
       secondsInterval = setInterval(() => {
         setSecondsLeft((prevSecondsLeft) => {
+          if (secondsToTimer(prevSecondsLeft) === 0) {
+            setMinutesTimer(minutesTimer - 1);
+            return 1;
+          }
           return prevSecondsLeft + 1;
         });
       }, 1000);
     }
     return () => clearInterval(secondsInterval);
-  }, [secondsLeft, isTimerRunning]);
-
-  useEffect(() => {
-    setIsTimerRunning(isTimerRunning);
   }, [isTimerRunning]);
 
   useEffect(() => {
@@ -56,11 +63,6 @@ export default function useTimer(seconds = 0) {
   }, [timers]);
 
   useEffect(() => {
-    if (isTimerRunning) {
-      setMinutesTimer(
-        secondsToTimer(secondsLeft) === 59 ? minutesTimer - 1 : minutesTimer
-      );
-    }
     // timer is done
     if (secondsToTimer(secondsLeft) === 0 && minutesTimer === 0) {
       playSound({
@@ -99,12 +101,13 @@ export default function useTimer(seconds = 0) {
       setSecondsLeft,
     },
     minutes: {
-      minutesTimer,
+      minutesTimer: minutesTimer,
       setMinutesTimer,
     },
     timerStatus: {
       isTimerRunning,
       setIsTimerRunning,
     },
+    timerInSeconds: timerInSeconds,
   };
 }
