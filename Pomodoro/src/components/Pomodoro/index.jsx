@@ -17,17 +17,19 @@ function Pomodoro() {
   const { minutesTimer, setMinutesTimer } = minutes;
   const { isTimerRunning, setIsTimerRunning } = timerStatus;
 
-  const { activeTimer } = getCurrentTimerInfo({
+  const  activeTimerInfo = getCurrentTimerInfo({
     timers: timers,
     timerSettings: timerSettings,
   });
-  useEffect(() => {
-    console.log("component value", minutesTimer, secondsLeft);
-  }, [minutesTimer, secondsLeft]);
-
+  const { activeTimer } = activeTimerInfo; 
+  
   return (
     <main className="text-main-text-color">
-      <TimerProgress isTimerRunning={isTimerRunning} />
+      <TimerProgress
+        isTimerRunning={isTimerRunning}
+        timerInSeconds={timerInSeconds}
+        activeTimerInfo={activeTimerInfo}
+      />
       <div className="max-w-[450px] mx-auto">
         <div className="w-[100%] p-[20px_0px_30px] flex gap-[10px] flex-col items-center bg-[rgba(255,_255,_255,_0.1)] rounded-lg mb-[20px]">
           <NavBar />

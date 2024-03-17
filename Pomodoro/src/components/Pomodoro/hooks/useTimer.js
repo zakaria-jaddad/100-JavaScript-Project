@@ -63,6 +63,7 @@ export default function useTimer(seconds = 0) {
   }, [timers]);
 
   useEffect(() => {
+    setTimerInSeconds(timerToSeconds(minutesTimer, secondsLeft));
     // timer is done
     if (secondsToTimer(secondsLeft) === 0 && minutesTimer === 0) {
       playSound({
