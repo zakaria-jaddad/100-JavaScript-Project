@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import getCurrentTimerInfo from "../../utils/getCurrentTimerInfo";
-import { current } from "@reduxjs/toolkit";
 
 const useProgressBar = (isTimerRunning, timerInSeconds, activeTimerInfo) => {
   const { activeTimer, minutesTimer } = activeTimerInfo;
   const [width, setWidth] = useState(0);
-  const [secondsWidth, setSecondsWidth] = useState(0);
+  const [newSecondsWidth, setSecondsWidth] = useState(0);
   const [initialTimer, setInitialTimer] = useState(minutesTimer * 60);
 
   useEffect(() => {
@@ -18,7 +16,7 @@ const useProgressBar = (isTimerRunning, timerInSeconds, activeTimerInfo) => {
       // const stepPerSecond = 100 / (minutesTimer * 60);
       if (isTimerRunning) {
         setWidth((prevWidth) => {
-          const newWidth = prevWidth + secondsWidth;
+          const newWidth = prevWidth + newSecondsWidth;
           progressBar.style.width = `${newWidth}%`;
           return newWidth;
         });
@@ -40,29 +38,18 @@ const useProgressBar = (isTimerRunning, timerInSeconds, activeTimerInfo) => {
 
   useEffect(() => {
     const updateProgressBarWidth = () => {
-      // useTimerInSeconds...
+      const newSecondsWidth = 100 / (minutesTimer * 60);
       const progressBar = document.getElementById("progress-bar");
-      const progress = ((initialTimer - timerInSeconds) * 100) / minutesTimer;
+      const timeDifferent = (initialTimer - timerInSeconds) % 60;
 
-      const timerDifferent = minutesTimer * 60 - initialTimer;
+      // imagin that there is a 10 minutes timer and you have done just take new timer and set width to 0 and substrac how much seconds
+      // user have done from the current minutes
 
-      console.log(
-        initialTimer,
-        timerInSeconds,
-        progress,
-        secondsWidth,
-        progress * secondsWidth
-      );
+      console.log(initialTimer, timerInSeconds);
 
-      setWidth((prevWidth) => {
-        const newWidth = prevWidth - progress * secondsWidth;
-        console.log("Hello");
-        progressBar.style.width = `${
-          parseInt(progressBar.style.width) - progress * secondsWidth
-        }%`;
-        setSecondsWidth(100 / (minutesTimer * 60));
-        return newWidth;
-      });
+      progressBar.style.width = `${timeDifferent * newSecondsWidth}%`;
+      setWidth(timeDifferent * newSecondsWidth);
+      setSecondsWidth(newSecondsWidth);
     };
     if (isTimerRunning) updateProgressBarWidth();
   }, [minutesTimer]);
