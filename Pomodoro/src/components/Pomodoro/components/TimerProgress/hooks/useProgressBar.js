@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useProgressBar = (timerInSeconds, activeTimerInfo) => {
+const useProgressBar = (isTimerRunning, timerInSeconds, activeTimerInfo) => {
   const { activeTimer, minutesTimer } = activeTimerInfo;
   const [newSecondsWidth, setSecondsWidth] = useState(0);
   const [initialTimer, setInitialTimer] = useState(minutesTimer * 60);
@@ -16,8 +16,8 @@ const useProgressBar = (timerInSeconds, activeTimerInfo) => {
       progressBar.style.width = `${newWidth}%`;
       return newWidth;
     };
+    if (isTimerRunning) setProgressBarWidth();
     setInitialTimer(minutesTimer * 60);
-    setProgressBarWidth();
   }, [timerInSeconds]);
 
   useEffect(() => {
