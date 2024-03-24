@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import getCurrentTimerInfo from "../utils/getCurrentTimerInfo";
 import goToNextTimer from "../utils/GoToNexTimer";
@@ -30,6 +30,7 @@ export default function useTimer(seconds = 0) {
       timerSettings: timerSettings,
     }).minutesTimer
   );
+
   const [timerInSeconds, setTimerInSeconds] = useState(
     timerToSeconds(minutesTimer, secondsLeft)
   );
@@ -81,13 +82,15 @@ export default function useTimer(seconds = 0) {
 
   useEffect(() => {
     const updateTimer = () => {
-      setMinutesTimer(
-        getCurrentTimerInfo({ timers: timers, timerSettings: timerSettings })
-          .minutesTimer - 1
-      );
-        return 0;
+      setMinutesTimer(() => {
+        const newMinutesTimer = getCurrentTimerInfo({
+          timers: timers,
+          timerSettings: timerSettings,
+        }).minutesTimer;
+        return secondsLeft === 0 ? newMinutesTimer : newMinutesTimer - 1;
+      });
     };
-    if (isTimerRunning) updateTimer();
+    updateTimer();
   }, [timerSettings]);
 
   return {
