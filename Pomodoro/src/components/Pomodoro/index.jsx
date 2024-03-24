@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
+import { useMemo } from "react";
 import useTimer from "./hooks/useTimer";
 import playSound from "../utils/playSound";
 import clickSound from "/public/sounds/click.mp3";
 import NavBar from "./components/NavBar";
 import getCurrentTimerInfo from "./utils/getCurrentTimerInfo";
 import TimerProgress from "./components/TimerProgress";
-import { useEffect } from "react";
 
 function Pomodoro() {
   // Global variables
@@ -17,12 +17,14 @@ function Pomodoro() {
   const { minutesTimer, setMinutesTimer } = minutes;
   const { isTimerRunning, setIsTimerRunning } = timerStatus;
 
-  const  activeTimerInfo = getCurrentTimerInfo({
-    timers: timers,
-    timerSettings: timerSettings,
-  });
-  const { activeTimer } = activeTimerInfo; 
-  
+  const activeTimerInfo = useMemo(() => {
+    return getCurrentTimerInfo({
+      timers: timers,
+      timerSettings: timerSettings,
+    });
+  }, [minutesTimer, timerSettings, timers]);
+  const { activeTimer } = activeTimerInfo;
+
   return (
     <main className="text-main-text-color">
       <TimerProgress
