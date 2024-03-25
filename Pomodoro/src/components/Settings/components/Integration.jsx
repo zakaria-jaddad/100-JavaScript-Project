@@ -1,3 +1,4 @@
+import info from "../../../api/todoist/info";
 import SubTitle from "../ui/SubTitle";
 import ToggleSetting from "../ui/ToggleSetting";
 import Integrationlogo from "/public/icons/settings/integration.svg";
@@ -10,9 +11,12 @@ function Integration() {
       </SubTitle>
 
       <ToggleSetting settingsHeader="todoist">
-        <button className="px-[12px] duration-300 transition-all opacity-70  hover:opacity-100 capitalize text-second-text-color text-sm rounded border border-solid border-second-text-color h-full">
+        <a
+          href={`https://todoist.com/oauth/authorize?client_id=${info.clientID}&scope=${info.permissionScopes}&state=${info.state}`}
+          className="px-[12px] duration-300 transition-all opacity-70  hover:opacity-100 capitalize text-second-text-color text-sm rounded border border-solid border-second-text-color h-full flex items-center justify-center"
+        >
           connect
-        </button>
+        </a>
       </ToggleSetting>
     </div>
   );
