@@ -21,14 +21,6 @@ const useProgressBar = (isTimerRunning, timerInSeconds, activeTimerInfo) => {
   }, [timerInSeconds]);
 
   useEffect(() => {
-    const initialProgressBarWidth = () => {
-      const progressBar = document.getElementById("progress-bar");
-      progressBar.style.width = "0%";
-    };
-    initialProgressBarWidth();
-  }, [activeTimer]);
-
-  useEffect(() => {
     const updateProgressBarWidth = () => {
       const progressBar = document.getElementById("progress-bar");
       const newSecondsWidth = 100 / (minutesTimer * 60);
@@ -39,6 +31,14 @@ const useProgressBar = (isTimerRunning, timerInSeconds, activeTimerInfo) => {
     };
     updateProgressBarWidth();
   }, [minutesTimer]);
+
+  useEffect(() => {
+    const initialProgressBarWidth = () => {
+      const progressBar = document.getElementById("progress-bar");
+      progressBar.style.width = "0%";
+    };
+    initialProgressBarWidth();
+  }, [activeTimer]);
 };
 
 export default useProgressBar;
