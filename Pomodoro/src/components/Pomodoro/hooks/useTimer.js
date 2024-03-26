@@ -42,7 +42,6 @@ export default function useTimer(seconds = 0) {
       secondsInterval = setInterval(() => {
         setSecondsLeft((prevSecondsLeft) => {
           if (secondsToTimer(prevSecondsLeft) === 0) {
-            setMinutesTimer(minutesTimer - 1);
             return 1;
           }
           return prevSecondsLeft + 1;
@@ -65,6 +64,11 @@ export default function useTimer(seconds = 0) {
 
   useEffect(() => {
     setTimerInSeconds(timerToSeconds(minutesTimer, secondsLeft));
+    if (isTimerRunning) {
+      if (secondsLeft === 1) {
+        setMinutesTimer((prevMinutesTimer) => prevMinutesTimer - 1);
+      }
+    }
     // timer is done
     if (secondsToTimer(secondsLeft) === 0 && minutesTimer === 0) {
       playSound({
