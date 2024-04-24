@@ -4,7 +4,7 @@ import getDataFromLocalStorage from "../app/util/localStorage/getDataFromLocalSt
 import saveDataToLocalStorage from "../app/util/localStorage/saveDataTolocalStorage";
 import { useLocation } from "react-router-dom";
 
-const KEY = "Authentication";
+const KEY = "todoist_token";
 const saveUserToken = async (code) => {
   const userToken = await Todoist.getToken(code);
   saveDataToLocalStorage(KEY, userToken.access_token);
@@ -13,7 +13,6 @@ const saveUserToken = async (code) => {
 const useAuthentication = () => {
   const isTokenExist = getDataFromLocalStorage(KEY, null);
   if (isTokenExist !== null) {
-    console.log("Happend");
     return false;
   }
 

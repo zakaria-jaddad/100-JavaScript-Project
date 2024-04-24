@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Header from "./components/Header";
 import Settings from "./components/Settings";
 import Pomodoro from "./components/Pomodoro";
+import TodoList from "./components/TodoList";
 import useTheme from "./hooks/useTheme";
 import useAuthentication from "./hooks/useAuthentication";
 
@@ -10,6 +11,16 @@ function App() {
   const theme = useSelector((state) => state.settings.theme.themeColors);
   useTheme(theme);
   useAuthentication();
+
+  // useEffect(() => {
+  //   const userToken = getDataFromLocalStorage("Authentication", null);
+  //   const api = new TodoistApi(userToken);
+
+  //   api
+  //     .getTasks()
+  //     .then((tasks) => console.log(tasks))
+  //     .catch((error) => console.log(error));
+  // }, []);
 
   return (
     <main className="relative">
@@ -20,6 +31,8 @@ function App() {
       >
         <Header />
         <Pomodoro />
+        {/* make the todoist todo's here */}
+        <TodoList />
       </div>
       {isSettings === true ? <Settings /> : null}
     </main>

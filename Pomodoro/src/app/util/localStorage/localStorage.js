@@ -13,15 +13,15 @@ function saveValue(KEY, value) {
 function getSavedValue(KEY, value) {
   let savedValue = localStorage.getItem(KEY);
 
-  // value === null means that i want to get the value from local storag, 
-  // i have no inital value
-  if (value === null) {
-    return null;
-  }
-  
   // if value in local storage
   if (savedValue) {
     return JSON.parse(savedValue);
+  }
+
+  // value === null means that i want to get the value from local storage,
+  // i have no inital value
+  if (value === null) {
+    return null;
   }
   // if there is nothing save new value and return it
   return saveValue(KEY, value);

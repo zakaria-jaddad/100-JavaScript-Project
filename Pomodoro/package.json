@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@doist/todoist-api-typescript": "^3.0.2",
+    "@formkit/auto-animate": "^0.8.2",
     "@reduxjs/toolkit": "^2.1.0",
     "@svgx/vite-plugin-react": "^1.0.1",
+    "@ts-morph/common": "^0.23.0",
     "autoprefixer": "^10.4.17",
+    "axios": "^1.6.8",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "postcss": "^8.4.33",
@@ -25,6 +29,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
