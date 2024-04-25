@@ -13,7 +13,7 @@ const saveUserToken = async (code) => {
 const useAuthentication = () => {
   const isTokenExist = getDataFromLocalStorage(KEY, null);
   if (isTokenExist !== null) {
-    return false;
+    return true;
   }
 
   const location = useLocation();
@@ -30,4 +30,5 @@ const useAuthentication = () => {
   saveUserToken(code);
   return true;
 };
+
 export default useAuthentication;

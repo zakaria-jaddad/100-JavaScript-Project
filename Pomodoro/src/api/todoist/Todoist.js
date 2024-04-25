@@ -1,6 +1,8 @@
-import { TodoistApi } from "@doist/todoist-api-typescript";
+import { TodoistApi, isSuccess } from "@doist/todoist-api-typescript";
 import info from "./info";
 import getDataFromLocalStorage from "../../app/util/localStorage/getDataFromLocalStorage";
+
+let TODOIST_TOKEN;
 
 const Todoist = {
   getToken: async (code) => {
@@ -14,11 +16,12 @@ const Todoist = {
       body: formData,
     });
     if (!response.ok) throw "Unable to procces request";
+    const data = await response.json();
     return data;
   },
   getTasks: async () => {
     try {
-      const userToken = getDataFromLocalStorage("todoist_token", null);
+      const userToken = getDataFromLocalStorage("todoist_token");
       const api = new TodoistApi(userToken);
 
       const tasks = await api.getTasks();
@@ -34,10 +37,18 @@ const Todoist = {
       const api = new TodoistApi(userToken);
 
       const isSuccess = await api.deleteTask(taskID);
-      return isSuccess;
-      // unable to get data
+      return {
+        isSuccess,
+        message:
+          isSuccess === true
+            ? "Task has been deleted."
+            : "Unable to delete task.",
+      };
     } catch (error) {
-      throw "unable to delete task.";
+      return {
+        isSuccess: false,
+        message: "unable to delete task.",
+      };
     }
   },
 };

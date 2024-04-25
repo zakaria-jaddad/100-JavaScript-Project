@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Todoist from "../../../../api/todoist/Todoist";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { toast } from "sonner";
 
   // this is when thask is done.
   /* <div id="task" className="flex justify-between items-center py-3 px-2">
@@ -76,9 +76,15 @@ const Task = ({ task }) => {
         </div>
         <div
           onClick={async () => {
-            const isSuccess = await Todoist.deleteTask(task.id);
+            const {isSuccess, message} = await Todoist.deleteTask(task.id);
+            if (isSuccess) {
+              removeTeask(task.id);
+              toast.success(message);
+            }
+            else {
+              toast.error(message);
+            }
             setIsTaskDeleted(isSuccess);
-            removeTeask(task.id);
           }}
         >
           <svg

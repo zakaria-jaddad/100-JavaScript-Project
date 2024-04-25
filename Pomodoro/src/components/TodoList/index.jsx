@@ -18,10 +18,11 @@ const TodoList = () => {
   }, []);
 
   const [tasksRef] = useAutoAnimate();
+  const [taskFormRef] = useAutoAnimate();
 
   return (
     <main className="antialiased mx-auto text-main-text-color">
-      <div className="max-w-lg mx-auto p-8 shadow">
+      <div className="max-w-lg mx-auto p-8 shadow" ref={taskFormRef}>
         <div className="flex flex-row justify-between items-center">
           <div className="pb-[14px] border-b w-full ">
             <h1 className="text-main-text-color text-xl font-semibold">
@@ -31,11 +32,9 @@ const TodoList = () => {
         </div>
         <div id="tasks" className="my-5" ref={tasksRef}>
           {/* here you just need to map over tasks */}
-          {
-            tasks.map((task) => (
-              <Task task={task} key={task.id}/>
-            ))
-          }
+          {tasks.map((task) => (
+            <Task task={task} key={task.id} />
+          ))}
         </div>
 
         {/* add add task button */}
