@@ -2,6 +2,7 @@ import Todoist from "../../api/todoist/Todoist";
 import useTaskForm from "./hooks/useTaskForm";
 import TaskForm from "./components/TaskForm";
 import Task from "./ui/Task";
+import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
@@ -10,11 +11,19 @@ const TodoList = () => {
 
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
-    const hello = async () => {
-      const foo = await Todoist.getTasks();
-      setTasks(foo);
+    const getTasks = async () => {
+      const tasks = await Todoist.getTasks();
+      if (!tasks.isSuccess) {
+        toast.error(tasks.message);
+        return;
+      }
+      setTasks(tasks.tasks);
+      return;
     };
-    hello();
+    getTasks();
+    window.addEventListener("online", () => {
+      getTasks()
+    });
   }, []);
 
   const [tasksRef] = useAutoAnimate();

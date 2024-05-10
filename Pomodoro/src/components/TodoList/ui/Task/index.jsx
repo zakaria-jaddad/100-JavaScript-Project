@@ -63,7 +63,7 @@ const Task = ({ task }) => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6 hover:text-indigo-600 hover:cursor-pointer"
+              className="w-6 h-6 hover:text-active-button hover:cursor-pointer"
             >
               <path
                 strokeLinecap="round"

@@ -20,6 +20,7 @@ const TaskForm = ({ showTaskFrom, hideTaskForm }) => {
                 className="flex h-10 w-full rounded-md border border-input bg-main-bg-color px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-[#27272a] border-[#27272a] file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none"
                 id="name"
                 placeholder="Name of your task"
+                autoComplete="off"
               />
             </div>
           </div>
