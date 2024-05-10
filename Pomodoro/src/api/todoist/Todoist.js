@@ -25,10 +25,17 @@ const Todoist = {
       const api = new TodoistApi(userToken);
 
       const tasks = await api.getTasks();
-      return tasks;
-      // unable to get data
+      return {
+        tasks,
+        isSuccess: true,
+        message: "",
+      };
     } catch (error) {
-      throw "unable to get tasks";
+      return {
+        tasks: [],
+        isSuccess: false,
+        message: "Unable to get Tasks.",
+      };
     }
   },
   deleteTask: async (taskID) => {
