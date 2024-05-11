@@ -1,8 +1,6 @@
-import { TodoistApi, isSuccess } from "@doist/todoist-api-typescript";
+import { TodoistApi } from "@doist/todoist-api-typescript";
 import info from "./info";
 import getDataFromLocalStorage from "../../app/util/localStorage/getDataFromLocalStorage";
-
-let TODOIST_TOKEN;
 
 const Todoist = {
   getToken: async (code) => {
@@ -34,7 +32,7 @@ const Todoist = {
       return {
         tasks: [],
         isSuccess: false,
-        message: "Unable to get Tasks.",
+        message: "unable to get tasks.",
       };
     }
   },
@@ -54,7 +52,29 @@ const Todoist = {
     } catch (error) {
       return {
         isSuccess: false,
-        message: "unable to delete task.",
+        message: "Unable to delete task.",
+      };
+    }
+  },
+  createTask: async ({ content }) => {
+    try {
+      const userToken = getDataFromLocalStorage("todoist_token", null);
+      const api = new TodoistApi(userToken);
+
+      const task = await api.addTask({
+        content: content,
+        dueString: "today",
+        dueLang: "en",
+      });
+      return {
+        isSuccess: true,
+        message: "Task has been saved.",
+        task,
+      };
+    } catch (error) {
+      return {
+        isSuccess: false,
+        message: "Unable to save task.",
       };
     }
   },

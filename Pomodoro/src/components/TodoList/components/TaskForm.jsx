@@ -1,4 +1,24 @@
-const TaskForm = ({ showTaskFrom, hideTaskForm }) => {
+import Todoist from "../../../api/todoist/Todoist";
+import { toast } from "sonner";
+import { useState } from "react";
+
+function clearTaskInput() {
+  const taskInput = document.getElementById("task-input");
+  taskInput.value = "";
+  return;
+}
+
+/* 
+  if valid return true
+  if not valid return false
+*/
+function checkTaskInput(taskInput) {
+  return taskInput != "";
+}
+
+const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
+  const [taskContent, setTaskContent] = useState("");
+  const [errorTaskContent, setErrorTaskContent] = useState(false);
   return (
     <div className="wrapper px-2 w-full flex justify-center my-5">
       <form className="w-[380px] rounded shadow-lg border border-[#27272a]">
@@ -12,16 +32,33 @@ const TaskForm = ({ showTaskFrom, hideTaskForm }) => {
             <div className="flex flex-col space-y-1.5">
               <label
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 mb-1"
-                htmlFor="name"
+                htmlFor="task-input"
               >
                 Task's name
               </label>
               <input
-                className="flex h-10 w-full rounded-md border border-input bg-main-bg-color px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-[#27272a] border-[#27272a] file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none"
-                id="name"
+                className={`flex h-10 w-full rounded-md border border-input bg-main-bg-color px-3 py-2 text-sm ring-offset-background file:border-0 ${
+                  errorTaskContent == true
+                    ? "file:bg-[#ff0000] border-[#ff0000]"
+                    : "file:bg-[#27272a] border-[#27272a]"
+                } file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none`}
+                id="task-input"
                 placeholder="Name of your task"
                 autoComplete="off"
+                onChange={(e) => {
+                  setTaskContent(e.target.value);
+                  if (!checkTaskInput(e.target.value)) {
+                    setErrorTaskContent(true);
+                  } else {
+                    setErrorTaskContent(false);
+                  }
+                }}
               />
+              {errorTaskContent == true ? (
+                <div className="text-sm text-[#ff0000]">
+                  Task value is empty.
+                </div>
+              ) : null}
             </div>
           </div>
           <div className="flex items-center justify-between gap-3 p-6 text-sm">
@@ -38,8 +75,23 @@ const TaskForm = ({ showTaskFrom, hideTaskForm }) => {
             <button
               type="submit"
               className="text-main-bg-color bg-[#fafafa] px-4 py-2 rounded font-medium "
-              onClick={(e) => {
+              onClick={async (e) => {
                 e.preventDefault();
+                if (!checkTaskInput(taskContent)) {
+                  setErrorTaskContent(true);
+                  return;
+                }
+                const { isSuccess, message, task } = await Todoist.createTask({
+                  content: taskContent,
+                });
+                if (isSuccess) {
+                  toast.success(message);
+                  clearTaskInput();
+                  tasks = [...tasks, task];
+                  return;
+                }
+                toast.error(message);
+                return;
               }}
             >
               Save

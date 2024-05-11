@@ -25,7 +25,7 @@ const TodoList = () => {
     window.addEventListener("online", () => {
       getTasks()
     });
-  }, []);
+  }, [tasks]);
 
   const [tasksRef] = useAutoAnimate();
   const [taskFormRef] = useAutoAnimate();
@@ -52,7 +52,7 @@ const TodoList = () => {
 
         {/* add add task button */}
         {taskForm === true ? (
-          <TaskForm showTaskForm={showTaskForm} hideTaskForm={hideTaskForm} />
+          <TaskForm tasks={tasks} showTaskForm={showTaskForm} hideTaskForm={hideTaskForm} />
         ) : null}
 
         <div

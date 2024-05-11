@@ -2,8 +2,8 @@ import { useState } from "react";
 import Todoist from "../../../../api/todoist/Todoist";
 import { toast } from "sonner";
 
-  // this is when thask is done.
-  /* <div id="task" className="flex justify-between items-center py-3 px-2">
+// this is when thask is done.
+/* <div id="task" className="flex justify-between items-center py-3 px-2">
   <div className="inline-flex items-center space-x-2">
     <div>
       <svg
@@ -76,12 +76,11 @@ const Task = ({ task }) => {
         </div>
         <div
           onClick={async () => {
-            const {isSuccess, message} = await Todoist.deleteTask(task.id);
+            const { isSuccess, message } = await Todoist.deleteTask(task.id);
             if (isSuccess) {
               removeTeask(task.id);
               toast.success(message);
-            }
-            else {
+            } else {
               toast.error(message);
             }
             setIsTaskDeleted(isSuccess);
