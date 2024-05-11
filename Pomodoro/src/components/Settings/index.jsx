@@ -5,12 +5,20 @@ import Sound from "./components/Sound";
 import Theme from "./components/Theme";
 import Timer from "./components/Timer";
 import Closelogo from "/public/icons/header/close.svg";
+import { useEffect } from "react";
 
 function Settings() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    document.onkeydown = (e) => {
+      if (e.key === "Escape") {
+        dispatch(hidePage());
+      }
+    };
+  }, []);
 
   return (
-    <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-main-text-color flex justify-center items-center overflow-y-scroll ">
+    <section className="absolute inset-0 w-screen z-10 bg-lowTransparent text-main-text-color flex justify-center items-center overflow-y-scroll">
       <div className="w-[90%] xsm:w-[400px] absolute mx-auto bg-white text-second-text-color rounded-[8px] top-[69px] mb-[30px]">
         {/* Title */}
         <div className="flex items-center justify-center text-center h-[50px] w-full relative text-third-text-color border-b border-eGray p-[37px_23px]">
