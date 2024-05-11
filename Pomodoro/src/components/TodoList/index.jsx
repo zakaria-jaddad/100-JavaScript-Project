@@ -5,6 +5,7 @@ import Task from "./ui/Task";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import TodoistIntegrationButton from "../../ui/TodoisIntegrationButton";
 
 const TodoList = () => {
   const { taskForm, showTaskForm, hideTaskForm } = useTaskForm();
@@ -33,10 +34,13 @@ const TodoList = () => {
     <main className="antialiased mx-auto text-main-text-color">
       <div className="max-w-lg mx-auto p-8 shadow" ref={taskFormRef}>
         <div className="flex flex-row justify-between items-center">
-          <div className="pb-[14px] border-b w-full ">
+          <div className="flex justify-between items-center pb-[14px] border-b w-full ">
             <h1 className="text-main-text-color text-xl font-semibold">
               Tasks list
             </h1>
+            <div className="max-w-[80px]">
+              <TodoistIntegrationButton  buttonContent={"Todoist"}/>
+            </div>
           </div>
         </div>
         <div id="tasks" className="my-5" ref={tasksRef}>
