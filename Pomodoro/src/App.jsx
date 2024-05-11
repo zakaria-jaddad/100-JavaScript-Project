@@ -17,7 +17,7 @@ function App() {
     <>
       <main className="relative">
         <div
-          className={`container px-[10px] h-screen ${
+          className={`container px-[10px] h-full ${
             isSettings ? "overflow-hidden" : ""
           }`}
         >
