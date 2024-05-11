@@ -4,7 +4,9 @@ import { useState } from "react";
 
 function clearTaskInput() {
   const taskInput = document.getElementById("task-input");
-  taskInput.value = "";
+  if (taskInput === undefined) {
+    taskInput.value = "";
+  }
   return;
 }
 
@@ -53,6 +55,14 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
                     setErrorTaskContent(false);
                   }
                 }}
+                //  click save button when pressing enter
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    const saveTaskButton =
+                      document.getElementById("save-task-button");
+                    saveTaskButton.click();
+                  }
+                }}
               />
               {errorTaskContent == true ? (
                 <div className="text-sm text-[#ff0000]">
@@ -75,6 +85,7 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
             <button
               type="submit"
               className="text-main-bg-color bg-[#fafafa] px-4 py-2 rounded font-medium "
+              id="save-task-button"
               onClick={async (e) => {
                 e.preventDefault();
                 if (!checkTaskInput(taskContent)) {

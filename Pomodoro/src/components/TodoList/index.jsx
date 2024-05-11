@@ -33,6 +33,7 @@ const TodoList = () => {
   return (
     <main className="antialiased mx-auto text-main-text-color">
       <div className="max-w-lg mx-auto p-8 shadow" ref={taskFormRef}>
+
         <div className="flex flex-row justify-between items-center">
           <div className="flex justify-between items-center border-b w-full h-[60px]">
             <h1 className="text-main-text-color text-xl font-semibold">
@@ -43,6 +44,7 @@ const TodoList = () => {
             </div>
           </div>
         </div>
+
         <div id="tasks" className="my-5" ref={tasksRef}>
           {/* here you just need to map over tasks */}
           {tasks.map((task) => (

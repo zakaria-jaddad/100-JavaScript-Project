@@ -43,7 +43,6 @@ import { toast } from "sonner";
 
 function removeTeask(taskID) {
   const task = document.getElementById(taskID);
-  task.remove();
 }
 
 const Task = ({ task }) => {
@@ -75,7 +74,7 @@ const Task = ({ task }) => {
           <div>{task.content}</div>
         </div>
         <div
-          onClick={async () => {
+          onClick={async (e) => {
             const { isSuccess, message } = await Todoist.deleteTask(task.id);
             if (isSuccess) {
               removeTeask(task.id);
@@ -84,6 +83,9 @@ const Task = ({ task }) => {
               toast.error(message);
             }
             setIsTaskDeleted(isSuccess);
+
+            // remove delete button
+            e.target.remove();
           }}
         >
           <svg
