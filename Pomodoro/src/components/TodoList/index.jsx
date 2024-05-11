@@ -34,11 +34,11 @@ const TodoList = () => {
     <main className="antialiased mx-auto text-main-text-color">
       <div className="max-w-lg mx-auto p-8 shadow" ref={taskFormRef}>
         <div className="flex flex-row justify-between items-center">
-          <div className="flex justify-between items-center pb-[14px] border-b w-full ">
+          <div className="flex justify-between items-center border-b w-full h-[60px]">
             <h1 className="text-main-text-color text-xl font-semibold">
               Tasks list
             </h1>
-            <div className="max-w-[80px]">
+            <div className="h-[35px]">
               <TodoistIntegrationButton  buttonContent={"Todoist"}/>
             </div>
           </div>
