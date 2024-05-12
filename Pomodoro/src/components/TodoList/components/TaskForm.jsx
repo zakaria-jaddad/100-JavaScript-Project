@@ -47,6 +47,7 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
                 id="task-input"
                 placeholder="Name of your task"
                 autoComplete="off"
+                autoFocus={true}
                 onChange={(e) => {
                   setTaskContent(e.target.value);
                   if (!checkTaskInput(e.target.value)) {
@@ -61,6 +62,10 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
                     const saveTaskButton =
                       document.getElementById("save-task-button");
                     saveTaskButton.click();
+                  }
+                  if (e.key === "Escape")
+                  {
+                    hideTaskForm();
                   }
                 }}
               />
