@@ -8,18 +8,16 @@ function saveValue(KEY, value) {
 
 /* 
   gets value from local storage if exist 
-  create value and return it if doesn't exist
+  if not create value and return it, if doesn't exist
 */
 function getSavedValue(KEY, value) {
   let savedValue = localStorage.getItem(KEY);
 
-  // if value in local storage
-  if (savedValue) {
+  // if
+  if (savedValue !== "undefined") {
     return JSON.parse(savedValue);
   }
 
-  // value === null means that i want to get the value from local storage,
-  // i have no inital value
   if (value === null) {
     return null;
   }
