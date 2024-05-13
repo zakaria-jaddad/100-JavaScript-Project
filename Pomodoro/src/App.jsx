@@ -1,11 +1,11 @@
-import { useSelector } from "react-redux";
 import Header from "./components/Header";
 import Settings from "./components/Settings";
 import Pomodoro from "./components/Pomodoro";
 import TodoList from "./components/TodoList";
 import useTheme from "./hooks/useTheme";
 import useAuthentication from "./hooks/useAuthentication";
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
+import { useSelector } from "react-redux";
 
 function App() {
   const isSettings = useSelector((state) => state.settings.settingsPage);
