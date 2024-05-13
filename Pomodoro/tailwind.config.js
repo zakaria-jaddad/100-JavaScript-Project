@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        virgil: ["virgil", "robot"],
+      },
       boxShadow: {
         "button-shadow": "rgb(215, 215, 215) 0px 6px 0px",
       },

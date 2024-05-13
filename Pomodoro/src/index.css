@@ -10,6 +10,12 @@
   --third-text-color: #747264;
   --active-button: #84c733cc;
 }
+
+@font-face {
+  font-family: virgil;
+  src: url(/public/fonts/Virgil-font.woff2);
+}
+
 * {
   transition: color 0.2s, background-color 0.2s;
   -webkit-transition: color 0.2s, background-color 0.2s;
@@ -17,3 +23,4 @@
   -ms-transition: color 0.2s, background-color 0.2s;
   -o-transition: color 0.2s, background-color 0.2s;
 }
+

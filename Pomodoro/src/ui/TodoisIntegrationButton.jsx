@@ -10,8 +10,14 @@ const TodoistIntegrationButton = ({
         href={`https://todoist.com/oauth/authorize?client_id=${info.clientID}&scope=${info.permissionScopes}&state=${info.state}`}
         className={buttonClassStyles}
       >
-        {buttonIcon === null ? null : <div>{buttonIcon}</div>}
-        <div>{buttonContent}</div>
+        {buttonIcon === null ? (
+          <div>{buttonContent}</div>
+        ) : (
+          <>
+            <div>{buttonIcon}</div>
+            <div className="hidden sm:block">{buttonContent}</div>
+          </>
+        )}
       </a>
     </li>
   );
