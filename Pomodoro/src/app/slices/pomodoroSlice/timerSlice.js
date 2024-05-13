@@ -19,7 +19,8 @@ const STATE = {
     counter: 1,
   },
 };
-const checkDuration = (state) => {
+const checkDuration = (KEY, STATE) => {
+  const state = getDataFromLocalStorage(KEY, STATE);
   const maxDuration = 8 * 60 * 60 * 1000;
   if (Date.now() - state.timeStamp > maxDuration) {
     removeDataFromLocalStorage(KEY);
@@ -28,7 +29,7 @@ const checkDuration = (state) => {
   return state;
 };
 
-const initialState = checkDuration(getDataFromLocalStorage(KEY, STATE));
+const initialState = checkDuration(KEY, STATE);
 
 const timersSlice = createSlice({
   name: "timersSlice",

@@ -23,7 +23,7 @@ function App() {
         >
           <Header />
           <Pomodoro />
-          {isUserAuthenticated === true ? <TodoList /> : null}
+          <TodoList isUserAuthenticated={isUserAuthenticated} />
         </div>
         {isSettings === true ? <Settings /> : null}
       </main>

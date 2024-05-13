@@ -1,7 +1,7 @@
 import SubTitle from "../ui/SubTitle";
 import ToggleSetting from "../ui/ToggleSetting";
-import IntegrationLogo from "/public/icons/settings/integration.svg";
 import TodoistIntegrationButton from "../../../ui/TodoisIntegrationButton";
+import IntegrationLogo from "/public/icons/settings/integration.svg"
 
 function Integration() {
   return (
@@ -9,9 +9,11 @@ function Integration() {
       <SubTitle title="integration">
         <IntegrationLogo width={25} height={25} strokeWidth="2" />
       </SubTitle>
-
       <ToggleSetting settingsHeader="todoist">
-        <TodoistIntegrationButton buttonContent={"Connect"} buttonColor="second-text-color"/>
+        <TodoistIntegrationButton
+          buttonContent={"Connect"}
+          buttonClassStyles="px-[12px] duration-300 transition-all opacity-70  hover:opacity-100 capitalize text-${buttonColor} text-sm rounded border border-solid border${buttonColor} h-full flex items-center justify-center"
+        />
       </ToggleSetting>
     </div>
   );

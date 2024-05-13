@@ -13,9 +13,10 @@ function saveValue(KEY, value) {
 function getSavedValue(KEY, value) {
   let savedValue = localStorage.getItem(KEY);
 
-  // if
-  if (savedValue !== "undefined") {
-    return JSON.parse(savedValue);
+  // i just don't know it just work like this
+  if (savedValue !== "undefined" || savedValue !== null) {
+    const formatedSavedValue = JSON.parse(savedValue);
+    return formatedSavedValue;
   }
 
   if (value === null) {

@@ -21,6 +21,8 @@ const useAuthentication = () => {
   const code = params.get("code");
   const state = params.get("state");
 
+  info.code = code;
+
   if (code === null || state === null) {
     return false;
   }
