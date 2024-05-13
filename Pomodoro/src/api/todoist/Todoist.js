@@ -35,15 +35,25 @@ const Todoist = {
     formData.append("client_id", info.clientID);
     formData.append("client_secret", info.secret);
     formData.append("code", code);
-    info.code = code;
 
     const response = await fetch("https://todoist.com/oauth/access_token", {
       method: "POST",
       body: formData,
     });
-    if (!response.ok) throw "Unable to procces request";
+    if (!response.ok) {
+      console.error("Unable to procces request");
+      return {
+        isSuccess: false,
+        message: "Unable to procces request",
+        access_token: undefined,
+      };
+    }
     const data = await response.json();
-    return data;
+    return {
+      isSuccess: true,
+      message: "Todoist Authentication Done.",
+      access_token: data.access_token,
+    };
   },
 
   getTasks: async () => {
