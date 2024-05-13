@@ -48,7 +48,7 @@ const TodoList = ({ isUserAuthenticated }) => {
                       stroke="white"
                     />
                   </div>
-                  <div className="font-virgil font-semibold text-lg capitalize absolute top-[31px] left-[14px] w-full text-right rotate-[4deg]">
+                  <div className="font-virgil font-semibold text-lg capitalize absolute top-[20px] left-[18px] w-full text-right rotate-[15deg]">
                     connect to
                   </div>
                 </div>
