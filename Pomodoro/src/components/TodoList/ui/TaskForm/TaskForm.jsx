@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function clearTaskInput() {
   const taskInput = document.getElementById("task-input");
-  if (taskInput === undefined) {
+  if (taskInput !== null) {
     taskInput.value = "";
   }
   return;
@@ -58,11 +58,6 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
                 }}
                 //  click save button when pressing enter
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    const saveTaskButton =
-                      document.getElementById("save-task-button");
-                    saveTaskButton.click();
-                  }
                   if (e.key === "Escape") {
                     hideTaskForm();
                   }
@@ -77,7 +72,7 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
           </div>
           <div className="flex items-center justify-between gap-3 p-6 text-sm">
             <button
-              type="submit"
+              type="reset"
               className="bg-main-bg-color text-main-text-color px-4 py-2 rounded font-medium border border-[#27272a]"
               onClick={(e) => {
                 e.preventDefault();
@@ -102,6 +97,7 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
                 if (isSuccess) {
                   toast.success(message);
                   clearTaskInput();
+                  console.log("input has been cleared");
                   tasks = [...tasks, task];
                   return;
                 }
