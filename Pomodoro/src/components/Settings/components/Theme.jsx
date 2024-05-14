@@ -3,7 +3,10 @@ import ToggleSetting from "../ui/ToggleSetting";
 import ThemeLogo from "/public/icons/settings/theme.svg";
 import { themes } from "../data/theme/themes";
 import { useDispatch, useSelector } from "react-redux";
-import { updateDarkModeWhenRunning, updateTheme } from "../../../app/slices/settingsSlice/themeSlice";
+import {
+  updateDarkModeWhenRunning,
+  updateTheme,
+} from "../../../app/slices/settingsSlice/themeSlice";
 import Button from "../ui/Button";
 
 function Theme() {
@@ -36,16 +39,6 @@ function Theme() {
             className="bg-[#232625] w-[28px] h-[28px] rounded cursor-pointer"
           ></div>
         </div>
-      </ToggleSetting>
-
-      {/* darck mode when running */}
-      <ToggleSetting settingsHeader="dark mode when runnign">
-        <Button
-          buttonState={useSelector(
-            (state) => state.settings.theme.darkModeWhenRunning
-          )}
-          updateButtonState={updateDarkModeWhenRunning}
-        />
       </ToggleSetting>
     </div>
   );
