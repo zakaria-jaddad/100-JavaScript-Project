@@ -92,7 +92,7 @@ const Todoist = {
     } catch (error) {
       return {
         isSuccess: false,
-        message: "Unable to delete task.",
+        message: "Unable to delete task, Check your connection",
       };
     }
   },

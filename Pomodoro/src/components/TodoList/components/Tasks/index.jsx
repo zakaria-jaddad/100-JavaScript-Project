@@ -31,11 +31,18 @@ const Tasks = () => {
 
   return (
     <>
-      <div id="tasks" className="my-5" ref={tasksRef}>
-        {/* here you just need to map over tasks */}
-        {tasks.map((task) => (
-          <Task task={task} key={task.id} />
-        ))}
+    {/* every a inside this should be under lined */}
+      <div id="tasks" className="my-5 [&_a]:underline [&_a]:hover:no-underline [&_a]:block [&_code]:text-active-button 
+        [&_code]:bg-[#363636] [&_code]:py-[2px] [&_code]:px-[4px] [&_code]:border [&_code]:border-solid [&_code]:border-[#3d3d3d] [&_code]:rounded-[5px] [&_code]:text-[0.875em]
+        "
+        ref={tasksRef}>
+        {tasks.map((task) => {
+          return (
+            <div id={task.id} key={task.id}>
+              <Task task={task} tasks={tasks} />
+            </div>
+          );
+        })}
       </div>
 
       {taskForm === true ? (

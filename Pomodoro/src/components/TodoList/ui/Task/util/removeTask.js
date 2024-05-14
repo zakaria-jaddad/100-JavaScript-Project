@@ -1,4 +1,4 @@
-export default function removeTask(taskID) {
-  const task = document.getElementById(taskID);
-  task.remove();
+export default function removeTask({ taskID, tasks }) {
+  const newTasks = tasks.filter((task) => task.id !== taskID);
+  tasks = [...newTasks];
 }

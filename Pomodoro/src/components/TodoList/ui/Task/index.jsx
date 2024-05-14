@@ -1,13 +1,12 @@
 import Todoist from "../../../../api/todoist/Todoist";
+import Markdown from "react-markdown";
 import removeTask from "./util/removeTask";
-import hideTask from "./util/hideTask";
-import showTask from "./util/showTask";
 import { toast } from "sonner";
 
-const Task = ({ task }) => {
+const Task = ({ task, tasks }) => {
   return (
-    <div id={task.id} className="flex justify-between items-center py-3 px-2">
-      <div className="inline-flex items-center space-x-2">
+    <div className="flex justify-between items-center py-3 px-2">
+      <div className="inline-flex items-center">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,21 +23,23 @@ const Task = ({ task }) => {
             />
           </svg>
         </div>
-        <div>{task.content}</div>
+        <div className="mx-[10px]">
+          <Markdown>{task.content}</Markdown>
+        </div>
+
+        <div />
       </div>
       <div
-        onClick={(e) => {
-          hideTask(task.id);
+        onClick={() => {
           const handelData = async () => {
             const { isSuccess, message } = await Todoist.deleteTask(task.id);
             if (!isSuccess) {
-              showTask(task.id);
               toast.error(message);
               return;
             }
             toast.success(message);
-            removeTask(task.id);
           };
+          removeTask({ taskID: task.id, tasks: tasks });
           handelData();
         }}
       >
@@ -48,7 +49,7 @@ const Task = ({ task }) => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-4 h-4 hover:cursor-pointer"
+          className="w-4 h-4 hover:text-[#ff0000] hover:cursor-pointer"
         >
           <path
             strokeLinecap="round"

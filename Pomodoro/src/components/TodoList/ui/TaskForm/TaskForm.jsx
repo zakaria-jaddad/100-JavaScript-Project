@@ -97,7 +97,6 @@ const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
                 if (isSuccess) {
                   toast.success(message);
                   clearTaskInput();
-                  console.log("input has been cleared");
                   tasks = [...tasks, task];
                   return;
                 }
