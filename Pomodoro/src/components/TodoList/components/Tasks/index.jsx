@@ -10,7 +10,6 @@ const Tasks = () => {
   const { taskForm, showTaskForm, hideTaskForm } = useTaskForm();
   const [tasks, setTasks] = useState([]);
 
-  // TODO : Todoist.foo();
   useEffect(() => {
     const getTasks = async () => {
       const tasks = await Todoist.getTasks();

@@ -2,19 +2,37 @@ import Todoist from "../../../../api/todoist/Todoist";
 import Markdown from "react-markdown";
 import removeTask from "./util/removeTask";
 import { toast } from "sonner";
+import { useState } from "react";
 
 const Task = ({ task, tasks }) => {
+  const [isTaskCompleted, setIsTaskCompleted] = useState(false);
   return (
     <div className="flex justify-between items-center py-3 px-2">
       <div className="inline-flex items-center">
-        <div>
+        <div
+          onClick={() => {
+            const closeTask = async () => {
+              const { isSuccess, message } = await Todoist.closeTask(task.id);
+              if (!isSuccess) {
+                toast.error(message);
+                setIsTaskCompleted(false);
+                return;
+              }
+              toast.success(message);
+            };
+            setIsTaskCompleted(true);
+            closeTask();
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6 hover:text-active-button hover:cursor-pointer"
+            className={`w-6 h-6 hover:text-active-button hover:cursor-pointer ${
+              isTaskCompleted && "text-active-button"
+            }`}
           >
             <path
               strokeLinecap="round"
@@ -31,7 +49,7 @@ const Task = ({ task, tasks }) => {
       </div>
       <div
         onClick={() => {
-          const handelData = async () => {
+          const deleteTask = async () => {
             const { isSuccess, message } = await Todoist.deleteTask(task.id);
             if (!isSuccess) {
               toast.error(message);
@@ -40,7 +58,7 @@ const Task = ({ task, tasks }) => {
             toast.success(message);
           };
           removeTask({ taskID: task.id, tasks: tasks });
-          handelData();
+          deleteTask();
         }}
       >
         <svg
