@@ -57,6 +57,7 @@ const TodoList = ({ isUserAuthenticated }) => {
           </div>
         </div>
         {isUserAuthenticated === true ? <Tasks /> : null}
+
       </div>
     </main>
   );

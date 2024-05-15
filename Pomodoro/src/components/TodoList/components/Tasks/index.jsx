@@ -5,10 +5,12 @@ import Todoist from "../../../../api/todoist/Todoist";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
+import TaskSkelaton from "./ui/TaskSkelaton";
 
 const Tasks = () => {
   const { taskForm, showTaskForm, hideTaskForm } = useTaskForm();
   const [tasks, setTasks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getTasks = async () => {
@@ -18,8 +20,12 @@ const Tasks = () => {
         return;
       }
       setTasks(tasks.tasks);
+      setIsLoading(false);
       return;
     };
+    if (tasks.length === 0) {
+      setIsLoading(true);
+    }
     getTasks();
     window.addEventListener("online", () => {
       getTasks();
@@ -30,19 +36,25 @@ const Tasks = () => {
 
   return (
     <>
-    {/* every a inside this should be under lined */}
-      <div id="tasks" className="my-5 [&_a]:underline [&_a]:hover:no-underline [&_a]:block [&_code]:text-active-button 
+      {isLoading === true ? (
+        <TaskSkelaton />
+      ) : (
+        <div
+          id="tasks"
+          className="my-5 [&_a]:underline [&_a]:hover:no-underline [&_a]:block [&_code]:text-active-button 
         [&_code]:bg-[#363636] [&_code]:py-[2px] [&_code]:px-[4px] [&_code]:border [&_code]:border-solid [&_code]:border-[#3d3d3d] [&_code]:rounded-[5px] [&_code]:text-[0.875em]
         "
-        ref={tasksRef}>
-        {tasks.map((task) => {
-          return (
-            <div id={task.id} key={task.id}>
-              <Task task={task} tasks={tasks} />
-            </div>
-          );
-        })}
-      </div>
+          ref={tasksRef}
+        >
+          {tasks.map((task) => {
+            return (
+              <div id={task.id} key={task.id}>
+                <Task task={task} tasks={tasks} />
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {taskForm === true ? (
         <TaskForm

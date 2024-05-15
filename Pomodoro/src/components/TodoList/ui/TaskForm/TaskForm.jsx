@@ -1,6 +1,6 @@
 import Todoist from "../../../../api/todoist/Todoist";
 import { toast } from "sonner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function clearTaskInput() {
   const taskInput = document.getElementById("task-input");
