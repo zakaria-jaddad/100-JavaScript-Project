@@ -45,22 +45,6 @@ function Timer() {
         </div>
       </div>
 
-      {/* auto Starts breaks */}
-      <ToggleSetting settingsHeader="auto starts breaks">
-        <Button
-          buttonState={timer.autoStartsBreaks}
-          updateButtonState={updateAutoStartsBreaks}
-        />
-      </ToggleSetting>
-
-      {/* auto Starts Pomodoros */}
-      <ToggleSetting settingsHeader="auto starts pomodoros">
-        <Button
-          buttonState={timer.autoStartsPomodoro}
-          updateButtonState={updateAutoStartsPomodoro}
-        />
-      </ToggleSetting>
-
       {/* long Break Interval */}
       <ToggleSetting settingsHeader="long break interval">
         <Input

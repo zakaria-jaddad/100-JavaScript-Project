@@ -48,6 +48,7 @@ function goToNextTimer({ dispatch, timerSettings, timers }) {
       console.log("Unexpacted Active Timer", activeTimer);
       break;
   }
+  return activeTimer;
 }
 
 export default goToNextTimer;

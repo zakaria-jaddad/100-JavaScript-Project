@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import getCurrentTimerInfo from "../utils/getCurrentTimerInfo";
 import goToNextTimer from "../utils/GoToNexTimer";
 import playSound from "../../utils/playSound";
+import getNextTimer from "../utils/getNextTimer";
 
 function secondsToTimer(seconds) {
   return seconds % 60 === 0 ? seconds % 60 : 60 - (seconds % 60);
@@ -76,11 +77,12 @@ export default function useTimer(seconds = 0) {
         soundVolume: parseInt(soundInfo.alarmSoundVolume) / 100,
       });
       setIsTimerRunning(false);
-      goToNextTimer({
+      const activeTimer = goToNextTimer({
         timerSettings: timerSettings,
         timers: timers,
         dispatch,
       });
+
     }
   }, [secondsLeft]);
 
