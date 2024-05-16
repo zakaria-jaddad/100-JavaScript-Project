@@ -1,9 +1,8 @@
-import { useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import getCurrentTimerInfo from "../utils/getCurrentTimerInfo";
 import goToNextTimer from "../utils/GoToNexTimer";
 import playSound from "../../utils/playSound";
-import getNextTimer from "../utils/getNextTimer";
 
 function secondsToTimer(seconds) {
   return seconds % 60 === 0 ? seconds % 60 : 60 - (seconds % 60);
