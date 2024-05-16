@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import useTimer from "./hooks/useTimer";
 import playSound from "../utils/playSound";
 import clickSound from "/public/sounds/click.mp3";
@@ -25,6 +25,23 @@ function Pomodoro() {
   }, [minutesTimer, timerSettings, timers]);
   const { activeTimer } = activeTimerInfo;
 
+  useEffect(() => {
+    const PlayPauseSpaceEvent = (e) => {
+      if (e.key === " ") {
+        if (document.activeElement.tagName.toLowerCase() !== "input") {
+          const startPauseButton =
+            document.getElementById("start-pause-button");
+          startPauseButton.click();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.onkeydown = (e) => {
+      PlayPauseSpaceEvent(e);
+    };
+  }, []);
+
   return (
     <main className="text-main-text-color">
       <TimerProgress
@@ -45,12 +62,13 @@ function Pomodoro() {
             }`}
           </section>
 
-          {/* start Button */}
+          {/* Button */}
           <div
             onClick={() => {
               setIsTimerRunning(!isTimerRunning);
               playSound({ sound: clickSound, soundVolume: 1 });
             }}
+            id="start-pause-button"
             className={`rounded bg-white text-main-bg-color text-[22px] px-[12px] font-bold h-[55px] w-[200px] flex items-center justify-center uppercase cursor-pointer transition-colors duration-300 shadow-button-shadow
                 ${
                   isTimerRunning === true

@@ -1,6 +1,6 @@
 import Todoist from "../../../../api/todoist/Todoist";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function clearTaskInput() {
   const taskInput = document.getElementById("task-input");
@@ -21,6 +21,7 @@ function checkTaskInput(taskInput) {
 const TaskForm = ({ showTaskFrom, hideTaskForm, tasks }) => {
   const [taskContent, setTaskContent] = useState("");
   const [errorTaskContent, setErrorTaskContent] = useState(false);
+
   return (
     <div className="wrapper px-2 w-full flex justify-center my-5">
       <form className="w-[380px] rounded shadow-lg border border-[#27272a]">
