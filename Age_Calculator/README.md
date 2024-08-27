@@ -1,12 +1,6 @@
-# Frontend Mentor - Age calculator app
+Age calculator app
 
 ![Design preview for the Age calculator app coding challenge](./design/desktop-preview.jpg)
-
-## Welcome! 👋
-
-This is Prohect 6 From 30 js Project 
-
-[Frontend Mentor](https://www.frontendmentor.io)  
 
 - View an age in years, months, and days after submitting a valid date through the form
 - Receive validation errors if:

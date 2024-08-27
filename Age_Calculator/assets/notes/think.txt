@@ -21,7 +21,7 @@
 
 
         -> greater than current date
-            -> the gived date by the users after first checking 
+            -> the given date by the users after first checking 
                 - for days in each month 
                     -> the given day could be either bigger or less then the current date
         -> lower than current date 
@@ -39,7 +39,7 @@ so my approach is that i want to check if the user Date
         - starting point would be the user Date 
 
 
-    -> for the day numebr 
+    -> for the day number 
         -> user date day number could be either 
 
             - > lower then current date day number 

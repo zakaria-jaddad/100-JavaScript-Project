@@ -1931,7 +1931,10 @@ footer > .container > .footer-gallery img {
 @media (max-width : 570px) {
     footer > .container > .footer-gallery {
         display: flex;
-        justify-content: space-evenly;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
     }
 }
 /* * End Footer */

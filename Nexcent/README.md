@@ -20,11 +20,6 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,tailwind,js,react,figma)](https://skillicons.dev)
 
-## 🚀 About Me
-
-Specializations:
-
-- UI/UX Design.
 - Web Development
 
 ## 🙋‍♂️ Connect With Me

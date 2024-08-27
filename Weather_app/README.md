@@ -1,5 +1,3 @@
-# This is project 07 From 30 JavaScript Projects
-
 ## screen shots
 
 ### result
